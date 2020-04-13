@@ -1,0 +1,78 @@
+<header>
+  
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun" >
+
+    <mat-toolbar color="primary" class="example-toolbar" >
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Menu Expo-Sofware Admin</h1>
+  
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+            <mat-nav-list>
+
+              <div class="accordion" id="accordionExample">
+
+                
+                <mat-list-item [routerLink]="['/']" >
+                  <mat-icon>home  </mat-icon>
+                    Home
+                </mat-list-item>
+
+
+                <mat-list-item data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     <mat-icon>work  </mat-icon> Asignatura
+                </mat-list-item>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                    </div>
+        
+                </div>
+
+              </div>
+              
+
+
+              
+            </mat-nav-list>
+
+
+      
+
+          </mat-sidenav>
+      
+      
+
+            <mat-sidenav-content>
+                  <div class="container">
+                    
+                    <div class="container" style="margin-top: 40px; border-style: solid; border-color: #ffffff; background-color: #ffffff;">
+                      <div style="margin-top: 40px;">
+                        <router-outlet></router-outlet>
+                      </div>
+                    </div>
+
+                  </div>
+                  
+            </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+  </div>
+  
+  <div *ngIf="!shouldRun">Error al Iniciar
+
+  </div>
+  
+</header>

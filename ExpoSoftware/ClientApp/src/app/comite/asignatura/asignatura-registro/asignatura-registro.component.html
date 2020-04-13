@@ -1,0 +1,67 @@
+
+<div class="container">
+
+
+     <h2>Registro de Asignaturas</h2>
+    
+
+<form>
+        
+    <div class="input-group input-group-sm mb-3">
+
+        <div class="input-group mb-3 input" >
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Codigo de la asignatura</span>
+            </div>
+            <input type="text" placeholder="Digite el codigo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="codigoAsignatura"  [(ngModel)]="asignatura.codigoAsignatura" class="form-control" >
+        </div>
+
+        <div class="input-group mb-3 input">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre de la asignatura</span>
+            </div>
+            <input type="text" placeholder="Digite el nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="nombreAsignatura"  [(ngModel)]="asignatura.nombreAsignatura" class="form-control" >
+        </div>
+
+
+        <div class="input-group mb-3 input">
+
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="area">Areas</label>
+          </div>
+
+          <select class="custom-select" id="areaA" name="areaAsignatura"  [(ngModel)]="asignatura.areaAsignatura"  class="form-control">
+            <option selected>Selecionar...</option>
+            <option value="Base de datos">Base De Datos</option>
+            <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+            <option value="Ingeniria software">Ingeniria software</option>
+          </select>
+
+        </div>
+
+
+          <div class="input-group mb-3 input">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Descripción de la asignatura</span>
+            </div>
+            <input type="text"  placeholder="Digite la descripción...." class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="descripcionAsignatura"  [(ngModel)]="asignatura.descripcionAsignatura" class="form-control">
+        </div>
+
+        
+      
+     
+    </div>
+
+        <div class="text-center">
+
+           <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="add()">Registrar</button>
+           
+           <button mat-stroked-button style="border-color: #339240; " type="reset" >Cancelar</button>
+
+        </div>
+            
+    
+</form>
+       
+</div>
+    

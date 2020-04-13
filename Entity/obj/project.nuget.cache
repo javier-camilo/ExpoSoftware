@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "py+saiy9WInaR+UaO2par4tSTT28gMaDFPm6u2BM1eh+pSigZT2IJaYhqQ/1s5hRmQ2tzWjU7gV14ObJJj+TKg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
