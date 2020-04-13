@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Asignatura} from '../comite/asignatura/models/asignatura';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 export class AsignaturaService {
 
   baseUrl: string;
+
   constructor(
       private http: HttpClient,
       @Inject('BASE_URL') baseUrl: string,
@@ -35,6 +36,20 @@ export class AsignaturaService {
               catchError(this.handleErrorService.handleError<Asignatura[]>('Consulta Asignatura', null))
           );
     }
-    
+
+
+    searchHeroes(term: string): Observable<Asignatura> {
+
+      if (!term.trim()) {
+        // if not search term, return empty hero array.
+        return of(null);
+      }
+      return this.http.get<Asignatura>(this.baseUrl + 'api/Asignatura/'+term).pipe(
+        tap(
+          _ => this.handleErrorService.log('Datos Recibidos')
+        ),
+        catchError(this.handleErrorService.handleError<Asignatura>('searchHeroes', null))
+      );
+    }
   
 }

@@ -49,6 +49,19 @@ namespace Datos
             return asignaturas;
         }
 
+        public Asignatura BuscarPorIdentificacion(string identificacion)
+        {
+            SqlDataReader dataReader;
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "select * from Asignatura where CodigoAsignatura=@CodigoAsignatura";
+                command.Parameters.AddWithValue("@CodigoAsignatura", identificacion);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                return DataReaderMap(dataReader);
+            }
+        }
+
         
        private Asignatura DataReaderMap(SqlDataReader dataReader)
         {

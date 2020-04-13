@@ -61,6 +61,14 @@ namespace Logica
             return asignaturas;
         }
 
+        public Asignatura BuscarxIdentificacion(string identificacion)
+        {
+            _conexion.Open();
+            Asignatura asignatura = _repositorio.BuscarPorIdentificacion(identificacion);
+            _conexion.Close();
+            return asignatura;
+        }
+
         
 
     }

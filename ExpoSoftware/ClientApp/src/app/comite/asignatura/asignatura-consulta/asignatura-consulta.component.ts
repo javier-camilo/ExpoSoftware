@@ -11,17 +11,28 @@ export class AsignaturaConsultaComponent implements OnInit {
 
   searchText:string;
   asignaturas:Asignatura[];
+  asignatura:Asignatura;
 
   constructor(private asignaturaService:AsignaturaService) { }
 
+
   ngOnInit() {
+
+    this.searchText="";
 
     this.asignaturaService.get().subscribe(result => {
       this.asignaturas = result;
     });
 
+  }
 
 
+  buscar(){
+
+    this.asignaturaService.searchHeroes(this.searchText).subscribe(result => {
+      this.asignatura = result;
+    });
+    
   }
 
 

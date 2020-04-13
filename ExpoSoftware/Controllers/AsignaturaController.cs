@@ -58,6 +58,14 @@ namespace ExpoSoftware.Controllers
             return asignaturas;
         }
 
+        [HttpGet("{identificacion}")]
+        public ActionResult<AsignaturaViewModel> Get(string identificacion)
+        {
+            var asignatura = _AsignaturaService.BuscarxIdentificacion(identificacion);
+            if (asignatura == null) return NotFound();
+            var asignaturaViewModel = new AsignaturaViewModel(asignatura);
+            return asignaturaViewModel;
+        }
         
 
     }
