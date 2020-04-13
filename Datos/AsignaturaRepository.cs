@@ -29,6 +29,47 @@ namespace Datos
             }
         }
 
+        public List<Asignatura> ConsultarTodos()
+        {
+            SqlDataReader dataReader;
+            List<Asignatura> asignaturas = new List<Asignatura>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Select * from Asignatura ";
+                dataReader = command.ExecuteReader();
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Asignatura asignatura = DataReaderMap(dataReader);
+                        asignaturas.Add(asignatura);
+                    }
+                }
+            }
+            return asignaturas;
+        }
+
+        
+       private Asignatura DataReaderMap(SqlDataReader dataReader)
+        {
+            if(!dataReader.HasRows) return null;
+
+            Asignatura asignatura = new Asignatura();
+
+            asignatura.CodigoAsignatura = (string)dataReader["CodigoAsignatura"];
+            
+            asignatura.NombreAsignatura = (string)dataReader["NombreAsignatura"];
+
+            
+            asignatura.AreaAsignatura = (string)dataReader["AreaAsignatura"];
+
+            
+            asignatura.DescripcionAsignatura = (string)dataReader["DescripcionAsignatura"];
+
+            return asignatura;
+            
+         }
+
         
     }
 }

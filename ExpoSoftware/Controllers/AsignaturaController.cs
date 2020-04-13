@@ -50,6 +50,14 @@ namespace ExpoSoftware.Controllers
             };
             return asignatura;
         }
+
+       [HttpGet]
+        public IEnumerable<AsignaturaViewModel> Gets()
+        {
+            var asignaturas = _AsignaturaService.ConsultarTodos().Select(p=> new AsignaturaViewModel(p));
+            return asignaturas;
+        }
+
         
 
     }

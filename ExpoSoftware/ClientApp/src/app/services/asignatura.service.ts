@@ -26,6 +26,15 @@ export class AsignaturaService {
                 catchError(this.handleErrorService.handleError<Asignatura>('Registrar Asignatura', null))
             );
     }
+
+
+    get(): Observable<Asignatura[]> {
+      return this.http.get<Asignatura[]>(this.baseUrl + 'api/Asignatura')
+          .pipe(
+              tap(_ => this.handleErrorService.log('Datos Recibidos')),
+              catchError(this.handleErrorService.handleError<Asignatura[]>('Consulta Asignatura', null))
+          );
+    }
     
   
 }

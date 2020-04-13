@@ -51,6 +51,16 @@ namespace Logica
             public string Mensaje { get; set; }
             public Asignatura Asignatura { get; set; }
         }
+
+
+        public List<Asignatura> ConsultarTodos()
+        {
+            _conexion.Open();
+            List<Asignatura> asignaturas = _repositorio.ConsultarTodos();
+            _conexion.Close();
+            return asignaturas;
+        }
+
         
 
     }

@@ -1,1 +1,32 @@
-<p>asignatura-consulta works!</p>
+
+
+    <h2 style="margin-bottom: 40px;" class="text-center">Consulta de Asignaturas</h2> 
+
+    <div class="col-6" style="margin-top: 20px; margin-left: 50px;">
+        
+      <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro" >
+    
+    </div>
+
+  <hr>
+  
+  <table class="table table-striped" *ngIf="asignaturas && asignaturas.length">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Codigo Asignatura</th>
+        <th scope="col">Nombre Asignatura</th>
+        <th scope="col">Area Asignatura</th>
+        <th scope="col">Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asignatura of asignaturas; index as i ">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ asignatura.codigoAsignatura }} </td>
+        <td>{{ asignatura.nombreAsignatura }}</td>
+        <td>{{asignatura.areaAsignatura  }}</td>
+        <td>{{ asignatura.descripcionAsignatura }}</td>
+      </tr>
+    </tbody>
+  </table>
