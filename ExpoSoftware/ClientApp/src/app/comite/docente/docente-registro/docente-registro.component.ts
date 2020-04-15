@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Asignatura } from '../../asignatura/models/asignatura';
+import { AsignaturaService } from 'src/app/services/asignatura.service';
 
 @Component({
   selector: 'app-docente-registro',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocenteRegistroComponent implements OnInit {
 
-  constructor() { }
+  
+  asignaturas:Asignatura[];
+
+  constructor(private asignaturaService:AsignaturaService) { }
 
   ngOnInit(): void {
+    this.comprobar();
+  }
+
+  mensaje():void{
+
+  }
+
+  comprobar(){
+    this.asignaturaService.get().subscribe(result => {
+      this.asignaturas = result;
+    });
   }
 
 }

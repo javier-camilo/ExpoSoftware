@@ -20,9 +20,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { AsignaturaService } from './services/asignatura.service';
-import { DocenteComponent } from './comite/docente/models/docente/docente.component';
 import { DocenteRegistroComponent } from './comite/docente/docente-registro/docente-registro.component';
 import { DocenteConsultaComponent } from './comite/docente/docente-consulta/docente-consulta.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.component';
 
 
 @NgModule({
@@ -34,9 +35,9 @@ import { DocenteConsultaComponent } from './comite/docente/docente-consulta/doce
     FetchDataComponent,
     AsignaturaRegistroComponent,
     AsignaturaConsultaComponent,
-    DocenteComponent,
     DocenteRegistroComponent,
-    DocenteConsultaComponent
+    DocenteConsultaComponent,
+    CuadroDialogoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,6 +46,7 @@ import { DocenteConsultaComponent } from './comite/docente/docente-consulta/doce
     NgbModule,
     MatSliderModule,
     MatButtonModule,
+    MatDialogModule,
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,

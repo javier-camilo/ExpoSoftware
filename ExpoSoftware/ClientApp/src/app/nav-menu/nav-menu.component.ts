@@ -15,6 +15,12 @@ export class NavMenuComponent {
     {name:"Consulta Asignatura", route: "/asignaturaConsulta", icon:"search"}
   ]
 
+  
+  fillerDocente=[
+    {name:"Registro Docente", route: "/docenteRegistro", icon:"note_add"},
+    {name:"Consulta Docente", route: "/docenteConsulta", icon:"search"}
+  ]
+
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco

@@ -1,1 +1,10 @@
-<p>docente-registro works!</p>
+
+<div *ngIf="asignaturas.length==0">
+
+    <h2>Para poder registrar docente debe tener asignaturas registradas</h2>
+
+</div>
+
+<div  *ngIf="asignaturas && asignaturas.length"> 
+        <p>docente-registro works!</p>
+</div>
