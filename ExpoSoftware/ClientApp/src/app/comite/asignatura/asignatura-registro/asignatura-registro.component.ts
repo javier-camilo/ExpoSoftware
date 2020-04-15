@@ -18,14 +18,7 @@ export class AsignaturaRegistroComponent implements OnInit {
   }
 
   add(){
-    alert(this.asignatura.codigoAsignatura);
     
-    alert(this.asignatura.nombreAsignatura);
-    
-    alert(this.asignatura.descripcionAsignatura);
-    
-    alert(this.asignatura.areaAsignatura);
-  
     this.asignaturaService.post(this.asignatura).subscribe(p => {
       if (p != null) {
         alert('Asignatura registrada');

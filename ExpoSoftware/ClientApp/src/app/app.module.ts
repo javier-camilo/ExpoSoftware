@@ -22,7 +22,6 @@ import {MatListModule} from '@angular/material/list';
 import { AsignaturaService } from './services/asignatura.service';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
