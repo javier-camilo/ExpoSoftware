@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-
 
   noticias:any[]=[
     {
@@ -34,11 +32,9 @@ export class HomeComponent {
 
   }
 
-  openDialog(): void {
-
-  }
 
   ngOnInit() {
     
   }
+  
 }

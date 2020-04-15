@@ -2,3 +2,15 @@
     margin: 50px 50px;
 }
 
+.divflex{
+    display: flex;
+}
+
+.one{
+    flex: 1 1 auto;
+}
+
+.two{
+    flex-direction: row-reverse;
+}
+

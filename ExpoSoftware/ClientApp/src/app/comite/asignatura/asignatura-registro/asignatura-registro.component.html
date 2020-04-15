@@ -9,12 +9,15 @@
         
     <div class="input-group input-group-sm mb-3">
 
-        <div class="input-group mb-3 input" >
+        <div class="input-group mb-3 input divflex" >
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-default">Codigo de la asignatura</span>
             </div>
             <input type="text" placeholder="Digite el codigo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  name="codigoAsignatura"  [(ngModel)]="asignatura.codigoAsignatura" class="form-control" >
-        </div>
+
+            <button mat-stroked-button style="border-color: #339240;" (click)="consulta()"><mat-icon>search</mat-icon></button>
+
+          </div>
 
         <div class="input-group mb-3 input">
             <div class="input-group-prepend">
@@ -54,9 +57,9 @@
 
         <div class="text-center">
 
-           <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="add()">Registrar</button>
-           
-           <button mat-stroked-button style="border-color: #339240; " type="reset" >Cancelar</button>
+           <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="confirmarGuardado()">Registrar</button>
+
+           <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
 
         </div>
             

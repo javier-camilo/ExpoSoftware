@@ -51,5 +51,6 @@ export class AsignaturaService {
         catchError(this.handleErrorService.handleError<Asignatura>('searchHeroes', null))
       );
     }
+    
   
 }
