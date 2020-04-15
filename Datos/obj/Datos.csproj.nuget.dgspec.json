@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {}
+    "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
+    "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
+        "projectUniqueName": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
+        "projectPath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
         "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\obj\\",
+        "outputPath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
+              "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
+                "projectPath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
+    "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+        "projectUniqueName": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+        "projectPath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\obj\\",
+        "outputPath": "c:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
