@@ -6,5 +6,74 @@
 </div>
 
 <div  *ngIf="asignaturas && asignaturas.length"> 
-        <p>docente-registro works!</p>
+
+    <h2>Registro de Docente</h2>
+
+
+
+        <div class="input-group mb-3" style="margin-top: 5%;" >
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Identificacion</span>
+            </div>
+            <input type="text" class="form-control" placeholder="digite la identificacion" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+          
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">nombre del docente</span>
+            </div>
+            <input type="text" class="form-control" placeholder="digite la el nombre" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Descripcion</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+          </div>
+        
+     <div class="input-group mb-3" style="margin-top: 20px;" >
+
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="area">seleccione el tipo de docente</label>
+              </div>
+            
+            <select class="custom-select" id="areaA" name="areaAsignatura"  class="form-control">
+                <option selected>Selecionar...</option>
+                <option value="Evaluador">Docente Evaluador</option>
+                <option value="Acesor">Docente Acesor de proyecto</option>
+            </select>
+    
+    </div>
+
+             
+    <div class="input-group mb-3" >
+
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="area">seleccione la asignatura</label>
+          </div>
+        
+        <select class="custom-select" id="areaA" name="areaAsignatura"  class="form-control">
+            <option selected>Selecionar...</option>
+            <option *ngFor="let item of asignaturas" value="{{item.nombreAsignatura}}">{{item.nombreAsignatura}}</option>
+        </select>
+
+    </div>
+
+
+          <div class="text-center">
+
+            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;">Registrar</button>
+ 
+            <button mat-stroked-button style="border-color: #339240; " type="reset">Limpiar</button>
+ 
+         </div>
+             
+
 </div>
+
+
+
