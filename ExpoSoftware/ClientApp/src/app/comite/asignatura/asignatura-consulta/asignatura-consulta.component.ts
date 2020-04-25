@@ -19,21 +19,12 @@ export class AsignaturaConsultaComponent implements OnInit {
   ngOnInit() {
 
     this.searchText="";
-
     this.asignaturaService.get().subscribe(result => {
       this.asignaturas = result;
     });
 
   }
 
-
-  buscar(){
-
-    this.asignaturaService.searchHeroes(this.searchText).subscribe(result => {
-      this.asignatura = result;
-    });
-    
-  }
 
 
 }

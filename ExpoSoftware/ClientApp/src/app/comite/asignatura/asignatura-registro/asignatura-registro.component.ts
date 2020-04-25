@@ -42,10 +42,11 @@ export class AsignaturaRegistroComponent implements OnInit {
       this.add(this.respuesta);
     })
 
+
   }
 
   consulta(){
-    this.dialog.open(AsignaturaConsultaComponent);
+    
   }
   
 

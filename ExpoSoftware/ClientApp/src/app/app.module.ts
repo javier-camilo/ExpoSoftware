@@ -24,6 +24,7 @@ import { DocenteRegistroComponent } from './comite/docente/docente-registro/doce
 import { DocenteConsultaComponent } from './comite/docente/docente-consulta/docente-consulta.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.component';
+import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.componen
     AsignaturaConsultaComponent,
     DocenteRegistroComponent,
     DocenteConsultaComponent,
-    CuadroDialogoComponent
+    CuadroDialogoComponent,
+    FiltroAsignaturaPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
