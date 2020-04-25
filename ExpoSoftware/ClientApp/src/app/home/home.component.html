@@ -2,7 +2,7 @@
   <ngb-carousel >
     <ng-template *ngFor="let item of noticias" ngbSlide>
       <div class="picsum-img-wrapper">
-        <img src="{{item.img}}" alt="Random first slide">
+        <img src="{{item.img}}" alt="Random first slide" [routerLink]="item.route" >
       </div>
       <div class="carousel-caption">
         <h3>{{item.name}}</h3>
