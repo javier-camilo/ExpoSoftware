@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { DocenteConsultaComponent } from './comite/docente/docente-consulta/doce
 import {MatDialogModule} from '@angular/material/dialog';
 import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.component';
 import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
+import { AsignaturaEdicionComponent } from './comite/asignatura/asignatura-edicion/asignatura-edicion.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
     DocenteRegistroComponent,
     DocenteConsultaComponent,
     CuadroDialogoComponent,
-    FiltroAsignaturaPipe
+    FiltroAsignaturaPipe,
+    AsignaturaEdicionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,6 +55,7 @@ import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

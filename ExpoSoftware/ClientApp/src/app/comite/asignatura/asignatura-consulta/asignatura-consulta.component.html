@@ -1,15 +1,18 @@
 
-    <h2 style="margin-bottom: 40px;" class="text-center">Consulta de Asignaturas</h2> 
+     <blockquote class="blockquote text-center">
+      <p class="mb-0" class="display-3 colorLetras">Consulta De Asignaturas</p>
+    </blockquote>
 
-    <div class="col-6" style="margin-left: 20%; margin-right: 20%;" class="text-center">
+
+    <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
         
       <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o codigo" >
-      
-           
+         
     </div>
     
   <hr>
 
+  
   
   <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && asignatura==undefined">
     <thead>
