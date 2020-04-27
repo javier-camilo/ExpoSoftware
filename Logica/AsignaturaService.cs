@@ -67,6 +67,60 @@ namespace Logica
             Asignatura asignatura = _repositorio.BuscarPorIdentificacion(identificacion);
             _conexion.Close();
             return asignatura;
+
+        }
+
+
+        public string Eliminar(string identificacion)
+        {
+            try
+            {
+                _conexion.Open();
+                var asignatura = _repositorio.BuscarPorIdentificacion(identificacion);
+                if (asignatura != null)
+                {
+                    _repositorio.Eliminar(asignatura);
+                    _conexion.Close();
+                    return ($"El registro {asignatura.NombreAsignatura} se ha eliminado satisfactoriamente.");
+                }
+                else
+                {
+                    return ($"Lo sentimos, {identificacion} no se encuentra registrada.");
+                }
+            }
+            catch (Exception e)
+            {
+                return $"Error de la Aplicación: {e.Message}";
+            }
+            finally { _conexion.Close(); }
+
+        }
+
+
+        public string Modificar(Asignatura asignaturaNueva)
+        {
+            try
+            {
+                _conexion.Open();
+                var asignaturaVieja = _repositorio.BuscarPorIdentificacion(asignaturaNueva.CodigoAsignatura);
+                if (asignaturaVieja != null)
+                {
+                    _repositorio.Modificar(asignaturaNueva);
+                    _conexion.Close();
+                    return ($"El registro {asignaturaNueva.NombreAsignatura} se ha modificado satisfactoriamente.");
+                }
+                else
+                {
+                    return ($"Lo sentimos, {asignaturaNueva.CodigoAsignatura} no se encuentra registrada.");
+                }
+            }
+            catch (Exception e)
+            {
+
+                return $"Error de la Aplicación: {e.Message}";
+            }
+            finally { _conexion.Close(); }
+
         }
 
         

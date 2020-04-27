@@ -83,6 +83,30 @@ namespace Datos
             
          }
 
+
+        public void Eliminar(Asignatura asignatura)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Delete from Asignatura where CodigoAsignatura=@CodigoAsignatura";
+                command.Parameters.AddWithValue("@CodigoAsignatura", asignatura.CodigoAsignatura);
+                command.ExecuteNonQuery();
+            }
+        }
+
+         public void Modificar( Asignatura asignatura)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "update Asignatura set NombreAsignatura=@NombreAsignatura, AreaAsignatura=@AreaAsignatura, DescripcionAsignatura=@DescripcionAsignatura where CodigoAsignatura=@CodigoAsignatura";
+                command.Parameters.AddWithValue("@CodigoAsignatura", asignatura.CodigoAsignatura);
+                command.Parameters.AddWithValue("@NombreAsignatura", asignatura.NombreAsignatura);
+                command.Parameters.AddWithValue("@AreaAsignatura", asignatura.AreaAsignatura);
+                command.Parameters.AddWithValue("@DescripcionAsignatura", asignatura.DescripcionAsignatura);
+                command.ExecuteNonQuery();
+            }
+        }
+
         
     }
 }

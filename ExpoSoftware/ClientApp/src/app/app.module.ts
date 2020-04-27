@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -24,6 +24,9 @@ import { DocenteRegistroComponent } from './comite/docente/docente-registro/doce
 import { DocenteConsultaComponent } from './comite/docente/docente-consulta/docente-consulta.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.component';
+import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
+import { AsignaturaEdicionComponent } from './comite/asignatura/asignatura-edicion/asignatura-edicion.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.componen
     AsignaturaConsultaComponent,
     DocenteRegistroComponent,
     DocenteConsultaComponent,
-    CuadroDialogoComponent
+    CuadroDialogoComponent,
+    FiltroAsignaturaPipe,
+    AsignaturaEdicionComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,6 +57,7 @@ import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.componen
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

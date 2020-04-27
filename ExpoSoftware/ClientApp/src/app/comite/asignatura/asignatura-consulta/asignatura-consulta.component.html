@@ -1,60 +1,46 @@
 
-    <h2 style="margin-bottom: 40px;" class="text-center">Consulta de Asignaturas</h2> 
+      <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">Consulta De Asignaturas</p>
+      </blockquote>
 
+<<<<<<< HEAD
     <div class="col-6" style="margin-top: 20px; margin-left: 50px; display: inline-block;">
         
       <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="buscar por identifiacion" >
+=======
+
+      <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
+          
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o codigo" >
+          
+      </div>
+>>>>>>> modificacionDiseño
       
-           
-    </div>
-
-    
-    <button mat-stroked-button style="border-color: #339240;" (click)="buscar()">Filtrar</button>
-
-  <hr>
-  
-  <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && asignatura==undefined">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Codigo Asignatura</th>
-        <th scope="col">Nombre Asignatura</th>
-        <th scope="col">Area Asignatura</th>
-        <th scope="col">Descripcion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let asignatura of asignaturas; index as i ">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ asignatura.codigoAsignatura }} </td>
-        <td>{{ asignatura.nombreAsignatura }}</td>
-        <td>{{asignatura.areaAsignatura  }}</td>
-        <td>{{ asignatura.descripcionAsignatura }}</td>
-      </tr>
-
-    </tbody>
+    <hr>
 
 
 
-  </table>
+    <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && asignatura==undefined">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo Asignatura</th>
+          <th scope="col">Nombre Asignatura</th>
+          <th scope="col">Area Asignatura</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Editar/Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asignatura of asignaturas | filtroAsignatura:searchText ; index as i ">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ asignatura.codigoAsignatura }} </td>
+          <td>{{ asignatura.nombreAsignatura }}</td>
+          <td>{{asignatura.areaAsignatura  }}</td>
+          <td>{{ asignatura.descripcionAsignatura }}</td>
+          <td style="text-align: justify;"> <a routerLink='/asignaturaEdicion/{{asignatura.codigoAsignatura}}'>Seleccionar</a></td>
+        </tr>
 
-  <table class="table table-striped" *ngIf="asignatura">
+      </tbody>
 
-    <thead>
-      <tr>
-        <th scope="col">Codigo Asignatura</th>
-        <th scope="col">Nombre Asignatura</th>
-        <th scope="col">Area Asignatura</th>
-        <th scope="col">Descripcion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="asignatura">
-        <td>{{ asignatura.codigoAsignatura }} </td>
-        <td>{{ asignatura.nombreAsignatura }}</td>
-        <td>{{asignatura.areaAsignatura  }}</td>
-        <td>{{ asignatura.descripcionAsignatura }}</td>
-      </tr>
-    </tbody>
-
-  </table>
+    </table>

@@ -6,9 +6,11 @@ import { AsignaturaConsultaComponent } from './comite/asignatura/asignatura-cons
 import { Routes, RouterModule } from '@angular/router';
 import { DocenteRegistroComponent } from './comite/docente/docente-registro/docente-registro.component';
 import { DocenteConsultaComponent } from './comite/docente/docente-consulta/docente-consulta.component';
+import { AsignaturaEdicionComponent } from './comite/asignatura/asignatura-edicion/asignatura-edicion.component';
 
 
 const routes: Routes = [
+
     {
     path: 'asignaturaConsulta',
     component:AsignaturaConsultaComponent
@@ -17,7 +19,12 @@ const routes: Routes = [
       path: 'asignaturaRegistro',
       component: AsignaturaRegistroComponent
     },
-   {
+    {
+      path: 'asignaturaEdicion/:identificacion',
+      component: AsignaturaEdicionComponent
+    },
+   
+    {
         path: 'docenteRegistro',
         component: DocenteRegistroComponent
     },
@@ -25,6 +32,7 @@ const routes: Routes = [
           path: 'docenteConsulta',
           component: DocenteConsultaComponent
     }
+    
 ];
   
 
