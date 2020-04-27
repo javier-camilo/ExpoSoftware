@@ -5,21 +5,34 @@ import { MatDialog } from '@angular/material/dialog';
 import { AsignaturaConsultaComponent } from '../asignatura-consulta/asignatura-consulta.component';
 import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.component';
 import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/modal/modal.component';
 
+
+let options: NgbModalOptions = {
+  size: 'xl'
+};
 
 @Component({
   selector: 'app-asignatura-registro',
   templateUrl: './asignatura-registro.component.html',
   styleUrls: ['./asignatura-registro.component.css']
 })
+
+
+
+
 export class AsignaturaRegistroComponent implements OnInit {
+
+  
+
 
   formGroup: FormGroup;
   asignatura:Asignatura;
   respuesta:string;
 
   constructor(private asignaturaService: AsignaturaService,private dialog:MatDialog,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,private modalService: NgbModal) { }
 
 
   ngOnInit() {
@@ -76,26 +89,35 @@ export class AsignaturaRegistroComponent implements OnInit {
     
     let ref = this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"¿Desea Guardar?"}});
 
-    ref.afterClosed().subscribe(result => {
-      this.respuesta=result;
-      this.add(this.respuesta);
-    })
-
+      ref.afterClosed().subscribe(result => {
+        this.respuesta=result;
+        this.add(this.respuesta);
+      })
 
   }
 
   add(resultado:string){
 
+
     this.asignatura= this.formGroup.value;
 
     if (resultado=="true") {
+
       this.asignaturaService.post(this.asignatura).subscribe(p => {
         if (p != null) {
           this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"se guardo con exito"}});
         }
       });
+
     } 
 
+
+  }
+
+
+  buscar(){
+    const modalRef = this.modalService.open(ModalComponent,options);
+    modalRef.componentInstance.name="consultaAsignaturas";
   }
 
 

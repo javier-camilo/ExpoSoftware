@@ -66,7 +66,27 @@ namespace ExpoSoftware.Controllers
             var asignaturaViewModel = new AsignaturaViewModel(asignatura);
             return asignaturaViewModel;
         }
+
+        [HttpDelete("{identificacion}")]
+        public ActionResult<string> Delete(string identificacion)
+        {
+            string mensaje = _AsignaturaService.Eliminar(identificacion);
+            return Ok(mensaje);
+        }
         
+
+        [HttpPut("{identificacion}")]
+        public ActionResult<string> Put(string identificacion, Asignatura asignatura)
+        {
+            var id=_AsignaturaService.BuscarxIdentificacion(asignatura.CodigoAsignatura);
+            if(id==null){
+                return BadRequest("No encontrado");
+            }
+            var mensaje=_AsignaturaService.Modificar(asignatura);
+           return Ok(mensaje) ;
+
+        }
+
 
     }
 }
