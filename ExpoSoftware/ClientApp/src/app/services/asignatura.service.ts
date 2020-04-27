@@ -69,11 +69,11 @@ export class AsignaturaService {
     }
   
 
-    put(asignatura: Asignatura): Observable<string> {
+    put(asignatura: Asignatura): Observable<any> {
       const url = `${this.baseUrl}api/Asignatura/${asignatura.codigoAsignatura}`;
       return this.http.put(url, asignatura, httpOptions)
       .pipe(
-        tap(_ => this.handleErrorService.log('datos enviados')),
+        tap(_=> this.handleErrorService.log('datos enviados')),
         catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))
       );
     }

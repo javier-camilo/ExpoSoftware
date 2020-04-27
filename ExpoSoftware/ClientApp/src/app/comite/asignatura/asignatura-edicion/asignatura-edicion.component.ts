@@ -23,13 +23,13 @@ export class AsignaturaEdicionComponent implements OnInit {
 
   formGroup:FormGroup;
   asignatura:Asignatura;
-  respuesta:string;
 
   constructor(private asignaturaService: AsignaturaService,private dialog:MatDialog,
     private formBuilder: FormBuilder,private modalService: NgbModal, private rutaActiva: ActivatedRoute ) { }
 
 
   ngOnInit() {
+
 
     this.asignatura=new Asignatura();
     
@@ -77,20 +77,14 @@ export class AsignaturaEdicionComponent implements OnInit {
 
   delete(confirmacion:string){
     
-    if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe(p=> {
-      alert(p);
+    if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe((result:any)=> {
+      alert(result);
     });
 
   }
 
-
   update(confirmacion:string){
-
-    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe(p => {
-      alert(p);
-    });
-    
-
+    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (p:any) => {alert(p)} );
   }
 
 }

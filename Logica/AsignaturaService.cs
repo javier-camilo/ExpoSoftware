@@ -90,7 +90,6 @@ namespace Logica
             }
             catch (Exception e)
             {
-
                 return $"Error de la Aplicación: {e.Message}";
             }
             finally { _conexion.Close(); }
