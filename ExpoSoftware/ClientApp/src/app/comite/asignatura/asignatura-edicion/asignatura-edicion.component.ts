@@ -46,7 +46,7 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     this.asignatura=new Asignatura();
 
-    this.asignatura.codigoAsignatura="";
+    this.asignatura.codigoAsignatura="...";
     this.asignatura.nombreAsignatura="";
     this.asignatura.areaAsignatura="seleccionar...";
     this.asignatura.descripcionAsignatura="";
@@ -56,7 +56,7 @@ export class AsignaturaEdicionComponent implements OnInit {
   }
 
 
-  
+
   buscar(){
 
     const modalRef = this.modalService.open(ModalComponent,options);
