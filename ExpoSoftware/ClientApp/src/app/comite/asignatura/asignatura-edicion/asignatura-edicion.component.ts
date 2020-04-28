@@ -47,9 +47,7 @@ export class AsignaturaEdicionComponent implements OnInit {
     this.asignatura=new Asignatura();
 
     this.asignatura.codigoAsignatura="...";
-    this.asignatura.nombreAsignatura="";
-    this.asignatura.areaAsignatura="seleccionar...";
-    this.asignatura.descripcionAsignatura="";
+    this.asignatura.areaAsignatura="Seleccionar...";
 
     this.resultado("Consultar","Error al consultar");
 
@@ -106,7 +104,7 @@ export class AsignaturaEdicionComponent implements OnInit {
 
 
   update(confirmacion:string){
-    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (result:any) => {this.resultado("Actualizar",result);});
+    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (result:any) => {this.resultado("Actualizar", result);});
   }
 
 
