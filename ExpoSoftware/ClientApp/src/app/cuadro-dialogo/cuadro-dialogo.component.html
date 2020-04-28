@@ -14,6 +14,6 @@
 <div class="text-center" style="margin-top: 20px;">
         
     <button mat-button mat-dialog-close="true">Aceptar</button>
-    <button mat-button mat-dialog-close="false">Cancelar</button>
+    <button mat-button mat-dialog-close="false" *ngIf="data.EsMensaje!=='true'">Cancelar</button>
 
 </div>
