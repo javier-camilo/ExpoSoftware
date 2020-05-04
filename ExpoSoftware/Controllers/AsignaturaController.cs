@@ -5,6 +5,7 @@ using Logica;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
+using Microsoft.AspNetCore.Http;
 
 
 namespace ExpoSoftware.Controllers
@@ -17,6 +18,7 @@ namespace ExpoSoftware.Controllers
 
         private readonly AsignaturaService _AsignaturaService;
         public IConfiguration Configuration { get; }
+        
 
         public AsignaturaController(IConfiguration configuration)
         {
@@ -25,7 +27,8 @@ namespace ExpoSoftware.Controllers
             _AsignaturaService = new AsignaturaService(connectionString);
         }
 
-         [HttpPost]
+
+        [HttpPost]
         public ActionResult<AsignaturaViewModel> Post(AsignaturaInputModel asignaturaInput)
         {
             
@@ -33,7 +36,14 @@ namespace ExpoSoftware.Controllers
             var response = _AsignaturaService.Guardar(asignatura);
             if (response.Error) 
             {
-                return BadRequest(response.Mensaje);
+                
+                ModelState.AddModelError("Guardar Asignatura", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+
             }
             return Ok(response.Asignatura);
         }
