@@ -35,7 +35,7 @@ export class AsignaturaService {
      post(asignatura:Asignatura ): Observable<Asignatura> {
         return this.http.post<Asignatura>(this.baseUrl + 'api/Asignatura', asignatura)
             .pipe(
-                tap(_ => this.handleErrorService.log('datos enviados')),
+                tap(_ => this.handleErrorService.log('Guardado con exito')),
                 catchError(this.handleErrorService.handleError<Asignatura>('Registrar Asignatura', null))
             );
     }
@@ -43,7 +43,7 @@ export class AsignaturaService {
     get(): Observable<Asignatura[]> {
       return this.http.get<Asignatura[]>(this.baseUrl + 'api/Asignatura')
           .pipe(
-              tap(_ => this.handleErrorService.log('Datos Recibidos')),
+              tap(_ => this.handleErrorService.log('Datos de la asignaturas recibido')),
               catchError(this.handleErrorService.handleError<Asignatura[]>('Consulta Asignatura', null))
           );
     }

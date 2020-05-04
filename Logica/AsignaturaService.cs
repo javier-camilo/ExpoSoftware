@@ -47,7 +47,7 @@ namespace Logica
         }
 
 
-          public class GuardarAsignaturaResponse 
+        public class GuardarAsignaturaResponse 
         {
             public GuardarAsignaturaResponse(Asignatura asignatura)
             {

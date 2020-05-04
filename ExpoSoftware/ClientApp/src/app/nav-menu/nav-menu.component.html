@@ -35,10 +35,26 @@
 
 
                 <mat-list-item data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <mat-icon>class </mat-icon> Area
+                </mat-list-item>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                        <div style="margin-left: 20px;">
+                  
+                          <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerArea"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                  </div>
+    
+                </div>
+
+
+
+                <mat-list-item data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                      <mat-icon>work  </mat-icon> Asignatura
                 </mat-list-item>
 
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                     
                     <div style="margin-left: 20px;">
                       
@@ -49,19 +65,25 @@
                 </div>
 
                     
-                    <mat-list-item data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                      <mat-icon>layers  </mat-icon> Docente
-                </mat-list-item>
+                      <mat-list-item data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        <mat-icon>layers  </mat-icon> Docente
+                  </mat-list-item>
 
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        
-                  <div style="margin-left: 20px;">
-                    
-                    <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerDocente"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerDocente"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
 
+                    </div>
+        
                   </div>
-      
-                </div>
+
+
+                  
+
+
+
 
              
 

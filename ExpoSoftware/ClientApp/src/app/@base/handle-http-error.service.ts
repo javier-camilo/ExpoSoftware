@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CuadroDialogoComponent } from '../cuadro-dialogo/cuadro-dialogo.component';
+import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class HandleHttpErrorService {
+
+  
   
   constructor(private dialog:MatDialog) { }
   
@@ -24,15 +30,17 @@ export class HandleHttpErrorService {
     };
   }
 
+
   public log(message: string) {
     this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: message, EsMensaje: "true"}});
   }
+
 
   private mostrarError500(error: any) {
     console.error(error);
   }
 
-  
+
   private mostrarError400(error: any): void {
   
     console.error(error);
@@ -51,8 +59,8 @@ export class HandleHttpErrorService {
       mensajeValidaciones += `<br/>`;
     }
 
-    this.dialog.open(CuadroDialogoComponent, {data: {name:"Mensaje de Error", descripcion: mensajeValidaciones, EsMensaje: "true"}});
-
+   let dialogo= this.dialog.open(CuadroDialogoComponent, {data: {name:"Mensaje de Error", descripcion: mensajeValidaciones, EsMensaje: "true"}, width:"600px"});
+  
   }
 
   
