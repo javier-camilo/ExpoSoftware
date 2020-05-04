@@ -66,6 +66,7 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
+  entryComponents:[CuadroDialogoComponent,ModalComponent],
   providers: [AsignaturaService],
   bootstrap: [AppComponent]
 })

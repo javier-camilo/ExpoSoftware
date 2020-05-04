@@ -32,19 +32,31 @@ export class AsignaturaEdicionComponent implements OnInit {
 
 
     this.asignatura=new Asignatura();
-    
 
     const id = this.rutaActiva.snapshot.params.identificacion;
     this.asignaturaService.getId(id).subscribe(p => {
       this.asignatura = p;
-      this.asignatura != null ? alert('Se Consulto la persona ') : alert('Error al Consultar');
+      this.asignatura != null ? this.resultado("Consultar","se consulto la asignatura") : this.inicializarError();
     });
 
 
   }
 
+  inicializarError(){
+
+    this.asignatura=new Asignatura();
+
+    this.asignatura.codigoAsignatura="...";
+    this.asignatura.areaAsignatura="Seleccionar...";
+
+    this.resultado("Consultar","Error al consultar");
+
+  }
+
+
 
   buscar(){
+
     const modalRef = this.modalService.open(ModalComponent,options);
     modalRef.componentInstance.name="consultaAsignaturas";
     
@@ -56,7 +68,7 @@ export class AsignaturaEdicionComponent implements OnInit {
 
   confirmar(operacion:string){
 
-    let dialogo= this.dialog.open(CuadroDialogoComponent, {data:{name:"Alerta", descripcion:"esta seguro de realizar esta accion?"} } );
+    let dialogo= this.dialog.open(CuadroDialogoComponent, {data:{name:"Advertencia", descripcion:"¿esta seguro de realizar esta accion?"} } );
 
     dialogo.afterClosed().subscribe(result => {
       
@@ -72,19 +84,29 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     );
 
+  }
+
+
+  resultado(operacion:string, mensaje:string){
+
+    this.dialog.open(CuadroDialogoComponent, {data: {name:operacion, descripcion: mensaje, EsMensaje: "true"}});
     
   }
+
 
   delete(confirmacion:string){
     
     if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe((result:any)=> {
-      alert(result);
+      this.resultado("Borrar", result);
     });
 
   }
 
+
   update(confirmacion:string){
-    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (p:any) => {alert(p)} );
+    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (result:any) => {this.resultado("Actualizar", result);});
   }
+
+
 
 }

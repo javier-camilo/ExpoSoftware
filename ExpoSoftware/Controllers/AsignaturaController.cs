@@ -80,7 +80,8 @@ namespace ExpoSoftware.Controllers
         {
             var id=_AsignaturaService.BuscarxIdentificacion(asignatura.CodigoAsignatura);
             if(id==null){
-                return BadRequest("No encontrado");
+                string resultadoConsulta="no se encontro registro";
+                return resultadoConsulta;
             }
             var mensaje=_AsignaturaService.Modificar(asignatura);
            return Ok(mensaje) ;

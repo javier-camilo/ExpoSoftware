@@ -61,7 +61,7 @@ export class AsignaturaService {
 
     delete(asignatura: Asignatura| string): Observable<string> {
       const id = typeof asignatura === 'string' ? asignatura : asignatura.codigoAsignatura;
-      return this.http.delete<string>(this.baseUrl + 'api/Asignatura/'+ id)
+      return this.http.delete(this.baseUrl + 'api/Asignatura/'+ id, {responseType: 'text'} )
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
         catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
@@ -71,7 +71,7 @@ export class AsignaturaService {
 
     put(asignatura: Asignatura): Observable<any> {
       const url = `${this.baseUrl}api/Asignatura/${asignatura.codigoAsignatura}`;
-      return this.http.put(url, asignatura, httpOptions)
+      return this.http.put(url, asignatura,  {responseType: 'text'} )
       .pipe(
         tap(_=> this.handleErrorService.log('datos enviados')),
         catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))

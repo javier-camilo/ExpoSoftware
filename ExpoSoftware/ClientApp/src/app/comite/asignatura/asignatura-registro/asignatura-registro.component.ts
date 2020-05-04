@@ -105,7 +105,7 @@ export class AsignaturaRegistroComponent implements OnInit {
 
       this.asignaturaService.post(this.asignatura).subscribe(p => {
         if (p != null) {
-          this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"se guardo con exito"}});
+          this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"se guardo con exito", EsMensaje:"true" }});
         }
       });
 
