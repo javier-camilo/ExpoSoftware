@@ -97,7 +97,7 @@ export class AsignaturaEdicionComponent implements OnInit {
   delete(confirmacion:string){
     
     if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe((result:any)=> {
-      this.resultado("Borrar",result);
+      this.resultado("Borrar", result);
     });
 
   }
