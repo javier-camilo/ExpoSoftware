@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { CuadroDialogoComponent } from '../cuadro-dialogo/cuadro-dialogo.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HandleHttpErrorService {
   
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
   
   public handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -17,7 +19,7 @@ export class HandleHttpErrorService {
     };
   }
   public log(message: string) {
-    console.log(message);
+    this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: message, EsMensaje: "true"}});
   }
   
 

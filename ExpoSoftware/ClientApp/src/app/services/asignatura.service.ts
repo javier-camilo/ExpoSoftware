@@ -53,7 +53,7 @@ export class AsignaturaService {
       const url = `${this.baseUrl + 'api/Asignatura'}/${id}`;
         return this.http.get<Asignatura>(url, httpOptions)
         .pipe(
-          tap(_ => this.handleErrorService.log('datos enviados')),
+          tap(_ => this.handleErrorService.log('se consulto la asignatura con codigo = '+ id )),
           catchError(this.handleErrorService.handleError<Asignatura>('Buscar Asignatura', null))
         );
     }
@@ -63,7 +63,7 @@ export class AsignaturaService {
       const id = typeof asignatura === 'string' ? asignatura : asignatura.codigoAsignatura;
       return this.http.delete(this.baseUrl + 'api/Asignatura/'+ id, {responseType: 'text'} )
       .pipe(
-        tap(_ => this.handleErrorService.log('datos enviados')),
+        tap(_ => this.handleErrorService.log('se borro satisfactoriamente')),
         catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
       );
     }
@@ -73,7 +73,7 @@ export class AsignaturaService {
       const url = `${this.baseUrl}api/Asignatura/${asignatura.codigoAsignatura}`;
       return this.http.put(url, asignatura,  {responseType: 'text'} )
       .pipe(
-        tap(_=> this.handleErrorService.log('datos enviados')),
+        tap(_=> this.handleErrorService.log('se modifico satisfactoriamente')),
         catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))
       );
     }
