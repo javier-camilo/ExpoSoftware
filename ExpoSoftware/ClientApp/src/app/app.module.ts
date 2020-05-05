@@ -29,6 +29,7 @@ import { AsignaturaEdicionComponent } from './comite/asignatura/asignatura-edici
 import { ModalComponent } from './modal/modal.component';
 import { AreaRegistroComponent } from './comite/area/area-registro/area-registro.component';
 import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
