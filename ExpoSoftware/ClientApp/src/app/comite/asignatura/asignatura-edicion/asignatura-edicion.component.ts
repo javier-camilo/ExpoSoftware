@@ -36,7 +36,7 @@ export class AsignaturaEdicionComponent implements OnInit {
     const id = this.rutaActiva.snapshot.params.identificacion;
     this.asignaturaService.getId(id).subscribe(p => {
       this.asignatura = p;
-      this.asignatura != null ? this.resultado("Consultar","se consulto la asignatura") : this.inicializarError();
+      this.asignatura != null ? null : this.inicializarError();
     });
 
 
@@ -48,8 +48,6 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     this.asignatura.codigoAsignatura="...";
     this.asignatura.areaAsignatura="Seleccionar...";
-
-    this.resultado("Consultar","Error al consultar");
 
   }
 
@@ -96,15 +94,13 @@ export class AsignaturaEdicionComponent implements OnInit {
 
   delete(confirmacion:string){
     
-    if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe((result:any)=> {
-      this.resultado("Borrar", result);
-    });
+    if(confirmacion=="true")this.asignaturaService.delete(this.asignatura.codigoAsignatura).subscribe();
 
   }
 
 
   update(confirmacion:string){
-    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe( (result:any) => {this.resultado("Actualizar", result);});
+    if(confirmacion=="true")this.asignaturaService.put(this.asignatura).subscribe();
   }
 
 

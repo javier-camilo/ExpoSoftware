@@ -11,8 +11,9 @@
 
       <a class="navbar-brand" [routerLink]="['/']" style="opacity: 1; color: #ffffff;">
 
-        <img src="../../assets/upc-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Ing sistemas
+        <img src="../../assets/upc-logo.jpg" width="30" height="30" style="border-radius:150px;" alt="">
+         Ing sistemas
+
       </a>
 
     </mat-toolbar>
@@ -25,9 +26,22 @@
 
             <mat-nav-list>
 
+           
               <div class="accordion" id="accordionExample">
 
-                
+
+                <mat-list-item style="margin-bottom: 20px; margin-top: 20px;">
+
+                  <img src="../../assets/866190.jpg"  width="50" height="50" style="border-radius:150px;" alt="Imagen de usuario"> 
+
+                  <div style="margin-left: 10px;">
+                        
+                      Javier camilo
+
+                  </div>
+
+                </mat-list-item>
+
                 <mat-list-item [routerLink]="['/']" >
                   <mat-icon>home  </mat-icon>
                     Home
@@ -35,33 +49,55 @@
 
 
                 <mat-list-item data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <mat-icon>class </mat-icon> Area
+                </mat-list-item>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                        <div style="margin-left: 20px;">
+                  
+                         <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerArea"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                  </div>
+    
+                </div>
+
+
+
+                <mat-list-item data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                      <mat-icon>work  </mat-icon> Asignatura
                 </mat-list-item>
 
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                     
                     <div style="margin-left: 20px;">
                       
-                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
 
                     </div>
         
                 </div>
 
                     
-                    <mat-list-item data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                      <mat-icon>layers  </mat-icon> Docente
-                </mat-list-item>
+                      <mat-list-item data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        <mat-icon>layers  </mat-icon> Docente
+                  </mat-list-item>
 
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        
-                  <div style="margin-left: 20px;">
-                    
-                    <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerDocente"> <mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerDocente"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
 
+                    </div>
+        
                   </div>
-      
-                </div>
+
+
+                  
+
+
+
 
              
 
@@ -78,15 +114,14 @@
       
 
             <mat-sidenav-content>
-                  <div class="container">
-                    
-                    <div class="container" style="margin-top: 40px; border-style: solid; border-color: #ffffff; background-color: #ffffff;">
+                  <div class="container">  
+                    <div class="container" class="menu">
                       <div style="margin-top: 40px;">
                         <router-outlet></router-outlet>
                       </div>
                     </div>
 
-                  </div>
+                  </div> 
                   
             </mat-sidenav-content>
 

@@ -18,12 +18,24 @@ namespace Logica
             _repositorio = new AsignaturaRepository(_conexion);
         }
 
+
         public GuardarAsignaturaResponse Guardar(Asignatura asignatura)
         {
             try
             {
+                
                 _conexion.Open();
+                
+                var asignaturaBuscada= _repositorio.BuscarPorIdentificacion(asignatura.CodigoAsignatura);
+
+                if(asignaturaBuscada!=null){
+                    
+                    return new GuardarAsignaturaResponse("Error la asignatura ya se encuentra registrada");
+
+                }
+
                 _repositorio.Guardar(asignatura);
+
                 _conexion.Close();
                 return new GuardarAsignaturaResponse(asignatura);
             }
@@ -34,7 +46,8 @@ namespace Logica
             finally { _conexion.Close(); }
         }
 
-          public class GuardarAsignaturaResponse 
+
+        public class GuardarAsignaturaResponse 
         {
             public GuardarAsignaturaResponse(Asignatura asignatura)
             {

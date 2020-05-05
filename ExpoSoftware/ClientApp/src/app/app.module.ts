@@ -27,6 +27,9 @@ import { CuadroDialogoComponent } from './cuadro-dialogo/cuadro-dialogo.componen
 import { FiltroAsignaturaPipe } from './pipe/filtro-asignatura.pipe';
 import { AsignaturaEdicionComponent } from './comite/asignatura/asignatura-edicion/asignatura-edicion.component';
 import { ModalComponent } from './modal/modal.component';
+import { AreaRegistroComponent } from './comite/area/area-registro/area-registro.component';
+import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { ModalComponent } from './modal/modal.component';
     CuadroDialogoComponent,
     FiltroAsignaturaPipe,
     AsignaturaEdicionComponent,
-    ModalComponent
+    ModalComponent,
+    AreaRegistroComponent,
+    AreaConsultaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -57,6 +62,7 @@ import { ModalComponent } from './modal/modal.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

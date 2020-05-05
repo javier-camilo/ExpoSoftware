@@ -1,17 +1,3 @@
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Logica.deps.json
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Logica.dll
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Logica.pdb
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.csproj.CoreCompileInputs.cache
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfoInputs.cache
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfo.cs
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.dll
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.pdb
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Datos.dll
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Entity.dll
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Entity.pdb
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\bin\Debug\netstandard2.0\Datos.pdb
-C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ProyectoNuevo\Logica\obj\Debug\netstandard2.0\Logica.csproj.CopyComplete
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\bin\Debug\netstandard2.0\Logica.deps.json
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\bin\Debug\netstandard2.0\Logica.dll
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\bin\Debug\netstandard2.0\Logica.pdb
