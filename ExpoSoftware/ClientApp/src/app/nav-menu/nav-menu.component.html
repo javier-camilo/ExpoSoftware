@@ -11,8 +11,9 @@
 
       <a class="navbar-brand" [routerLink]="['/']" style="opacity: 1; color: #ffffff;">
 
-        <img src="../../assets/upc-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Ing sistemas
+        <img src="../../assets/upc-logo.jpg" width="30" height="30" style="border-radius:150px;" alt="">
+         Ing sistemas
+
       </a>
 
     </mat-toolbar>
@@ -25,9 +26,22 @@
 
             <mat-nav-list>
 
+           
               <div class="accordion" id="accordionExample">
 
-                
+
+                <mat-list-item style="margin-bottom: 20px; margin-top: 20px;">
+
+                  <img src="../../assets/866190.jpg"  width="50" height="50" style="border-radius:150px;" alt="Imagen de usuario"> 
+
+                  <div style="margin-left: 10px;">
+                        
+                      Javier camilo
+
+                  </div>
+
+                </mat-list-item>
+
                 <mat-list-item [routerLink]="['/']" >
                   <mat-icon>home  </mat-icon>
                     Home
@@ -100,15 +114,14 @@
       
 
             <mat-sidenav-content>
-                  <div class="container">
-                    
-                    <div class="container" style="margin-top: 40px; border-style: solid; border-color: #ffffff; background-color: #ffffff;">
+                  <div class="container">  
+                    <div class="container" class="menu">
                       <div style="margin-top: 40px;">
                         <router-outlet></router-outlet>
                       </div>
                     </div>
 
-                  </div>
+                  </div> 
                   
             </mat-sidenav-content>
 

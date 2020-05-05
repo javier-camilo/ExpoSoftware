@@ -23,7 +23,7 @@ export class NavMenuComponent {
 
   fillerArea=[
     {name:"Registro area", route: "/areaRegistro", icon:"note_add"},
-    {name:"Consulta Docente", route: "/areaConsulta", icon:"search"}
+    {name:"Consulta area", route: "/areaConsulta", icon:"search"}
   ]
 
 
