@@ -60,6 +60,14 @@ namespace ExpoSoftware.Controllers
             return area;
         }
 
+        
+        [HttpGet]
+        public IEnumerable<AreaViewModel> Gets()
+        {
+            var areas = _AreaService.ConsultarTodos().Select(p=> new AreaViewModel(p));
+            return areas;
+        }
+
 
 
         

@@ -48,6 +48,7 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     this.asignatura.codigoAsignatura="...";
     this.asignatura.areaAsignatura="Seleccionar...";
+    alert("error al consultar asignatura a modificar");
 
   }
 

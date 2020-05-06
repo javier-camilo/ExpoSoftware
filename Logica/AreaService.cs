@@ -69,6 +69,15 @@ namespace Logica
         }
 
 
+        public List<Area> ConsultarTodos()
+        {
+            _conexion.Open();
+            List<Area> areas = _repositorio.ConsultarTodos();
+            _conexion.Close();
+            return areas;
+            
+        }
+
 
     }
 }
