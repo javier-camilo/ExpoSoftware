@@ -40,10 +40,15 @@ export class AsignaturaService {
             );
     }
 
-    get(): Observable<Asignatura[]> {
+    get(llamadOperacion:string): Observable<Asignatura[]> {
       return this.http.get<Asignatura[]>(this.baseUrl + 'api/Asignatura')
           .pipe(
-              tap(_ => this.handleErrorService.log('Datos de la asignaturas recibido')),
+            
+              tap(_ => 
+                {
+                if(llamadOperacion==="asignatura")this.handleErrorService.log('Datos de la asignaturas recibido');
+               }
+                ),
               catchError(this.handleErrorService.handleError<Asignatura[]>('Consulta Asignatura', null))
           );
     }

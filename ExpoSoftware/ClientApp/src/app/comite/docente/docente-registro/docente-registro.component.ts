@@ -26,7 +26,7 @@ export class DocenteRegistroComponent implements OnInit {
 
   comprobar(){
 
-    this.asignaturaService.get().subscribe(result => {
+    this.asignaturaService.get("").subscribe(result => {
       this.asignaturas = result;
       if(this.asignaturas.length===0){
         

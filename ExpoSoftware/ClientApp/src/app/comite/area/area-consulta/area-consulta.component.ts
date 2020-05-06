@@ -17,7 +17,7 @@ export class AreaConsultaComponent implements OnInit {
   ngOnInit(): void {
 
     this.searchText="";
-    this.areaService.get().subscribe(result=>{this.areas=result;});
+    this.areaService.get("areaComponent").subscribe(result=>{this.areas=result;});
 
   }
 

@@ -32,10 +32,20 @@ export class AreaService {
 
 
     
-    get(): Observable<Area[]> {
+    get(operacion:string): Observable<Area[]> {
       return this.http.get<Area[]>(this.baseUrl + 'api/Area')
           .pipe(
-              tap(_ => this.handleErrorService.log('Datos de la areas recibido')),
+              tap(_ => 
+               
+
+                {
+
+                if(operacion==="areaComponent")
+                this.handleErrorService.log('Datos de la areas recibido');
+
+                }
+               
+            ),
               catchError(this.handleErrorService.handleError<Area[]>('Consulta area', null))
           );
     }

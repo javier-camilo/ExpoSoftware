@@ -41,13 +41,18 @@ export class AsignaturaRegistroComponent implements OnInit {
   ngOnInit() {
     this.asignatura=new Asignatura();
     this.buildForm();
-    this.areasService.get().subscribe(result=>{this.areas=result;
+    this.iniciarAreas();
+  }
+
+  iniciarAreas(){
+
+    this.areasService.get("").subscribe(result=>{this.areas=result;
       if(this.areas.length===0){
         this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: "debe digilenciar las areas habilitadas para poder digilenciar el formulario", EsMensaje: "true"}});
       }
     });
-  }
 
+  }
 
   private buildForm(){
     

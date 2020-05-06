@@ -45,9 +45,7 @@
   
               <select class="custom-select" id="areaA" name="areaAsignatura" class="form-control" [(ngModel)]="asignatura.areaAsignatura" >
                 <option selected>Selecionar...</option>
-                <option value="Base de datos">Base De Datos</option>
-                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
-                <option value="Ingeniria software">Ingeniria software</option>
+                <option *ngFor="let item of areas"  value={{item.codigoArea}}>{{item.nombreArea}}</option>
               </select>
   
       

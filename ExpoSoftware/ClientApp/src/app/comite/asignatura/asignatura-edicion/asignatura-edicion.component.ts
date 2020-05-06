@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from 'src/app/modal/modal.component';
 import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.component';
+import { AreaService } from 'src/app/services/area.service';
+import { Area } from '../../area/model/area';
 
 
 let options: NgbModalOptions = {
@@ -23,9 +25,10 @@ export class AsignaturaEdicionComponent implements OnInit {
 
   formGroup:FormGroup;
   asignatura:Asignatura;
+  areas:Area[];
 
   constructor(private asignaturaService: AsignaturaService,private dialog:MatDialog,
-    private formBuilder: FormBuilder,private modalService: NgbModal, private rutaActiva: ActivatedRoute ) { }
+    private formBuilder: FormBuilder,private modalService: NgbModal, private rutaActiva: ActivatedRoute, private areasService:AreaService) { }
 
 
   ngOnInit() {
@@ -39,6 +42,18 @@ export class AsignaturaEdicionComponent implements OnInit {
       this.asignatura != null ? null : this.inicializarError();
     });
 
+    this.iniciarAreas();
+
+  }
+
+
+  iniciarAreas(){
+
+    this.areasService.get("").subscribe(result=>{this.areas=result;
+      if(this.areas.length===0){
+        this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: "debe digilenciar las areas habilitadas para poder digilenciar el formulario", EsMensaje: "true"}});
+      }
+    });
 
   }
 
@@ -48,7 +63,6 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     this.asignatura.codigoAsignatura="...";
     this.asignatura.areaAsignatura="Seleccionar...";
-    alert("error al consultar asignatura a modificar");
 
   }
 
