@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Docente } from '../../docente/models/docente';
+import { DocenteService } from 'src/app/services/docente.service';
 
 @Component({
   selector: 'app-docente-consulta',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocenteConsultaComponent implements OnInit {
 
-  constructor() { }
+searchText: string;
+docentes : Docente[];
+docente : Docente;
 
-  ngOnInit(): void {
+  constructor(private docenteService : DocenteService) { }
+
+  ngOnInit() {
+    this.searchText="";
+    this.docenteService.get().subscribe(result => {
+      this.docentes = result;
+    });
   }
+  
 
 }

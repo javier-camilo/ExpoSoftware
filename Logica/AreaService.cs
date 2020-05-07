@@ -1,4 +1,3 @@
-
 using Datos;
 using Entity;
 using System;
