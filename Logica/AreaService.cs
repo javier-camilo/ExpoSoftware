@@ -68,6 +68,55 @@ namespace Logica
         }
 
 
+        public List<Area> ConsultarTodos()
+        {
+            _conexion.Open();
+            List<Area> areas = _repositorio.ConsultarTodos();
+            _conexion.Close();
+            return areas;
+            
+        }
+
+
+        public Area BuscarxIdentificacion(string identificacion)
+        {
+            _conexion.Open();
+            Area area = _repositorio.BuscarPorIdentificacion(identificacion);
+            _conexion.Close();
+            return area;
+        }
+
+        
+        public string Modificar(Area areaNueva)
+        {
+            try
+            {
+                _conexion.Open();
+                var areaVieja = _repositorio.BuscarPorIdentificacion(areaNueva.CodigoArea);
+                if (areaVieja != null)
+                {
+                    _repositorio.Modificar(areaNueva);
+                    _conexion.Close();
+                    return ($"El registro {areaNueva.NombreArea} se ha modificado satisfactoriamente.");
+                }
+                else
+                {
+                    return ($"Lo sentimos, {areaNueva.CodigoArea} no se encuentra registrada.");
+                }
+            }
+            catch (Exception e)
+            {
+
+                return $"Error de la Aplicación: {e.Message}";
+            }
+            finally { _conexion.Close(); }
+
+        }
+
+        
+
+
+
 
     }
 }

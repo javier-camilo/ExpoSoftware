@@ -60,7 +60,38 @@ namespace ExpoSoftware.Controllers
             return area;
         }
 
+        
+        [HttpGet]
+        public IEnumerable<AreaViewModel> Gets()
+        {
+            var areas = _AreaService.ConsultarTodos().Select(p=> new AreaViewModel(p));
+            return areas;
+        }
 
+        
+        [HttpGet("{identificacion}")]
+        public ActionResult<AreaViewModel> Get(string identificacion)
+        {
+            var area = _AreaService.BuscarxIdentificacion(identificacion);
+            if (area == null) return NotFound();
+            var areaViewModel = new AreaViewModel(area);
+            return areaViewModel;
+        }
+
+        
+        [HttpPut("{identificacion}")]
+        public ActionResult<string> Put(string identificacion, Area area)
+        {
+            var id=_AreaService.BuscarxIdentificacion(area.CodigoArea);
+            if(id==null){
+                string resultadoConsulta="no se encontro registro";
+                return resultadoConsulta;
+            }
+            var mensaje=_AreaService.Modificar(area);
+           return Ok(mensaje) ;
+
+        }
+        
 
         
         

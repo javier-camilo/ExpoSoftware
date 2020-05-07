@@ -7,6 +7,8 @@ import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.co
 import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from 'src/app/modal/modal.component';
+import { Area } from '../../area/model/area';
+import { AreaService } from 'src/app/services/area.service';
 
 
 let options: NgbModalOptions = {
@@ -27,19 +29,30 @@ export class AsignaturaRegistroComponent implements OnInit {
   
 
 
+  areas:Area[];
   formGroup: FormGroup;
   asignatura:Asignatura;
   respuesta:string;
 
   constructor(private asignaturaService: AsignaturaService,private dialog:MatDialog,
-    private formBuilder: FormBuilder,private modalService: NgbModal) { }
+    private formBuilder: FormBuilder,private modalService: NgbModal,private areasService:AreaService) { }
 
 
   ngOnInit() {
     this.asignatura=new Asignatura();
     this.buildForm();
+    this.iniciarAreas();
   }
 
+  iniciarAreas(){
+
+    this.areasService.get("").subscribe(result=>{this.areas=result;
+      if(this.areas.length===0){
+        this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: "debe digilenciar las areas habilitadas para poder digilenciar el formulario", EsMensaje: "true"}});
+      }
+    });
+
+  }
 
   private buildForm(){
     

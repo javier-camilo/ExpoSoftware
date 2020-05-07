@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngIf="areas.length>0">
 
   <blockquote class="blockquote text-center">
     <p class="mb-0" class="display-3 colorLetras">Registro De Asignaturas</p>
@@ -61,9 +61,8 @@
 
             <select class="custom-select" id="areaA" name="areaAsignatura"  formControlName="areaAsignatura" class="form-control" [ngClass]="{ 'is-invalid': control.areaAsignatura.errors && control.areaAsignatura.touched }">
               <option selected>Selecionar...</option>
-              <option value="Base de datos">Base De Datos</option>
-              <option value="Inteligencia Artificial">Inteligencia Artificial</option>
-              <option value="Ingeniria software">Ingeniria software</option>
+              <option *ngFor="let item of areas"  value={{item.codigoArea}}>{{item.nombreArea}}</option>
+
             </select>
 
             <div *ngIf="control.areaAsignatura.errors" class="invalid-feedback" style="margin-left: 7%;">

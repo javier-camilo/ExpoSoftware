@@ -47,6 +47,26 @@ namespace Datos
         }
 
 
+      public List<Area> ConsultarTodos()
+        {
+            SqlDataReader dataReader;
+            List<Area> areas = new List<Area>();
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Select * from Area";
+                dataReader = command.ExecuteReader();
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Area area = DataReaderMap(dataReader);
+                        areas.Add(area);
+                    }
+                }
+            }
+            return areas;
+        }
+
 
         private Area DataReaderMap(SqlDataReader dataReader)
         {
@@ -54,13 +74,29 @@ namespace Datos
 
             Area area = new Area();
 
-            area.CodigoArea = (string)dataReader["CodigoArea"];
+            area.CodigoArea = (string)dataReader["CodigoArea"].ToString();
             
             area.NombreArea = (string)dataReader["NombreArea"];
 
             return area;
             
          }
+
+
+         
+         public void Modificar(Area area)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "update Area set NombreArea=@NombreArea where CodigoArea=@CodigoArea";
+
+                command.Parameters.AddWithValue("@CodigoArea", area.CodigoArea);
+                
+                command.Parameters.AddWithValue("@NombreArea", area.NombreArea);
+
+                command.ExecuteNonQuery();
+            }
+        }
 
 
 

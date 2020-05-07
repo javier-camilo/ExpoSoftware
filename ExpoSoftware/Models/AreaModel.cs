@@ -30,8 +30,7 @@ namespace ExpoSoftware.Models
             CodigoArea = area.CodigoArea;
             NombreArea = area.NombreArea;
         }
-
-        public string teaar { get; set; }
+        
 
     }
 

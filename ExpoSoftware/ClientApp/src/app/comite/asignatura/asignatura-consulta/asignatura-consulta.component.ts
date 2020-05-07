@@ -19,7 +19,7 @@ export class AsignaturaConsultaComponent implements OnInit {
   ngOnInit() {
 
     this.searchText="";
-    this.asignaturaService.get().subscribe(result => {
+    this.asignaturaService.get("asignatura").subscribe(result => {
       this.asignaturas = result;
     });
 
