@@ -11,13 +11,17 @@ export class AreaConsultaComponent implements OnInit {
 
   searchText:string;
   areas:Area[];
+  loading:boolean;
 
   constructor(private areaService:AreaService) { }
 
   ngOnInit(): void {
 
     this.searchText="";
-    this.areaService.get("areaComponent").subscribe(result=>{this.areas=result;});
+    this.loading=true;
+    this.areaService.get("areaComponent").subscribe(result=>{this.areas=result; this.loading=false; }
+      
+      );
 
   }
 
