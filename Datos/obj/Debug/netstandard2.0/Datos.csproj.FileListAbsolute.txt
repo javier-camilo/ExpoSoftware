@@ -9,3 +9,14 @@ C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Datos\obj\D
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Datos\obj\Debug\netstandard2.0\Datos.csproj.CopyComplete
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Datos\obj\Debug\netstandard2.0\Datos.dll
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Datos\obj\Debug\netstandard2.0\Datos.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\bin\Debug\netstandard2.0\Datos.deps.json
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\bin\Debug\netstandard2.0\Datos.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\bin\Debug\netstandard2.0\Datos.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\bin\Debug\netstandard2.0\Entity.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\bin\Debug\netstandard2.0\Entity.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.csprojAssemblyReference.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.AssemblyInfoInputs.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.AssemblyInfo.cs
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.csproj.CopyComplete
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Datos\obj\Debug\netstandard2.0\Datos.pdb

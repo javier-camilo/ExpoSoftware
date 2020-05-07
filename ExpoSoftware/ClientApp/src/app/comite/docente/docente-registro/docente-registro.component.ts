@@ -1,22 +1,121 @@
 import { Component, OnInit } from '@angular/core';
 import { Asignatura } from '../../asignatura/models/asignatura';
 import { AsignaturaService } from 'src/app/services/asignatura.service';
+import { Docente } from '../../docente/models/docente';
+import { DocenteService } from 'src/app/services/docente.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AsignaturaConsultaComponent } from '../../asignatura/asignatura-consulta/asignatura-consulta.component';
+import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.component';
+import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/modal/modal.component';
+import { from } from 'rxjs';
+import { deprecate } from 'util';
+
+let options: NgbModalOptions = {
+  size: 'xl'
+};
 
 @Component({
   selector: 'app-docente-registro',
   templateUrl: './docente-registro.component.html',
   styleUrls: ['./docente-registro.component.css']
 })
+
 export class DocenteRegistroComponent implements OnInit {
 
   
   asignaturas:Asignatura[];
 
-  constructor(private asignaturaService:AsignaturaService) { }
+  formGroup: FormGroup;
+  docente : Docente;
+  respuesta : string;
+
+  constructor(private asignaturaService:AsignaturaService,private docenteService: DocenteService, private dialog : MatDialog,
+   private formBuilder: FormBuilder, private modalService: NgbModal ) { }
 
   ngOnInit(): void {
     this.comprobar();
+    this.docente = new Docente();
+    this.buildForm();
   }
+
+  private buildForm(){
+    this.docente.identificacion="";
+    this.docente.nombre="";
+    this.docente.descripcion="";
+    this.docente.tipo="Selecionar...";
+    this.docente.asignaturas = "Selecionar...";
+
+    this.formGroup = this.formBuilder.group({
+      identificacion : [this.docente.identificacion, [Validators.required, Validators.maxLength(10)]],
+      nombre : [this.docente.nombre , [Validators.required]],
+      descripcion : [this.docente.descripcion, [Validators.required]],
+      tipo : [this.docente.tipo, this.ValidaTipo],
+      asignaturas : [this.docente.asignaturas, this.ValidaAsignaturas]
+
+
+    })
+  }
+
+private ValidaTipo(control : AbstractControl){
+  const tipo = control.value;
+
+  if(tipo === "Selecionar..."){
+    return{validTipo: true, message: "debe seleccionar un valor en el combo"}
+  }
+   return null;
+
+}
+
+private ValidaAsignaturas(control : AbstractControl){
+  const asignatura = control.value;
+
+  if(asignatura === "Selecionar..."){
+    return{validAsignaturas: true, message: "debe seleccionar un valor en el combo"}
+  }
+
+  return null;
+}
+
+get control(){
+  return this.formGroup.controls;
+}
+
+onSubmit(){
+ // if(this.formGroup.invalid){ return; }
+  
+  this.confirmarGuardado();
+
+}
+
+confirmarGuardado(){
+    
+  let ref = this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"¿Desea Guardar?"}});
+
+    ref.afterClosed().subscribe(result => {
+      this.respuesta=result;
+      this.add(this.respuesta);
+    })
+
+}
+
+add(resultado : string){
+
+  this.docente = this.formGroup.value;
+
+  if(resultado=="true"){
+    this.docenteService.post(this.docente).subscribe(p => {
+      this.docente=p;
+    });
+  }
+
+}
+
+buscar(){
+  const modalRef = this.modalService.open(ModalComponent,options);
+  modalRef.componentInstance.name="consultaDocente";
+}
 
   mensaje():void{
 

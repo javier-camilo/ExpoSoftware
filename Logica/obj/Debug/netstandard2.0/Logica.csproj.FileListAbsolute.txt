@@ -12,3 +12,16 @@ C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\obj\
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\obj\Debug\netstandard2.0\Logica.csproj.CopyComplete
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\obj\Debug\netstandard2.0\Logica.dll
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Logica\obj\Debug\netstandard2.0\Logica.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Logica.deps.json
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Logica.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Logica.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Datos.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Entity.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Entity.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\bin\Debug\netstandard2.0\Datos.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.csprojAssemblyReference.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfoInputs.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.AssemblyInfo.cs
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.csproj.CopyComplete
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo 3\ExpoSoftware\Logica\obj\Debug\netstandard2.0\Logica.pdb

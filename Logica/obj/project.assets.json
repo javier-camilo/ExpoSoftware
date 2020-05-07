@@ -1087,23 +1087,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS-PC\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\e404n\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
+      "projectUniqueName": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Logica\\Logica.csproj",
       "projectName": "Logica",
-      "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
-      "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\obj\\",
+      "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Logica\\Logica.csproj",
+      "packagesPath": "C:\\Users\\e404n\\.nuget\\packages\\",
+      "outputPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Logica\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASUS-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\e404n\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1116,11 +1112,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
-              "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj"
+            "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Datos\\Datos.csproj": {
+              "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Datos\\Datos.csproj"
             },
-            "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
+            "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Entity\\Entity.csproj": {
+              "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo 3\\ExpoSoftware\\Entity\\Entity.csproj"
             }
           }
         }
@@ -1151,7 +1147,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
