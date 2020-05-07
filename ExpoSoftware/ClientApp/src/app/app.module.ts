@@ -31,6 +31,7 @@ import { AreaRegistroComponent } from './comite/area/area-registro/area-registro
 import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FiltroAreaPipe } from './pipe/filtro-area.pipe';
+import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { FiltroAreaPipe } from './pipe/filtro-area.pipe';
     ModalComponent,
     AreaRegistroComponent,
     AreaConsultaComponent,
-    FiltroAreaPipe
+    FiltroAreaPipe,
+    AreaEdicionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

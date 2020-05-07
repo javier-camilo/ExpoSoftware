@@ -1,9 +1,15 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 import { Area } from '../comite/area/model/area';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +54,27 @@ export class AreaService {
             ),
               catchError(this.handleErrorService.handleError<Area[]>('Consulta area', null))
           );
+    }
+
+
+    
+    getId(id: string): Observable<Area> {
+      const url = `${this.baseUrl + 'api/Area'}/${id}`;
+        return this.http.get<Area>(url, httpOptions)
+        .pipe(
+          tap(_ => this.handleErrorService.log('se consulto la area con codigo = '+ id)),
+          catchError(this.handleErrorService.handleError<Area>('Buscar Asignatura', null))
+        );
+    }
+
+
+    put(area: Area): Observable<any> {
+      const url = `${this.baseUrl}api/Area/${area.codigoArea}`;
+      return this.http.put(url, area,  {responseType: 'text'} )
+      .pipe(
+        tap(_=> this.handleErrorService.log('se modifico satisfactoriamente el area')),
+        catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))
+      );
     }
 
 

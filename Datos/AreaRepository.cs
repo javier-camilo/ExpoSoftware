@@ -83,6 +83,22 @@ namespace Datos
          }
 
 
+         
+         public void Modificar(Area area)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "update Area set NombreArea=@NombreArea where CodigoArea=@CodigoArea";
+
+                command.Parameters.AddWithValue("@CodigoArea", area.CodigoArea);
+                
+                command.Parameters.AddWithValue("@NombreArea", area.NombreArea);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+
 
         
     }

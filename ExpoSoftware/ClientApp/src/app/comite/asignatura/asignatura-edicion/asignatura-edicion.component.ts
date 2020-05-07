@@ -63,6 +63,9 @@ export class AsignaturaEdicionComponent implements OnInit {
 
     this.asignatura.codigoAsignatura="...";
     this.asignatura.areaAsignatura="Seleccionar...";
+    
+    this.resultado("Error","se produjo un error al consultar la asignatura a editar");
+    
 
   }
 
@@ -76,6 +79,7 @@ export class AsignaturaEdicionComponent implements OnInit {
     modalRef.result.then((result)=>
       this.ngOnInit()
       );
+
 
   }
 
