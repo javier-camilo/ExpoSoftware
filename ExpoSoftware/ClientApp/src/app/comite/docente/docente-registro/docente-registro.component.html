@@ -44,7 +44,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Nombre del docente</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName = "nombre" [ngClass]="{'is-invalid': control.nombre.errors && control.nombre.touched}" >
+            <input type="text" class="form-control" placeholder="digite el nombre del docente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName = "nombre" [ngClass]="{'is-invalid': control.nombre.errors && control.nombre.touched}" >
           
             <div *ngIf="control.nombre.errors" class="invalid-feedback" style="margin-left: 17%;">
                 
@@ -75,7 +75,7 @@
                 <label class="input-group-text" for="tipo">seleccione el tipo de docente</label>
               </div>
             
-            <select class="custom-select" id="tipoA" name="tipo"  class="form-control">
+            <select class="custom-select" id="tipoA" name="tipo" formControlName="tipo"  class="form-control">
                 <option selected>Selecionar...</option>
                 <option value="Evaluador">Docente Evaluador</option>
                 <option value="Acesor">Docente Acesor de proyecto</option>
@@ -97,7 +97,7 @@
             <label class="input-group-text" for="area">seleccione la asignatura</label>
           </div>
         
-        <select class="custom-select" id="areaA" name="areaAsignatura"  class="form-control">
+        <select class="custom-select" id="areaA" name="areaAsignatura"  formControlName="asignaturas" class="form-control">
             <option selected>Selecionar...</option>
             <option *ngFor="let item of asignaturas" value="{{item.nombreAsignatura}}">{{item.nombreAsignatura}}</option>
         </select>
