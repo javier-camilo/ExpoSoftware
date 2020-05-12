@@ -38,6 +38,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -81,6 +83,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCheckboxModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

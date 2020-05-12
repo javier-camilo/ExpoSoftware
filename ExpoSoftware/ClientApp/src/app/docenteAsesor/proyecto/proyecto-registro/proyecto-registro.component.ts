@@ -9,10 +9,11 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class ProyectoRegistroComponent implements OnInit {
 
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor() {}
 
-  ngOnInit(): void {
-
+  ngOnInit() {
+ 
   }
+  
 
 }
