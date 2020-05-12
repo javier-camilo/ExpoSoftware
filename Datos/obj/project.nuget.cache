@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pK/96UkOrdPo7dB1KerUAAPRjxrCp+yfjdKnYfqwxKf3AxYVyW6tHovbD+Aiex510RnqkQGFKzld+zVL126fnw==",
+  "dgSpecHash": "DcAtoGE0UI07nTZIqCczPXXWkyJPr4xZoJKWpoYQCLQlqRdTpIsnTmCL/vh0QEh4NFviSSVxzYKBvINIUqZeUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\Users\\ASUS-PC\\Desktop\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

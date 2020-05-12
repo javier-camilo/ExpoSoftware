@@ -7,3 +7,12 @@ C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.dll
 C:\Users\ASUS-PC\Desktop\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.csprojAssemblyReference.cache
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.pdb

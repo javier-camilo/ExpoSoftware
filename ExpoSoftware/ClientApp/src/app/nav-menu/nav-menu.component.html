@@ -94,6 +94,27 @@
                   </div>
 
 
+
+                  <mat-list-item style="margin-top: 50px; font-size: 20px;">
+                    Docente Asesor
+                  </mat-list-item>
+
+
+              <mat-list-item data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <mat-icon>dns  </mat-icon>Proyecto
+              </mat-list-item>
+
+              <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                <div style="margin-left: 20px;">
+                  
+                  <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerProyecto"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                </div>
+    
+              </div>
+
+
                   
 
 

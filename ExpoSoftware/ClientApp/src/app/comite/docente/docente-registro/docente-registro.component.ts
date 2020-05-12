@@ -12,6 +12,8 @@ import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-b
 import { ModalComponent } from 'src/app/modal/modal.component';
 import { from } from 'rxjs';
 import { deprecate } from 'util';
+import { AreaService } from 'src/app/services/area.service';
+import { Area } from '../../area/model/area';
 
 let options: NgbModalOptions = {
   size: 'xl'
@@ -26,20 +28,24 @@ let options: NgbModalOptions = {
 
 export class DocenteRegistroComponent implements OnInit {
 
-  
+  areas:Area[];
   asignaturas:Asignatura[];
 
 
-  formGroup: FormGroup;
-  docente : Docente;
-  respuesta : string;
+  formGroup:FormGroup;
+  docente:Docente;
+  respuesta:string;
+  TipoDocente:string;
+  TipoArea:string;
 
   constructor(private asignaturaService:AsignaturaService,private docenteService: DocenteService, private dialog : MatDialog,
-   private formBuilder: FormBuilder, private modalService: NgbModal ) { }
+   private formBuilder: FormBuilder, private modalService: NgbModal, private areaService:AreaService) { }
 
 
   ngOnInit(): void {
     this.comprobar();
+    this.TipoDocente="Selecionar...";
+    this.TipoArea="Selecionar...";
     this.docente = new Docente();
     this.buildForm();
   }
@@ -50,14 +56,15 @@ export class DocenteRegistroComponent implements OnInit {
     this.docente.descripcion="";
     this.docente.tipo="Selecionar...";
     this.docente.asignaturas = "Selecionar...";
+    this.docente.area="Selecionar...";
 
     this.formGroup = this.formBuilder.group({
       identificacion : [this.docente.identificacion, [Validators.required, Validators.maxLength(10)]],
       nombre : [this.docente.nombre , [Validators.required]],
       descripcion : [this.docente.descripcion, [Validators.required]],
       tipo : [this.docente.tipo, this.ValidaTipo],
-      asignaturas : [this.docente.asignaturas, this.ValidaAsignaturas]
-
+      asignaturas : [this.docente.asignaturas, this.ValidaAsignaturas],
+      area : [this.docente.area]
 
     })
   }
@@ -116,10 +123,10 @@ add(resultado : string){
 
 }
 
-buscar(){
-  const modalRef = this.modalService.open(ModalComponent,options);
-  modalRef.componentInstance.name="consultaDocente";
-}
+  buscar(){
+      const modalRef = this.modalService.open(ModalComponent,options);
+      modalRef.componentInstance.name="consultaDocente";
+  }
 
   mensaje():void{
 
@@ -135,6 +142,9 @@ buscar(){
         
       }
     });
+
+
+    this.areaService.get("").subscribe(result => {this.areas=result});
 
   }
 

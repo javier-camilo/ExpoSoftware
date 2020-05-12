@@ -5,5 +5,6 @@ export class Docente {
     nombre:string;
     descripcion:string;
     tipo:string;
+    area:string;
     asignaturas:string;
 }
