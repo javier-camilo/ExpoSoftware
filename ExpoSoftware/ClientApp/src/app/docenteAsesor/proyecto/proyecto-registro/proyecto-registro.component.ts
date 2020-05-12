@@ -8,12 +8,22 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProyectoRegistroComponent implements OnInit {
 
+  isLinear = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
-  constructor() {}
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
- 
+
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+
+
   }
-  
 
 }

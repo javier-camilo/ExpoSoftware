@@ -15,12 +15,13 @@
 
 
 
-    <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && asignatura==undefined">
+    <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && areas">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Codigo Asignatura</th>
           <th scope="col">Nombre Asignatura</th>
+          <th scope="col">Codigo del Area</th>
           <th scope="col">Area de la Asignatura</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Editar/Eliminar</th>
@@ -32,6 +33,9 @@
           <td>{{ asignatura.codigoAsignatura }} </td>
           <td>{{ asignatura.nombreAsignatura }}</td>
           <td>{{asignatura.areaAsignatura  }}</td>
+          <div *ngFor="let item of areas">
+            <td *ngIf="item.codigoArea===asignatura.areaAsignatura">{{item.nombreArea}}</td>
+          </div>
           <td>{{ asignatura.descripcionAsignatura }}</td>
           <td style="text-align: justify;"> <a routerLink='/asignaturaEdicion/{{asignatura.codigoAsignatura}}'>Seleccionar</a></td>
         </tr>

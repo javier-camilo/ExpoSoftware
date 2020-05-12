@@ -74,8 +74,9 @@ export class AreaEdicionComponent implements OnInit {
   }
 
   update(result: any) {
-    
-    this.areaService.put(this.area).subscribe();
+    if(result=="true"){
+       this.areaService.put(this.area).subscribe();
+    }
   }
   
 

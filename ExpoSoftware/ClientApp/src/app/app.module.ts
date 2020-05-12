@@ -39,6 +39,8 @@ import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-reg
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatInputModule} from '@angular/material';
 
 
 
@@ -83,6 +85,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatSlideToggleModule,
     MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
