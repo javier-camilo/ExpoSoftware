@@ -33,6 +33,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FiltroAreaPipe } from './pipe/filtro-area.pipe';
 import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.component';
 import { FiltroDocentePipe } from './pipe/filtro-docente.pipe';
+import { FiltoAsignaturaAreaPipe } from './pipe/filto-asignatura-area.pipe';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
+import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
 
 
 @NgModule({
@@ -52,10 +56,12 @@ import { FiltroDocentePipe } from './pipe/filtro-docente.pipe';
     ModalComponent,
     AreaRegistroComponent,
     AreaConsultaComponent,
-
     FiltroAreaPipe,
     AreaEdicionComponent,
-    FiltroDocentePipe
+    FiltroDocentePipe,
+    FiltoAsignaturaAreaPipe,
+    ProyectoRegistroComponent,
+    ProyectoConsultaComponent
 
   ],
   imports: [
@@ -70,6 +76,7 @@ import { FiltroDocentePipe } from './pipe/filtro-docente.pipe';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatStepperModule,
     MatCheckboxModule,
     ReactiveFormsModule,
     RouterModule.forRoot([

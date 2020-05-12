@@ -17,7 +17,9 @@ export class FiltroAsignaturaPipe implements PipeTransform {
      .indexOf(searchText.toLowerCase()) !== -1 ||
 
      p.nombreAsignatura.toLowerCase()
-    .indexOf(searchText.toLowerCase()) !== -1  );
+    .indexOf(searchText.toLowerCase()) !== -1  
+
+    );
 
     
   }
