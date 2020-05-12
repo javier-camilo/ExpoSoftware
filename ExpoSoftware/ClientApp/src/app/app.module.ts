@@ -37,6 +37,11 @@ import { FiltoAsignaturaAreaPipe } from './pipe/filto-asignatura-area.pipe';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatInputModule} from '@angular/material';
+
 
 
 @NgModule({
@@ -78,7 +83,11 @@ import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-con
     MatListModule,
     MatStepperModule,
     MatCheckboxModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

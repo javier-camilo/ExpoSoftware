@@ -12,7 +12,14 @@ export class FiltroDocentePipe implements PipeTransform {
 
     return docentes.filter(p =>
        p.identificacion.toLowerCase()
-       .indexOf(searchText.toLowerCase()) !== -1 )
+       .indexOf(searchText.toLowerCase()) !== -1 
+
+      || 
+
+      p.nombre.toLowerCase()
+      .indexOf(searchText.toLowerCase()) !== -1 
+       ) 
+
   }
 
 }

@@ -26,6 +26,10 @@ export class NavMenuComponent {
     {name:"Consulta area", route: "/areaConsulta", icon:"search"}
   ]
 
+  fillerProyecto=[
+    {name:"Registro Proyecto", route: "/proyectoRegistro", icon:"note_add"}
+  ]
+
 
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
