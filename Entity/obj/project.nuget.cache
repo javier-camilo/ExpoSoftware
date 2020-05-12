@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "123b6b6YNHU6MMPkMJWsjKGL4fqGvw+4BHlAN6FwGPbZuTmWtmZb8xuTOfRaj6W3cV9UA8oaK/UVB/uxko5wvg==",
+  "dgSpecHash": "3DenaPiZ8NH6JOMeQP+c7BDZuAbYEFlv61PsfcsvQpnOFv87kY+YHgxZhMNtHS+Fn+JpzfEk2hdsdI9ItxfNxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS-PC\\Desktop\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+  "projectFilePath": "c:\\Users\\ASUS-PC\\Desktop\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
