@@ -70,7 +70,9 @@ export class AreaEdicionComponent implements OnInit {
 
   }
   delete(result: any) {
-    throw new Error("Method not implemented.");
+    if(result=="true"){
+      this.areaService.delete(this.area).subscribe();
+    }
   }
 
   update(result: any) {

@@ -131,7 +131,7 @@
   </div>
           <div class="text-center">
 
-            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" >Registrar</button>
+            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="formGroup.invalid" >Registrar</button>
  
             <button mat-stroked-button style="border-color: #339240; " type="reset">Limpiar</button>
  

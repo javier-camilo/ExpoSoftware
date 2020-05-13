@@ -72,8 +72,18 @@ export class AreaService {
       const url = `${this.baseUrl}api/Area/${area.codigoArea}`;
       return this.http.put(url, area,  {responseType: 'text'} )
       .pipe(
-        tap(_=> this.handleErrorService.log('se modifico satisfactoriamente el area')),
-        catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))
+        tap(_=> this.handleErrorService.log(_)),
+        catchError(this.handleErrorService.handleError<any>('Editar area'))
+      );
+    }
+
+
+    delete(area: Area| string): Observable<string> {
+      const id = typeof area === 'string' ? area : area.codigoArea;
+      return this.http.delete(this.baseUrl + 'api/Area/'+ id, {responseType: 'text'} )
+      .pipe(
+        tap(_ => this.handleErrorService.log(_)),
+        catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
       );
     }
 
