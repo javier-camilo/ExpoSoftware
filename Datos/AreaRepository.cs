@@ -98,6 +98,16 @@ namespace Datos
             }
         }
 
+       public void Eliminar(Area area)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Delete from Area where CodigoArea=@CodigoArea";
+                command.Parameters.AddWithValue("@CodigoArea",area.CodigoArea);
+                command.ExecuteNonQuery();
+            }
+        }
+
 
 
         

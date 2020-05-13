@@ -88,7 +88,7 @@ namespace Datos
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "Delete from Docente where Identificacion=@Identificacion";
-                command.Parameters.AddWithValue("@CodigoAsignatura", docente.Identificacion);
+                command.Parameters.AddWithValue("@Identificacion", docente.Identificacion);
                 command.ExecuteNonQuery();
             }
         }
@@ -97,12 +97,12 @@ namespace Datos
         {
             using (var command = _connection.CreateCommand())
             {
-                command.CommandText = "update Docente set Identificacion=@Identidificacion Nombre=@Nombre,Descripcion=@Descripcion, Tipo=@Tipo, Asignaturas=@Asignaturas where Identificacion=@Identificacion";
+                command.CommandText = "update Docente set Identificacion=@Identificacion, Nombre=@Nombre,Descripcion=@Descripcion, Tipo=@Tipo, Asignatura=@Asignatura where Identificacion=@Identificacion";
                 command.Parameters.AddWithValue("@Identificacion", docente.Identificacion);
                 command.Parameters.AddWithValue("@Nombre", docente.Nombre);
                 command.Parameters.AddWithValue("@Descripcion", docente.Descripcion);
                 command.Parameters.AddWithValue("@Tipo", docente.Tipo);
-                command.Parameters.AddWithValue("@Docentes", docente.Asignaturas);
+                command.Parameters.AddWithValue("@Asignatura", docente.Asignaturas);
                 command.ExecuteNonQuery();
             }
         }
