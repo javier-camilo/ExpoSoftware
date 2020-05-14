@@ -39,7 +39,7 @@ import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-reg
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { EstudianteconsultaComponent } from './comite/estudiante/estudianteconsulta/estudianteconsulta.component';
+
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
@@ -69,7 +69,6 @@ import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
     FiltoAsignaturaAreaPipe,
     ProyectoRegistroComponent,
     ProyectoConsultaComponent,
-    EstudianteconsultaComponent,
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
     FiltroEstudiantePipe

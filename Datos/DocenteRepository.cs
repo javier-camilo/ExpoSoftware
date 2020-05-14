@@ -88,7 +88,7 @@ namespace Datos
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "Delete from Docente where Identificacion=@Identificacion";
-                command.Parameters.AddWithValue("@CodigoAsignatura", docente.Identificacion);
+                command.Parameters.AddWithValue("@Identificacion", docente.Identificacion);
                 command.ExecuteNonQuery();
             }
         }
