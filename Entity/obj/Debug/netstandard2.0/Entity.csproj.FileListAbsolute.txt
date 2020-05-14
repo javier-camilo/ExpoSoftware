@@ -16,3 +16,11 @@ C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-
 C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
 C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.dll
 C:\Users\ASUS-PC\Desktop\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\bin\Debug\netstandard2.0\Entity.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\bin\Debug\netstandard2.0\Entity.pdb
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\obj\Debug\netstandard2.0\Entity.csprojAssemblyReference.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\obj\Debug\netstandard2.0\Entity.dll
+U:\UNIVERSIDAD\Quinto semestre\Programacion web\PROYECTO\EXPOSOFTWARE\Expo4\ExpoSoftware\Entity\obj\Debug\netstandard2.0\Entity.pdb
