@@ -1093,11 +1093,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
+      "projectUniqueName": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
       "projectName": "Logica",
-      "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
+      "projectPath": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
       "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\obj\\",
+      "outputPath": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1116,11 +1116,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
-              "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj"
+            "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
+              "projectPath": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj"
             },
-            "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
+            "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
+              "projectPath": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
             }
           }
         }
