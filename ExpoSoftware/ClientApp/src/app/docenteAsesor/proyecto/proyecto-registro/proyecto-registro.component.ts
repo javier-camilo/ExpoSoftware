@@ -11,6 +11,7 @@ export class ProyectoRegistroComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  estudiante:string;
 
   constructor(private _formBuilder: FormBuilder) {}
 

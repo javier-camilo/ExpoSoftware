@@ -47,11 +47,23 @@ export class DocenteService {
       );
   }
 
-  getId(id: string): Observable<Docente> {
+  getId(id: string, llamadoOperacion?:string): Observable<Docente> {
     const url = `${this.baseUrl + 'api/Docente'}/${id}`;
     return this.http.get<Docente>(url, httpOptions)
       .pipe(
-        tap(_ => this.handleErrorService.log('se consulto el docente con identificacion = ' + id)),
+        tap(_ => 
+
+          {
+
+            if(llamadoOperacion==null){
+              
+              this.handleErrorService.log('se consulto el docente con identificacion = ' + id)
+
+            }
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Docente>('Buscar docente', null))
       );
   }

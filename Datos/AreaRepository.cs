@@ -40,9 +40,7 @@ namespace Datos
                 command.Parameters.AddWithValue("@CodigoArea", identificacion);
                 dataReader = command.ExecuteReader();
                 dataReader.Read();
-
                 return DataReaderMap(dataReader);
-
             }
         }
 
@@ -77,6 +75,7 @@ namespace Datos
             area.CodigoArea = (string)dataReader["CodigoArea"].ToString();
             
             area.NombreArea = (string)dataReader["NombreArea"];
+
 
             return area;
             

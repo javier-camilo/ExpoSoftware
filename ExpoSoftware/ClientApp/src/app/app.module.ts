@@ -41,6 +41,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -86,6 +87,7 @@ import {MatInputModule} from '@angular/material';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
     RouterModule.forRoot([

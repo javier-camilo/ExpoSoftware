@@ -54,11 +54,24 @@ export class AsignaturaService {
     }
 
 
-    getId(id: string): Observable<Asignatura> {
+    getId(id: string, llamadOperacion?:string): Observable<Asignatura> {
       const url = `${this.baseUrl + 'api/Asignatura'}/${id}`;
         return this.http.get<Asignatura>(url, httpOptions)
         .pipe(
-          tap(_ => this.handleErrorService.log('se consulto la asignatura con codigo = '+ id )),
+          tap(_ => 
+
+            {
+
+              if(llamadOperacion==null){
+
+                
+                this.handleErrorService.log('se consulto la asignatura con codigo = '+ id )
+
+              }
+
+            }
+            
+            ),
           catchError(this.handleErrorService.handleError<Asignatura>('Buscar Asignatura', null))
         );
     }

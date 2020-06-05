@@ -58,11 +58,23 @@ export class AreaService {
 
 
     
-    getId(id: string): Observable<Area> {
+    getId(id: string, operacionLLamado?:string): Observable<Area> {
       const url = `${this.baseUrl + 'api/Area'}/${id}`;
         return this.http.get<Area>(url, httpOptions)
         .pipe(
-          tap(_ => this.handleErrorService.log('se consulto la area con codigo = '+ id)),
+          tap(_ =>
+
+            {
+              
+                if(operacionLLamado==null){
+                  
+                    this.handleErrorService.log('se consulto la area con codigo = '+ id)
+
+                }
+                
+            }
+            
+            ),
           catchError(this.handleErrorService.handleError<Area>('Buscar Asignatura', null))
         );
     }
