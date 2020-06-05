@@ -43,6 +43,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
+import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
+import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
+import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
+
 
 
 @NgModule({
@@ -67,7 +71,10 @@ import {MatDividerModule} from '@angular/material/divider';
     FiltroDocentePipe,
     FiltoAsignaturaAreaPipe,
     ProyectoRegistroComponent,
-    ProyectoConsultaComponent
+    ProyectoConsultaComponent,
+    EstudianteConsultaComponent,
+    EstudianteRegistroComponent,
+    FiltroEstudiantePipe
 
   ],
   imports: [
