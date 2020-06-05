@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wMWCZu43JyPcI06CLnGCQ+f6DWVPBucGM9u2CwEvsWnsiXENFb/d/vMdXHNd0vu5uQN9xiLZbOtYBR3sHkWN+g==",
+  "dgSpecHash": "RYIYotOrOOtNPj/EmLZm+rJdCAT3RJnxSARRNdYQEMfeZC2Y58BAjkwzkSD7lnCHpZrz+WuDAZkWZ8Wn4Yh+Zg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS-PC\\Desktop\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
+  "projectFilePath": "c:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Logica\\Logica.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

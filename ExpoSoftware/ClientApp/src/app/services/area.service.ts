@@ -58,11 +58,23 @@ export class AreaService {
 
 
     
-    getId(id: string): Observable<Area> {
+    getId(id: string, operacionLLamado?:string): Observable<Area> {
       const url = `${this.baseUrl + 'api/Area'}/${id}`;
         return this.http.get<Area>(url, httpOptions)
         .pipe(
-          tap(_ => this.handleErrorService.log('se consulto la area con codigo = '+ id)),
+          tap(_ =>
+
+            {
+              
+                if(operacionLLamado==null){
+                  
+                    this.handleErrorService.log('se consulto la area con codigo = '+ id)
+
+                }
+                
+            }
+            
+            ),
           catchError(this.handleErrorService.handleError<Area>('Buscar Asignatura', null))
         );
     }
@@ -72,8 +84,18 @@ export class AreaService {
       const url = `${this.baseUrl}api/Area/${area.codigoArea}`;
       return this.http.put(url, area,  {responseType: 'text'} )
       .pipe(
-        tap(_=> this.handleErrorService.log('se modifico satisfactoriamente el area')),
-        catchError(this.handleErrorService.handleError<any>('Editar Asignatura'))
+        tap(_=> this.handleErrorService.log(_)),
+        catchError(this.handleErrorService.handleError<any>('Editar area'))
+      );
+    }
+
+
+    delete(area: Area| string): Observable<string> {
+      const id = typeof area === 'string' ? area : area.codigoArea;
+      return this.http.delete(this.baseUrl + 'api/Area/'+ id, {responseType: 'text'} )
+      .pipe(
+        tap(_ => this.handleErrorService.log(_)),
+        catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
       );
     }
 

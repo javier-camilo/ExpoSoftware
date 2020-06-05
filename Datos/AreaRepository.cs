@@ -40,9 +40,7 @@ namespace Datos
                 command.Parameters.AddWithValue("@CodigoArea", identificacion);
                 dataReader = command.ExecuteReader();
                 dataReader.Read();
-
                 return DataReaderMap(dataReader);
-
             }
         }
 
@@ -78,6 +76,7 @@ namespace Datos
             
             area.NombreArea = (string)dataReader["NombreArea"];
 
+
             return area;
             
          }
@@ -94,6 +93,16 @@ namespace Datos
                 
                 command.Parameters.AddWithValue("@NombreArea", area.NombreArea);
 
+                command.ExecuteNonQuery();
+            }
+        }
+
+       public void Eliminar(Area area)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.CommandText = "Delete from Area where CodigoArea=@CodigoArea";
+                command.Parameters.AddWithValue("@CodigoArea",area.CodigoArea);
                 command.ExecuteNonQuery();
             }
         }

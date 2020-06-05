@@ -10,6 +10,14 @@
            <app-asignatura-consulta></app-asignatura-consulta>
        </div>
 
+       <div *ngIf="name==='consultaArea' ">
+         <app-area-consulta></app-area-consulta>
+       </div>
+
+       <div *ngIf="name==='consultaDocente' ">
+         <app-docente-consulta></app-docente-consulta>
+      </div>
+
   </div>
   
   <div class="modal-footer">

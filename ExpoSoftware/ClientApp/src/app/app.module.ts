@@ -32,6 +32,17 @@ import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FiltroAreaPipe } from './pipe/filtro-area.pipe';
 import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.component';
+import { FiltroDocentePipe } from './pipe/filtro-docente.pipe';
+import { FiltoAsignaturaAreaPipe } from './pipe/filto-asignatura-area.pipe';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
+import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatInputModule} from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 @NgModule({
@@ -52,7 +63,12 @@ import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.co
     AreaRegistroComponent,
     AreaConsultaComponent,
     FiltroAreaPipe,
-    AreaEdicionComponent
+    AreaEdicionComponent,
+    FiltroDocentePipe,
+    FiltoAsignaturaAreaPipe,
+    ProyectoRegistroComponent,
+    ProyectoConsultaComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -66,8 +82,14 @@ import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.co
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatStepperModule,
     MatCheckboxModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

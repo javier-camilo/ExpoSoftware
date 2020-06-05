@@ -91,6 +91,13 @@ namespace ExpoSoftware.Controllers
            return Ok(mensaje) ;
 
         }
+
+        [HttpDelete("{identificacion}")]
+        public ActionResult<string> Delete(string identificacion)
+        {
+            string mensaje = _AreaService.Eliminar(identificacion);
+            return Ok(mensaje);
+        }
         
 
         
