@@ -6,3 +6,4 @@ C:\Users\ASUS-PC\Documents\PRINCIPAL\Escritorio Actual\Plantillas oficiales\Expo
 C:\Users\ASUS-PC\Documents\PRINCIPAL\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
 C:\Users\ASUS-PC\Documents\PRINCIPAL\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.dll
 C:\Users\ASUS-PC\Documents\PRINCIPAL\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ASUS-PC\Documents\PRINCIPAL\Escritorio Actual\Plantillas oficiales\ExpoSoftwarePro-cambio\Entity\obj\Debug\netstandard2.0\Entity.csprojAssemblyReference.cache
