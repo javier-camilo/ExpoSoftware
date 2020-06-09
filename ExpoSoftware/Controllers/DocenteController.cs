@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
 using Microsoft.AspNetCore.Http;
+using Datos;
 
 namespace ExpoSoftware.Controllers
 {
@@ -14,13 +15,9 @@ namespace ExpoSoftware.Controllers
     public class DocenteController : ControllerBase
     {
         private readonly DocenteService _DocenteService;
-        public IConfiguration Configuration { get; }
-
-        public DocenteController(IConfiguration configuration)
+        public DocenteController(ExpoSoftwareContext context)
         {
-            Configuration = configuration;
-            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            _DocenteService = new DocenteService(connectionString);
+            _DocenteService = new DocenteService(context);
         }
 
 

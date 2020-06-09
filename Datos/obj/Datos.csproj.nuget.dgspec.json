@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Datos\\Datos.csproj": {}
   },
   "projects": {
@@ -12,23 +13,41 @@
         "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Datos\\Datos.csproj",
         "packagesPath": "C:\\Users\\e404n\\.nuget\\packages\\",
         "outputPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Datos\\obj\\",
+=======
+    "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
+        "projectName": "Datos",
+        "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\Datos.csproj",
+        "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Datos\\obj\\",
+>>>>>>> 470991ece435706338fab3df2a30cc433d180c40
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\e404n\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netstandard2.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netstandard2.1": {
             "projectReferences": {
+<<<<<<< HEAD
               "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Entity\\Entity.csproj": {
                 "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Entity\\Entity.csproj"
+=======
+              "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj"
+>>>>>>> 470991ece435706338fab3df2a30cc433d180c40
               }
             }
           }
@@ -40,21 +59,19 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netstandard2.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "System.Collections": {
               "target": "Package",
               "version": "[4.3.0, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.1, )"
             }
           },
           "imports": [
@@ -67,6 +84,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
@@ -79,20 +97,39 @@
         "projectPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\e404n\\.nuget\\packages\\",
         "outputPath": "U:\\UNIVERSIDAD\\Quinto semestre\\Programacion web\\PROYECTO\\EXPOSOFTWARE\\Expo5\\ExpoSoftware\\Entity\\obj\\",
+=======
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+        "projectName": "Entity",
+        "projectPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\ASUS-PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\obj\\",
+>>>>>>> 470991ece435706338fab3df2a30cc433d180c40
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\e404n\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netstandard2.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netstandard2.1": {
             "projectReferences": {}
           }
         },
@@ -103,13 +140,11 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
+        "netstandard2.1": {
           "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
+            "System.ComponentModel.Annotations": {
               "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
@@ -122,7 +157,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+=======
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+>>>>>>> 470991ece435706338fab3df2a30cc433d180c40
         }
       }
     }

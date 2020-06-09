@@ -1,11 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "X90pJfiNfgKfZVxxkQMUh8JibuapZxYP0oJaHDL2OC/L5UAvSVdVNpLGwzh6ljFbu0v4YbIa/d5QNDoVP+HwQQ==",
+=======
+  "dgSpecHash": "PPRBHnCzZfqRPEL7zrFjM/8f1QUQ9rtkmLHot6Mgu0ysGGmMtXZNlHQAGTdCxxkMPniPzGjSsL5BmNaLJuviZA==",
+>>>>>>> 470991ece435706338fab3df2a30cc433d180c40
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS-PC\\Documents\\PRINCIPAL\\Escritorio Actual\\Plantillas oficiales\\ExpoSoftwarePro-cambio\\Entity\\Entity.csproj",
   "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\ASUS-PC\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

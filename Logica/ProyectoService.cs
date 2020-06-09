@@ -2,23 +2,19 @@ using Datos;
 using Entity;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Logica
 {
     public class ProyectoService
     {
 
-        private readonly ConnectionManager _conexion;
-        private readonly ProyectoRepository  _repositorio;
+         private readonly ExpoSoftwareContext _context;
 
-
-        public ProyectoService(string connectionString)
+        public ProyectoService(ExpoSoftwareContext context)
         {
-            _conexion = new ConnectionManager(connectionString);
-            _repositorio = new ProyectoRepository(_conexion);
+            _context=context;
         }
-
 
         
         public GuardarProyectoResponse Guardar(Proyecto proyecto)
@@ -26,9 +22,7 @@ namespace Logica
             try
             {
                 
-                _conexion.Open();
-                
-                var ProyectoBuscado= _repositorio.BuscarPorIdentificacion(proyecto.IdProyecto);
+                var ProyectoBuscado= _context.Proyectos.Find(proyecto.IdProyecto);
 
                 if(ProyectoBuscado!=null){
                     
@@ -36,16 +30,15 @@ namespace Logica
 
                 }
 
-                _repositorio.Guardar(proyecto);
+                _context.Proyectos.Add(proyecto);
+                _context.SaveChanges();
 
-                _conexion.Close();
                 return new GuardarProyectoResponse(proyecto);
             }
             catch (Exception e)
             {
                 return new GuardarProyectoResponse($"Error de la Aplicacion: {e.Message}");
             }
-            finally { _conexion.Close(); }
         }
 
 
@@ -70,9 +63,7 @@ namespace Logica
 
         public List<Proyecto> ConsultarTodos()
         {
-            _conexion.Open();
-            List<Proyecto> proyectos = _repositorio.ConsultarTodos();
-            _conexion.Close();
+            List<Proyecto> proyectos = _context.Proyectos.ToList();
             return proyectos;
         }
 
@@ -80,9 +71,7 @@ namespace Logica
 
          public Proyecto BuscarxIdentificacion(string identificacion)
         {
-            _conexion.Open();
-            Proyecto proyecto = _repositorio.BuscarPorIdentificacion(identificacion);
-            _conexion.Close();
+            Proyecto proyecto = _context.Proyectos.Find(identificacion);
             return proyecto;
         }
 
@@ -92,12 +81,17 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var proyectoViejo = _repositorio.BuscarPorIdentificacion(proyecto.IdProyecto);
+                var proyectoViejo = _context.Proyectos.Find(proyecto.IdProyecto);
                 if (proyectoViejo != null)
                 {
-                    _repositorio.ModificarEstado(proyecto);
-                    _conexion.Close();
+                    proyectoViejo.IdProyecto=proyecto.IdProyecto;
+                    proyectoViejo.Titulo=proyectoViejo.Titulo;
+                    proyectoViejo.Resumen=proyecto.Resumen;
+                    proyectoViejo.Metodologia=proyecto.Metodologia;
+                    proyectoViejo.Estado=proyecto.Estado;
+                    proyectoViejo.CodigoAsignatura=proyecto.CodigoAsignatura;
+                    proyectoViejo.IdentificacionDocente=proyecto.IdentificacionDocente;
+                    proyectoViejo.IdentificacionEstudiante=proyecto.IdentificacionEstudiante;
                     return ($"El registro {proyectoViejo.Titulo} se ha modificado satisfactoriamente.");
                 }
                 else
@@ -110,13 +104,7 @@ namespace Logica
 
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
-
-
-
-
-        
     }
 }
