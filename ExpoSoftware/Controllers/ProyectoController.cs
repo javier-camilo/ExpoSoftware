@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
 using Microsoft.AspNetCore.Http;
+using Datos;
 
 namespace ExpoSoftware.Controllers
 {
@@ -16,13 +17,9 @@ namespace ExpoSoftware.Controllers
     {
 
         private readonly ProyectoService _ProyectoService;
-        public IConfiguration Configuration { get; }
-
-        public ProyectoController(IConfiguration configuration)
+        public ProyectoController(ExpoSoftwareContext context)
         {
-            Configuration = configuration;
-            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            _ProyectoService = new ProyectoService(connectionString);
+            _ProyectoService = new ProyectoService(context);
         }
 
 

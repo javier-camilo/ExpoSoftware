@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
 using Microsoft.AspNetCore.Http;
+using Datos;
 
 
 namespace ExpoSoftware.Controllers
@@ -17,14 +18,11 @@ namespace ExpoSoftware.Controllers
     {
 
         private readonly AsignaturaService _AsignaturaService;
-        public IConfiguration Configuration { get; }
         
 
-        public AsignaturaController(IConfiguration configuration)
+        public AsignaturaController(ExpoSoftwareContext context)
         {
-            Configuration = configuration;
-            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            _AsignaturaService = new AsignaturaService(connectionString);
+            _AsignaturaService = new AsignaturaService(context);
         }
 
 

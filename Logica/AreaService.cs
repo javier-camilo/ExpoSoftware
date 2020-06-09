@@ -2,19 +2,18 @@ using Datos;
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Logica
 {
     public class AreaService
     {
 
-        private readonly ConnectionManager _conexion;
-        private readonly AreaRepository _repositorio;
+        private readonly ExpoSoftwareContext _context;
 
-        public AreaService(string connectionString)
+        public AreaService(ExpoSoftwareContext context)
         {
-            _conexion = new ConnectionManager(connectionString);
-            _repositorio = new AreaRepository(_conexion);
+            _context=context;
         }
 
 
@@ -23,9 +22,8 @@ namespace Logica
             try
             {
                 
-                _conexion.Open();
                 
-                var areaBuscada= _repositorio.BuscarPorIdentificacion(area.CodigoArea);
+                var areaBuscada= _context.Areas.Find(area.CodigoArea);
 
                 if(areaBuscada!=null){
                     
@@ -33,9 +31,8 @@ namespace Logica
 
                 }
 
-                _repositorio.Guardar(area);
-
-                _conexion.Close();
+                _context.Areas.Add(area);
+                _context.SaveChanges();
 
                 return new GuardarAreaResponse(area);
 
@@ -44,7 +41,6 @@ namespace Logica
             {
                 return new GuardarAreaResponse($"Error de la Aplicacion: {e.Message}");
             }
-            finally { _conexion.Close(); }
             
         }
 
@@ -70,9 +66,7 @@ namespace Logica
 
         public List<Area> ConsultarTodos()
         {
-            _conexion.Open();
-            List<Area> areas = _repositorio.ConsultarTodos();
-            _conexion.Close();
+            List<Area> areas = _context.Areas.ToList();
             return areas;
             
         }
@@ -80,9 +74,7 @@ namespace Logica
 
         public Area BuscarxIdentificacion(string identificacion)
         {
-            _conexion.Open();
-            Area area = _repositorio.BuscarPorIdentificacion(identificacion);
-            _conexion.Close();
+            Area area = _context.Areas.Find(identificacion);
             return area;
         }
 
@@ -91,12 +83,16 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var areaVieja = _repositorio.BuscarPorIdentificacion(areaNueva.CodigoArea);
+                var areaVieja = _context.Areas.Find(areaNueva.CodigoArea);
+
                 if (areaVieja != null)
                 {
-                    _repositorio.Modificar(areaNueva);
-                    _conexion.Close();
+
+                    areaVieja.CodigoArea=areaNueva.CodigoArea;
+                    areaVieja.NombreArea=areaNueva.NombreArea;
+                    _context.Areas.Update(areaVieja);
+                    _context.SaveChanges();
+
                     return ($"El registro {areaNueva.NombreArea} se ha modificado satisfactoriamente.");
                 }
                 else
@@ -109,7 +105,6 @@ namespace Logica
 
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
 
@@ -117,12 +112,12 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var area = _repositorio.BuscarPorIdentificacion(identificacion);
+
+                var area = _context.Areas.Find(identificacion);
                 if (area != null)
                 {
-                    _repositorio.Eliminar(area);
-                    _conexion.Close();
+                    _context.Areas.Remove(area);
+                    _context.SaveChanges();
                     return ($"El registro {area.NombreArea} se ha eliminado satisfactoriamente.");
                 }
                 else
@@ -134,7 +129,6 @@ namespace Logica
             {
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
 

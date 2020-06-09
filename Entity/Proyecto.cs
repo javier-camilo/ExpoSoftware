@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Entity
 {
     public class Proyecto
     {
-
+        [Key]
         public string IdProyecto { get; set; }
 
         public string Titulo { get; set; }

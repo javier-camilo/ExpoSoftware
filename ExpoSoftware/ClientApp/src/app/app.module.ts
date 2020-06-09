@@ -46,6 +46,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
+import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
 
 
 
@@ -74,7 +75,8 @@ import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
     ProyectoConsultaComponent,
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
-    FiltroEstudiantePipe
+    FiltroEstudiantePipe,
+    EstudianteEdicionComponent
 
   ],
   imports: [
