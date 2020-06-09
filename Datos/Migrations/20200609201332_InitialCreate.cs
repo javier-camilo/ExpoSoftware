@@ -48,6 +48,21 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Estudiantes",
+                columns: table => new
+                {
+                    IdEstudiante = table.Column<string>(nullable: false),
+                    NombreCompleto = table.Column<string>(nullable: true),
+                    Correo = table.Column<string>(nullable: true),
+                    celular = table.Column<string>(nullable: true),
+                    CodigoAsignatura = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estudiantes", x => x.IdEstudiante);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Proyectos",
                 columns: table => new
                 {
@@ -76,6 +91,9 @@ namespace Datos.Migrations
 
             migrationBuilder.DropTable(
                 name: "Docentes");
+
+            migrationBuilder.DropTable(
+                name: "Estudiantes");
 
             migrationBuilder.DropTable(
                 name: "Proyectos");

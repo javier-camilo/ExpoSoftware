@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ExpoSoftwareContext))]
-    [Migration("20200609153127_InitialCreate")]
+    [Migration("20200609201332_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,28 @@ namespace Datos.Migrations
                     b.HasKey("Identificacion");
 
                     b.ToTable("Docentes");
+                });
+
+            modelBuilder.Entity("Entity.Estudiante", b =>
+                {
+                    b.Property<string>("IdEstudiante")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CodigoAsignatura")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreCompleto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdEstudiante");
+
+                    b.ToTable("Estudiantes");
                 });
 
             modelBuilder.Entity("Entity.Proyecto", b =>

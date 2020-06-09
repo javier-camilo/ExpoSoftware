@@ -72,6 +72,28 @@ namespace Datos.Migrations
                     b.ToTable("Docentes");
                 });
 
+            modelBuilder.Entity("Entity.Estudiante", b =>
+                {
+                    b.Property<string>("IdEstudiante")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CodigoAsignatura")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreCompleto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("celular")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdEstudiante");
+
+                    b.ToTable("Estudiantes");
+                });
+
             modelBuilder.Entity("Entity.Proyecto", b =>
                 {
                     b.Property<string>("IdProyecto")
