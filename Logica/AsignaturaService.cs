@@ -3,30 +3,27 @@ using Datos;
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Logica
 {
     public class AsignaturaService
     {
 
-        private readonly ConnectionManager _conexion;
-        private readonly AsignaturaRepository _repositorio;
+         private readonly ExpoSoftwareContext _context;
 
-        public AsignaturaService(string connectionString)
+        public AsignaturaService(ExpoSoftwareContext context)
         {
-            _conexion = new ConnectionManager(connectionString);
-            _repositorio = new AsignaturaRepository(_conexion);
+            _context=context;
         }
-
 
         public GuardarAsignaturaResponse Guardar(Asignatura asignatura)
         {
             try
             {
                 
-                _conexion.Open();
                 
-                var asignaturaBuscada= _repositorio.BuscarPorIdentificacion(asignatura.CodigoAsignatura);
+                var asignaturaBuscada= _context.Asignaturas.Find(asignatura.CodigoAsignatura);
 
                 if(asignaturaBuscada!=null){
                     
@@ -34,16 +31,16 @@ namespace Logica
 
                 }
 
-                _repositorio.Guardar(asignatura);
+                _context.Asignaturas.Add(asignatura);
+                _context.SaveChanges();
 
-                _conexion.Close();
                 return new GuardarAsignaturaResponse(asignatura);
             }
             catch (Exception e)
             {
                 return new GuardarAsignaturaResponse($"Error de la Aplicacion: {e.Message}");
             }
-            finally { _conexion.Close(); }
+
         }
 
 
@@ -68,17 +65,13 @@ namespace Logica
 
         public List<Asignatura> ConsultarTodos()
         {
-            _conexion.Open();
-            List<Asignatura> asignaturas = _repositorio.ConsultarTodos();
-            _conexion.Close();
+            List<Asignatura> asignaturas = _context.Asignaturas.ToList();
             return asignaturas;
         }
 
         public Asignatura BuscarxIdentificacion(string identificacion)
         {
-            _conexion.Open();
-            Asignatura asignatura = _repositorio.BuscarPorIdentificacion(identificacion);
-            _conexion.Close();
+            Asignatura asignatura = _context.Asignaturas.Find(identificacion);
             return asignatura;
 
         }
@@ -88,12 +81,11 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var asignatura = _repositorio.BuscarPorIdentificacion(identificacion);
+                var asignatura = _context.Asignaturas.Find(identificacion);
                 if (asignatura != null)
                 {
-                    _repositorio.Eliminar(asignatura);
-                    _conexion.Close();
+                    _context.Asignaturas.Remove(asignatura);
+                    _context.SaveChanges();
                     return ($"El registro {asignatura.NombreAsignatura} se ha eliminado satisfactoriamente.");
                 }
                 else
@@ -105,7 +97,7 @@ namespace Logica
             {
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
+         
 
         }
 
@@ -114,12 +106,15 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var asignaturaVieja = _repositorio.BuscarPorIdentificacion(asignaturaNueva.CodigoAsignatura);
+                var asignaturaVieja = _context.Asignaturas.Find(asignaturaNueva.CodigoAsignatura);
                 if (asignaturaVieja != null)
                 {
-                    _repositorio.Modificar(asignaturaNueva);
-                    _conexion.Close();
+                    asignaturaVieja.CodigoAsignatura=asignaturaNueva.CodigoAsignatura;
+                    asignaturaVieja.NombreAsignatura=asignaturaNueva.NombreAsignatura;
+                    asignaturaVieja.DescripcionAsignatura=asignaturaNueva.DescripcionAsignatura;
+                    asignaturaVieja.AreaAsignatura=asignaturaNueva.AreaAsignatura;
+                    _context.Asignaturas.Update(asignaturaVieja);
+                    _context.SaveChanges();
                     return ($"El registro {asignaturaNueva.NombreAsignatura} se ha modificado satisfactoriamente.");
                 }
                 else
@@ -132,7 +127,6 @@ namespace Logica
 
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
 
