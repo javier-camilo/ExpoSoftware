@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 namespace Logica
 {
-    class EstudianteService
+   public class EstudianteService
     {
         private readonly ConnectionManager _conexion;
         private readonly EstudianteRepository _repositorio;
