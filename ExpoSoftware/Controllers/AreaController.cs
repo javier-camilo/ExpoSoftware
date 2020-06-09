@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Entity;
 using Logica;
+using Datos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
@@ -16,15 +17,12 @@ namespace ExpoSoftware.Controllers
     {
 
         private readonly AreaService _AreaService;
-        public IConfiguration Configuration { get; }
         
 
-        public AreaController(IConfiguration configuration)
+        public AreaController(ExpoSoftwareContext context)
         {
 
-            Configuration = configuration;
-            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            _AreaService = new AreaService(connectionString);
+            _AreaService = new AreaService(context);
 
         }
 
