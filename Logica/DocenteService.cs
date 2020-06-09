@@ -43,7 +43,7 @@ namespace Logica
             try
             {
 
-                var docenteBuscado = _context.Docentes.Find(docente);
+                var docenteBuscado = _context.Docentes.Find(docente.Identificacion);
 
                 if (docenteBuscado != null)
                 {
