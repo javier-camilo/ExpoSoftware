@@ -16,7 +16,6 @@ namespace Datos
         public DbSet<Asignatura> Asignaturas { get; set; }
         public DbSet<Docente> Docentes { get; set; }
         public DbSet<Proyecto> Proyectos { get; set; }
-        public DbSet<Estudiante> Estudiantes {get; set; }
     
         
     }
