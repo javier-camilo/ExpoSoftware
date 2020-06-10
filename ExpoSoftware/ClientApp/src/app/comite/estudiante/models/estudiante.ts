@@ -1,7 +1,8 @@
 export class Estudiante {
-    identificacion:string;
-    nombre:string;
-    correo:string;
-    asignaturas:string;
-    semestre:number;
+    idEstudiante: string;
+    nombreCompleto: string;
+    correo: string;
+    celular: string;
+    codigoAsignatura: string;
+
 }

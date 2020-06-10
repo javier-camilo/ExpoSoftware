@@ -11,6 +11,7 @@ import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Estudiante } from '../models/estudiante';
 import { DocenteService } from 'src/app/services/docente.service';
 import { AreaService } from 'src/app/services/area.service';
+import { Router } from '@angular/router';
 
 let options: NgbModalOptions = {
   size: 'xl'
@@ -26,21 +27,23 @@ export class EstudianteRegistroComponent implements OnInit {
   asignaturas:Asignatura[];
   formGroup : FormGroup;
   estudiante : Estudiante;
+  
   respuesta : string;
 
-  constructor(private docenteService: DocenteService, private dialog : MatDialog,
-    private formBuilder : FormBuilder, private modalService : NgbModal, private asignaturaService : AsignaturaService) { }
+  constructor(private estudianteService: EstudianteService, private dialog : MatDialog,
+    private formBuilder : FormBuilder, private modalService : NgbModal, private asignaturaService : AsignaturaService, private router: Router) { }
 
   ngOnInit(): void {
     this.estudiante = new Estudiante();
-    
+    this.buildForm();
+    this.iniciarAsignaturas();
 
   }
 
   iniciarAsignaturas(){
     this.asignaturaService.get("").subscribe(result => {this.asignaturas=result;
     if(this.asignaturas.length===0){
-      this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor usuario", "debe digilenciar las areas habilitadas para poder digilenciar el formulario", EsMensaje: "true"}});
+     this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor usuario", descripcion: "debe digilenciar las asignaturas habilitadas para poder digilenciar el formulario", EsMensaje: "true"}});
     }
 
     });
@@ -48,16 +51,79 @@ export class EstudianteRegistroComponent implements OnInit {
 
   private buildForm(){
 
-    this.estudiante.identificacion="";
-    this.estudiante.nombre="";
-    this.estudiante.semestre=3;
-    this.estudiante.asignaturas="seleccionar";
+    this.estudiante.idEstudiante="";
+    this.estudiante.nombreCompleto="";
+    this.estudiante.codigoAsignatura="seleccionar";
     this.estudiante.correo="";
+    this.estudiante.celular="";
+ 
+
+
+    this.formGroup = this.formBuilder.group({
+      idEstudiante: [ this.estudiante.idEstudiante, [Validators.required, Validators.maxLength(10)] ],
+      nombreCompleto: [ this.estudiante.nombreCompleto, [Validators.required]],
+      codigoAsignatura: [this.estudiante.codigoAsignatura, this.ValidaAsignatura ],
+      correo: [this.estudiante.correo, [Validators.email, Validators.required] ],
+      celular: [this.estudiante.celular, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]]
+      
+    });
+
+  }
+
+  private ValidaAsignatura(control : AbstractControl){
+    const asignatura=control.value;
+
+    if(asignatura ==="seleccionar"){
+      return{ Validar: true, message:"debe solucionar un valor" }
+    }
+
+    return null;
+  }
+
+  get control(){
+    return this.formGroup.controls;
+  }
+
+  onSubmit() {
+    if (this.formGroup.invalid){
+      return;
+    }
+      this.confirmarGuardado();
+      
+  }
+
+  confirmarGuardado(){
+    let ref = this.dialog.open(CuadroDialogoComponent, {data: {name:"Guardar", descripcion:"¿Desea guardar?"}})
+    ref.afterClosed().subscribe(result => {
+      this.respuesta=result;
+      this.add(this.respuesta);
+    })
+
+  }
+
+  add(resultado:string){
+
+
+    this.estudiante = this.formGroup.value;
+
+    if (resultado=="true") {
+
+      this.estudianteService.post(this.estudiante).subscribe(p => {
+        this.estudiante=p;
+      });
+
+      this.router.navigateByUrl('/estudianteConsulta');
+
+    } 
+
 
   }
 
 
 
-  }
+  
+
 
 }
+
+

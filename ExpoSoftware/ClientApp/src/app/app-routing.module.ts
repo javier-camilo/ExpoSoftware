@@ -12,7 +12,9 @@ import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta
 import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.component';
 import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
-
+import {EstudianteConsultaComponent} from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
+import {EstudianteRegistroComponent} from './comite/estudiante/estudiante-registro/estudiante-registro.component';
+import {EstudianteEdicionComponent} from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
 
 const routes: Routes = [
 
@@ -58,7 +60,25 @@ const routes: Routes = [
       
       path:"proyectoConsulta",
       component: ProyectoConsultaComponent
+    },
+
+    {
+      
+      path:"estudianteConsulta",
+      component: EstudianteConsultaComponent
+    },
+    {
+      
+      path:"estudianteRegistro",
+      component: EstudianteRegistroComponent
+    },
+    {
+      
+      path:"estudianteEdicion",
+      component: EstudianteEdicionComponent
     }
+    
+
     
 ];
   
