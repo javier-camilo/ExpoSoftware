@@ -5,37 +5,41 @@
 
     <form [formGroup]="firstFormGroup">
 
-      <ng-template matStepLabel>Datos del estudiante</ng-template>
+      <ng-template matStepLabel>Datos del docente</ng-template>
 
       <div class="row">
 
         <div class="col-sm">
+          
+        <mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Identificacion</mat-label>
-            <input matInput placeholder="Identificacion del estudiante " formControlName="firstCtrl" required>
-          </mat-form-field>
-    
-          <mat-form-field>
-            <mat-label>Nombre</mat-label>
-            <input matInput placeholder="nombre completo" formControlName="firstCtrl" required>
-          </mat-form-field>
-    
-         
+          <mat-label>Docente a buscar</mat-label>
+          <input matInput formControlName="identificacion" [(ngModel)]="busquedaDocente">
 
+        </mat-form-field>
+
+        {{docente.nombre}}
+
+        <button (click)="buscarDocente()">
+          consultar
+        </button>
+        
         </div>
 
-        <div class="col-sm">
 
-          <mat-form-field>
-            <mat-label>Celular</mat-label>
-            <input matInput placeholder="celular del estudiante" formControlName="firstCtrl" required>
-          </mat-form-field>
+        <div class="col-sm" >
 
-          <mat-form-field>
-            <mat-label>Correo</mat-label>
-            <input matInput placeholder="correo electronico" formControlName="firstCtrl" required>
-          </mat-form-field>
+      
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="nombre completo" formControlName="nombre" required ng>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Asignaturas</mat-label>
+              <input matInput placeholder="celular del estudiante" formControlName="asignaturas" required>
+            </mat-form-field>
+          
 
         </div>
 
@@ -65,7 +69,7 @@
 
       <mat-form-field>
         <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+        <input matInput  placeholder="Ex. 1 Main St, New York, NY"
                required>
       </mat-form-field>
 

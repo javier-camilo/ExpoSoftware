@@ -13,7 +13,7 @@ namespace Entity
 
         public string Correo { get; set; }
 
-        public string celular { get; set; }
+        public string Celular { get; set; }
 
         public string CodigoAsignatura { get; set; }
 

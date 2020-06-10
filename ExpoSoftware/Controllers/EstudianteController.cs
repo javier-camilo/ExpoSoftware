@@ -2,15 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Datos;
 using Entity;
 
 namespace ExpoSoftware.Controllers
 {
-    public class EstudianteController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EstudianteController : ControllerBase
     {
         private readonly ExpoSoftwareContext _context;
 
@@ -19,130 +21,99 @@ namespace ExpoSoftware.Controllers
             _context = context;
         }
 
-        // GET: Estudiante
-        public async Task<IActionResult> Index()
+        // GET: api/Estudiante
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Estudiante>>> GetEstudiantes()
         {
-            return View(await _context.Estudiantes.ToListAsync());
+            return await _context.Estudiantes.ToListAsync();
         }
 
-        // GET: Estudiante/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: api/Estudiante/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Estudiante>> GetEstudiante(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var estudiante = await _context.Estudiantes
-                .FirstOrDefaultAsync(m => m.IdEstudiante == id);
-            if (estudiante == null)
-            {
-                return NotFound();
-            }
-
-            return View(estudiante);
-        }
-
-        // GET: Estudiante/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Estudiante/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEstudiante,NombreCompleto,Correo,celular,CodigoAsignatura")] Estudiante estudiante)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(estudiante);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(estudiante);
-        }
-
-        // GET: Estudiante/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var estudiante = await _context.Estudiantes.FindAsync(id);
+
             if (estudiante == null)
             {
                 return NotFound();
             }
-            return View(estudiante);
+
+            return estudiante;
         }
 
-        // POST: Estudiante/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("IdEstudiante,NombreCompleto,Correo,celular,CodigoAsignatura")] Estudiante estudiante)
+        // PUT: api/Estudiante/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutEstudiante(string id, Estudiante estudiante)
         {
             if (id != estudiante.IdEstudiante)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            _context.Entry(estudiante).State = EntityState.Modified;
+
+            try
             {
-                try
-                {
-                    _context.Update(estudiante);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EstudianteExists(estudiante.IdEstudiante))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
             }
-            return View(estudiante);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!EstudianteExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // GET: Estudiante/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // POST: api/Estudiante
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost]
+        public async Task<ActionResult<Estudiante>> PostEstudiante(Estudiante estudiante)
         {
-            if (id == null)
+            _context.Estudiantes.Add(estudiante);
+            try
             {
-                return NotFound();
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (EstudianteExists(estudiante.IdEstudiante))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            var estudiante = await _context.Estudiantes
-                .FirstOrDefaultAsync(m => m.IdEstudiante == id);
+            return CreatedAtAction("GetEstudiante", new { id = estudiante.IdEstudiante }, estudiante);
+        }
+
+        // DELETE: api/Estudiante/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Estudiante>> DeleteEstudiante(string id)
+        {
+            var estudiante = await _context.Estudiantes.FindAsync(id);
             if (estudiante == null)
             {
                 return NotFound();
             }
 
-            return View(estudiante);
-        }
-
-        // POST: Estudiante/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var estudiante = await _context.Estudiantes.FindAsync(id);
             _context.Estudiantes.Remove(estudiante);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return estudiante;
         }
 
         private bool EstudianteExists(string id)
