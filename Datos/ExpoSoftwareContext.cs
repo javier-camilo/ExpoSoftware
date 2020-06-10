@@ -1,13 +1,14 @@
 
 using Entity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace Datos
 {
-    public class ExpoSoftwareContext : DbContext
+    public class ExpoSoftwareContext : IdentityDbContext<ApplicationUser>
     {
-        public ExpoSoftwareContext(DbContextOptions options) : base(options)
+        public ExpoSoftwareContext(DbContextOptions<ExpoSoftwareContext> options) : base(options)
         {
         }
 

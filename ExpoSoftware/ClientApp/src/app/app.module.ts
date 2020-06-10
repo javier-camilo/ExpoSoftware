@@ -47,6 +47,8 @@ import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-cons
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { UserLoginComponent } from './User/user-login/user-login.component';
 
 
 
@@ -76,7 +78,9 @@ import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edici
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
     FiltroEstudiantePipe,
-    EstudianteEdicionComponent
+    EstudianteEdicionComponent,
+    UserRegisterComponent,
+    UserLoginComponent
 
   ],
   imports: [

@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using Datos;
 using Microsoft.EntityFrameworkCore;
 using ExpoSoftware.Extensions;
+using ExpoSoftware.Services;
 
 namespace ExpoSoftware
 {
@@ -28,6 +29,9 @@ namespace ExpoSoftware
             
             var connectionString=Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ExpoSoftwareContext>(p=>p.UseSqlServer(connectionString));
+            services.AddIdentityConfig();
+            services.AddJwtAuthentication(Configuration);
+            services.AddScoped<ITokenGenerator, TokenGenerator>();
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -62,7 +66,8 @@ namespace ExpoSoftware
             }
 
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
