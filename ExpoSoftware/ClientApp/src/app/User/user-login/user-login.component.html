@@ -1,1 +1,26 @@
-<p>user-login works!</p>
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">LOGIN</p>
+        <footer class="blockquote-footer">Usuario/Email y contraseña para continuar</footer>
+    </blockquote>
+
+    <form [formGroup]="loginGroup">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group mb-3 input divflex">
+                <div>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Usuario</span>
+                </div>
+                <input type="text" placeholder="Usuario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="userName" [ngClass]="{ 'is-invalid': control.userName.errors && control.userName.touched }"> 
+                <div *ngIf="control.idEstudiante.errors" class="invalid-feedback" style="margin-left: 21%;">
+                    
+                    <div *ngIf="control.userName.errors.required">Ingrese su usuario</div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
