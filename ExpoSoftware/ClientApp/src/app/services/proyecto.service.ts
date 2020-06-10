@@ -68,6 +68,10 @@ export class ProyectoService {
   }
 
 
+  public funcionale(){
+    
+  }
+
 
 
 }
