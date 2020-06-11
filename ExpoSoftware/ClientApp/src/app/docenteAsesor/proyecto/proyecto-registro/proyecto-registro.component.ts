@@ -149,6 +149,11 @@ export class ProyectoRegistroComponent implements OnInit {
     }
 
 
+    private  buildFromTres(){
+      
+    }
+
+
     get control(){
       return this.firstFormGroup.controls;
     }
@@ -167,7 +172,9 @@ export class ProyectoRegistroComponent implements OnInit {
         this.docente=this.firstFormGroup.value;
         this.docente.tipo="asesor";
         this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
-     
+
+        this.estudiante=this.secondFormGroup.value;
+        this.estudianteService.post(this.estudiante).subscribe(result=>this.estudiante=result);
 
     }
 

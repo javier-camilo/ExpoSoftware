@@ -42,6 +42,7 @@ namespace ExpoSoftware.Models
             Identificacion = estudiante.Identificacion;
             Nombre = estudiante.Nombre;
             Correo = estudiante.Correo;
+            celular=estudiante.celular;
             Asignatura = estudiante.Asignatura;
             Semestre = estudiante.Semestre;
 

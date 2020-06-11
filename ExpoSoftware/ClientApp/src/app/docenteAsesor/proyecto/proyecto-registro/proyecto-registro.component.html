@@ -51,11 +51,10 @@
 
       </div>
 
-      <div style="margin-bottom: 50px; margin-top: 50px;">
+      <div style="margin-bottom: 50px; margin-top: 50px;" class="text-center" >
 
-        <button  (click)="buscarDocente()"  class="btn btn-light" style="margin-left: 30px;">consultar</button>
-        
-        <button  (click)="add()"  class="btn btn-light" style="margin-left: 30px;">Registrar</button>
+        <button  (click)="buscarDocente()"  class="btn btn-light">consultar</button>
+
 
       </div>
 
@@ -120,22 +119,24 @@
 
           <mat-form-field>
             <mat-label>Semestre</mat-label>
-            <input matInput formControlName="semestre" required>
+            <input matInput formControlName="semestre" required type="number">
           </mat-form-field>
 
 
+          
 
         
         </div>
 
 
-        <div class="col-sm" >
 
-          
+
+      </div>
+
+
+      <div style="margin-bottom: 50px; margin-top: 50px;" class="text-center" >
+
         <button  (click)="buscarEstudiante()"  class="btn btn-light">consultar</button>
-    
-
-        </div>
 
 
       </div>
@@ -144,7 +145,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Regresar</button>
-        <button mat-button matStepperNext>Siguiente</button>
+        <button mat-button matStepperNext style="margin-left: 80%;">Siguiente</button>
       </div>
 
 
@@ -154,9 +155,9 @@
 
 
 
-  <mat-step>
+  <mat-step [stepControl]="treeFormgroup">
 
-    <form>
+    <form [formGroup]="treeFormgroup">
 
       <ng-template matStepLabel>Datos del Proyecto</ng-template>
 
@@ -164,7 +165,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Regresar</button>
-        <button mat-button matStepperNext>Siguiente</button>
+        <button mat-button matStepperNext style="margin-left: 80%;">Siguiente</button>
       </div>
 
 
@@ -181,7 +182,7 @@
     <p>Operacion Terminada</p>
     <div>
       <button mat-button matStepperPrevious>Regresar</button>
-      <button mat-button (click)="stepper.reset()">resetear</button>
+      <button mat-button (click)="stepper.reset()" style="margin-left: 80%;">resetear</button>
     </div>
   </mat-step>
 
