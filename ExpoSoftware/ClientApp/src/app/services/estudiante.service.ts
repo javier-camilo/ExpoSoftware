@@ -1,10 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HandleHttpErrorService } from '../@base/handle-http-error.service';
-import {Estudiante} from '../comite/estudiante/models/estudiante';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Area } from '../comite/area/model/area';
+import { Estudiante } from '../docenteAsesor/proyecto/models/estudiante';
 
 
 const httpOptions = {
@@ -26,12 +26,12 @@ export class EstudianteService {
      }
 
 
-    post(estudiante:Estudiante): Observable<Estudiante> {
+     post(estudiante: Estudiante): Observable<Estudiante> {
       return this.http.post<Estudiante>(this.baseUrl + 'api/Estudiante', estudiante)
-          .pipe(
-            tap(_ => this.handleErrorService.log('Guardado con exito')),
-            catchError(this.handleErrorService.handleError<Estudiante>('Registrar area'), null)
-          );
+        .pipe(
+          tap(_ => this.handleErrorService.log('Guardado con exito')),
+          catchError(this.handleErrorService.handleError<Estudiante>('Registrar Docente', null))
+        );
     }
 
     get(operacion:string): Observable<Estudiante[]> {
