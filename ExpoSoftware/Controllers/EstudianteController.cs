@@ -49,6 +49,7 @@ namespace ExpoSoftware.Controllers
                 Identificacion = estudianteInput.Identificacion,
                 Nombre = estudianteInput.Nombre,
                 Correo = estudianteInput.Correo,
+                celular = estudianteInput.celular,
                 Asignatura = estudianteInput.Asignatura,
                 Semestre = estudianteInput.Semestre
             };

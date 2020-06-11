@@ -7,6 +7,7 @@ import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.co
 import { MatDialog } from '@angular/material';
 import { AsignaturaService } from 'src/app/services/asignatura.service';
 import { Asignatura } from 'src/app/comite/asignatura/models/asignatura';
+import { EstudianteService } from 'src/app/services/estudiante.service';
 
 @Component({
   selector: 'app-proyecto-registro',
@@ -28,7 +29,7 @@ export class ProyectoRegistroComponent implements OnInit {
 
 
   constructor(private _formBuilder: FormBuilder, private docenteService:DocenteService,private dialog:MatDialog,
-    private asignaturaSerice:AsignaturaService) {}
+    private asignaturaSerice:AsignaturaService,private estudianteService:EstudianteService) {}
 
   ngOnInit() {
     
@@ -37,6 +38,7 @@ export class ProyectoRegistroComponent implements OnInit {
 
     this.iniciarDocente();
     this.iniciarAAsignatura();
+    this.iniciarEstudiante();
 
     this.buildForm();
     this.buildFromDos();
@@ -53,6 +55,17 @@ export class ProyectoRegistroComponent implements OnInit {
     this.docente.asignaturas="";
 
     this.docente.descripcion="";
+
+  }
+
+  iniciarEstudiante(){
+    
+    this.estudiante.identificacion="";
+    this.estudiante.nombre="";
+    this.estudiante.correo="";
+    this.estudiante.celular="";
+    this.estudiante.asignatura="";
+    this.estudiante.semestre=0;
 
   }
 
@@ -81,6 +94,22 @@ export class ProyectoRegistroComponent implements OnInit {
   
   }
 
+  buscarEstudiante(){
+
+    this.estudianteService.getId(this.busquedaEstudiante).subscribe(result  => { this.estudiante=result; 
+
+      if(this.estudiante==null){
+        
+         this.resultado("Consultar","No se encuentra registrado el estuidante");
+
+      }
+
+      this.buildFromDos();
+      
+    });
+
+  }
+
 
   private buildForm(){
 
@@ -101,13 +130,6 @@ export class ProyectoRegistroComponent implements OnInit {
    
 
     private buildFromDos(){
-
-      this.estudiante.identificacion="";
-      this.estudiante.nombre="";
-      this.estudiante.correo="";
-      this.estudiante.celular="";
-      this.estudiante.asignatura="";
-      this.estudiante.semestre=0;
 
 
       this.secondFormGroup = this._formBuilder.group({

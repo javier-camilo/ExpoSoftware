@@ -17,6 +17,10 @@ namespace ExpoSoftware.Models
         [Required(ErrorMessage = "El correo  es requerido")]
         public string Correo { get; set; }
 
+        
+        [Required(ErrorMessage = "El celular  es requerido")]
+        public string celular { get; set; }
+
 
         [Required(ErrorMessage = "La asignatura es requerida")]
         public string Asignatura { get; set; }
