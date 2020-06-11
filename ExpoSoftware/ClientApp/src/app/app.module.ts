@@ -43,10 +43,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
-import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
-import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
-import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
 
 
 
@@ -73,11 +70,7 @@ import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edici
     FiltoAsignaturaAreaPipe,
     ProyectoRegistroComponent,
     ProyectoConsultaComponent,
-    EstudianteConsultaComponent,
-    EstudianteRegistroComponent,
     FiltroEstudiantePipe,
-    EstudianteEdicionComponent
-
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

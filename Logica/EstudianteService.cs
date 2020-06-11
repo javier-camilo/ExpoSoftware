@@ -2,18 +2,18 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace Logica
 {
    public class EstudianteService
     {
-        private readonly ConnectionManager _conexion;
-        private readonly EstudianteRepository _repositorio;
+      
+        private readonly ExpoSoftwareContext _context;
 
-
-        public EstudianteService(string connectionString)
+        public EstudianteService(ExpoSoftwareContext context)
         {
-            _conexion = new ConnectionManager(connectionString);
-            _repositorio = new EstudianteRepository(_conexion);
+            _context=context;
         }
 
 
@@ -42,9 +42,8 @@ namespace Logica
             try
             {
 
-                _conexion.Open();
 
-                var estudianteBuscado = _repositorio.BuscarPorIdentificacion(estudiante.Identificacion);
+                var estudianteBuscado = _context.Estudiantes.Find(estudiante.Identificacion);
 
                 if (estudianteBuscado != null)
                 {
@@ -53,33 +52,32 @@ namespace Logica
 
                 }
 
-                _repositorio.Guardar(estudiante);
+                
+                _context.Estudiantes.Add(estudiante);
+                _context.SaveChanges();
 
-                _conexion.Close();
                 return new GuardarEstudianteResponse(estudiante);
             }
             catch (Exception e)
             {
                 return new GuardarEstudianteResponse($"Error de la Aplicacion: {e.Message}");
             }
-            finally { _conexion.Close(); }
+
         }
 
         /**/
         public List<Estudiante> ConsultarTodos()
         {
-            _conexion.Open();
-            List<Estudiante> estudiantes = _repositorio.ConsultarTodos();
-            _conexion.Close();
+            List<Estudiante> estudiantes = _context.Estudiantes.ToList();
             return estudiantes;
         }
 
         public Estudiante BuscarIdentificacion(string identificacion)
         {
-            _conexion.Open();
-            Estudiante estudiante = _repositorio.BuscarPorIdentificacion(identificacion);
-            _conexion.Close();
+
+            Estudiante estudiante =  _context.Estudiantes.Find(identificacion);
             return estudiante;
+
         }
 
 
@@ -87,13 +85,12 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var estudiante = _repositorio.BuscarPorIdentificacion(identificacion);
+                var estudiante = _context.Estudiantes.Find(identificacion);
                 if (estudiante != null)
                 {
-                    _repositorio.Eliminar(estudiante);
-                    _conexion.Close();
-                    return ($"El estudiante {estudiante.Nombre} se ha eliminado satisfactoriamente");
+                    _context.Estudiantes.Remove(estudiante);
+                    _context.SaveChanges();
+                    return ($"El estudiante {estudiante.Identificacion} se ha eliminado satisfactoriamente");
                 }
                 else
                 {
@@ -104,7 +101,6 @@ namespace Logica
             {
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
 
@@ -112,12 +108,18 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var estudianteViejo = _repositorio.BuscarPorIdentificacion(estudianteNuevo.Identificacion);
+                var estudianteViejo = _context.Estudiantes.Find(estudianteNuevo.Identificacion);
                 if (estudianteViejo != null)
                 {
-                    _repositorio.Modificar(estudianteNuevo);
-                    _conexion.Close();
+
+                estudianteViejo.Identificacion = estudianteNuevo.Identificacion;
+                estudianteViejo.Nombre = estudianteNuevo.Nombre;
+                estudianteViejo.Correo=estudianteNuevo.Correo;
+                estudianteViejo.celular=estudianteNuevo.celular;
+                estudianteViejo.Asignatura=estudianteNuevo.Asignatura;
+
+                     _context.Estudiantes.Update(estudianteViejo);
+                    _context.SaveChanges();
                     return ($"El registro {estudianteNuevo.Identificacion} se ha modificado satisfactoriamente.");
                 }
                 else
@@ -130,7 +132,6 @@ namespace Logica
 
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
     }

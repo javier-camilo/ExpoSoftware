@@ -92,6 +92,9 @@ namespace Logica
                     proyectoViejo.CodigoAsignatura=proyecto.CodigoAsignatura;
                     proyectoViejo.IdentificacionDocente=proyecto.IdentificacionDocente;
                     proyectoViejo.IdentificacionEstudiante=proyecto.IdentificacionEstudiante;
+                    _context.Proyectos.Update(proyectoViejo);
+                    _context.SaveChanges();
+
                     return ($"El registro {proyectoViejo.Titulo} se ha modificado satisfactoriamente.");
                 }
                 else
