@@ -1,8 +1,10 @@
 
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Entity
 {
+
     public class Estudiante
     {
         
@@ -18,7 +20,6 @@ namespace Entity
         public string Asignatura { get; set; }
 
         public int Semestre { get; set; }
-
 
     }
 }
