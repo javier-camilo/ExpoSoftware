@@ -46,11 +46,13 @@ export class UserLoginComponent implements OnInit {
     this.loginRequest = {
       userNameorEmail : this.control["userName"].value,
       password : this.control["password"].value
+
     }
 
     this.authService.loginUser(this.loginRequest).subscribe(p => {
       if(p){
-        localStorage.setItem("user", JSON.stringify(p));
+        this.authService.setUser(p);
+        window.location.reload();
       }
     })
 

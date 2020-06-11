@@ -49,6 +49,7 @@ import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
 import { UserLoginComponent } from './User/user-login/user-login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -112,7 +113,7 @@ import { UserLoginComponent } from './User/user-login/user-login.component';
     BrowserAnimationsModule
   ],
   entryComponents:[CuadroDialogoComponent,ModalComponent],
-  providers: [AsignaturaService],
+  providers: [AsignaturaService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
