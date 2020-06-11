@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material';
 import { AsignaturaService } from 'src/app/services/asignatura.service';
 import { Asignatura } from 'src/app/comite/asignatura/models/asignatura';
 import { EstudianteService } from 'src/app/services/estudiante.service';
+import { Proyecto } from '../models/proyecto';
+import { ProyectoService } from 'src/app/services/proyecto.service';
 
 @Component({
   selector: 'app-proyecto-registro',
@@ -22,19 +24,24 @@ export class ProyectoRegistroComponent implements OnInit {
   secondFormGroup: FormGroup;
   treeFormgroup:FormGroup;
   busquedaDocente:string;
+  
+  proyecto:Proyecto;
   estudiante:Estudiante;
   docente:Docente;
   asignaturas:Asignatura[];
+  
   busquedaEstudiante:string;
 
 
+
   constructor(private _formBuilder: FormBuilder, private docenteService:DocenteService,private dialog:MatDialog,
-    private asignaturaSerice:AsignaturaService,private estudianteService:EstudianteService) {}
+    private asignaturaSerice:AsignaturaService,private estudianteService:EstudianteService, private proyectoService:ProyectoService) {}
 
   ngOnInit() {
     
     this.docente=new Docente();
     this.estudiante=new Estudiante();
+    this.proyecto=new Proyecto();
 
     this.iniciarDocente();
     this.iniciarAAsignatura();
@@ -42,6 +49,7 @@ export class ProyectoRegistroComponent implements OnInit {
 
     this.buildForm();
     this.buildFromDos();
+    this.buildFromTres();
 
   }
 
@@ -69,6 +77,12 @@ export class ProyectoRegistroComponent implements OnInit {
 
   }
 
+  iniciarProyecto(){
+    this.proyecto.idProyecto="";
+    this.proyecto.titulo="";
+    this.proyecto.metodologia="";
+    this.proyecto.resumen="";
+  }
 
   iniciarAAsignatura(){
 
@@ -150,13 +164,21 @@ export class ProyectoRegistroComponent implements OnInit {
 
 
     private  buildFromTres(){
+
+
+      this.treeFormgroup = this._formBuilder.group({
+
+
+        idProyecto: [this.proyecto.idProyecto, [Validators.required, Validators.maxLength(2)]],
+        titulo: [this.proyecto.titulo, Validators.required],
+        metodologia: [this.proyecto.metodologia,Validators.required],
+        resumen: [this.proyecto.resumen,Validators.required]
+
+
+        });
       
     }
 
-
-    get control(){
-      return this.firstFormGroup.controls;
-    }
 
 
     onSubmit() {
@@ -169,12 +191,20 @@ export class ProyectoRegistroComponent implements OnInit {
 
     add(){
 
+
         this.docente=this.firstFormGroup.value;
         this.docente.tipo="asesor";
         this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
 
         this.estudiante=this.secondFormGroup.value;
         this.estudianteService.post(this.estudiante).subscribe(result=>this.estudiante=result);
+
+        this.proyecto=this.treeFormgroup.value;
+        this.proyecto.identificacionDocente=this.docente.identificacion;
+        this.proyecto.identificacionEstudiante=this.estudiante.identificacion;
+        this.proyecto.estado="sin revisar";
+        this.proyecto.codigoAsignatura=this.estudiante.asignatura;
+        this.proyectoService.post(this.proyecto).subscribe();
 
     }
 
