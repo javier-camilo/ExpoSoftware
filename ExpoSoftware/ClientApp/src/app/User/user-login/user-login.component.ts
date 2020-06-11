@@ -20,19 +20,17 @@ export class UserLoginComponent implements OnInit {
   constructor(private authService : AuthService, private formBuilder : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
-    this.loginRequest = new LoginRequest();
+   
     this.buildForm();
   }
 
   private buildForm(){
-    this. loginRequest.userName="";
-    this. loginRequest.password="";
-    this.loginRequest.email="";
+    
 
     this.loginGroup = this.formBuilder.group({
-      userName: [this.loginRequest.userName, [Validators.required]],
-      password: [this.loginRequest.password, [Validators.required]],
-      email: [this.loginRequest.email, [Validators.email]]
+      userName: ["", [Validators.required]],
+      password: ["", [Validators.required]],
+     
     })
 
   }
@@ -45,7 +43,17 @@ export class UserLoginComponent implements OnInit {
     if(this.loginGroup.invalid){
       return;
     }
-    //servicio login
+    this.loginRequest = {
+      userNameorEmail : this.control["userName"].value,
+      password : this.control["password"].value
+    }
+
+    this.authService.loginUser(this.loginRequest).subscribe(p => {
+      if(p){
+        localStorage.setItem("user", JSON.stringify(p));
+      }
+    })
+
   }
 
 }
