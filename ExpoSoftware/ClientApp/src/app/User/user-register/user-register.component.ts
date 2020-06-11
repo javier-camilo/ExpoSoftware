@@ -20,20 +20,18 @@ export class UserRegisterComponent implements OnInit {
   constructor(private authService : AuthService, private formBuilder : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
-    this.user = new User();
+    
     this.buildForm();
     
   }
 
  private buildForm (){
-   this.user.userName="";
-   this.user.email="";
-   this.user.password="";
+ 
 
    this.userGroup = this.formBuilder.group({
-     userName: [this.user.userName, [Validators.required]],
-     email: [this.user.email, [Validators.required, Validators.email]],
-     user: [this.user.password, [Validators.required]]
+     userName: ["", [Validators.required]],
+     email: ["", [Validators.required, Validators.email]],
+     password: ["", [Validators.required]]
 
    });
 
@@ -47,7 +45,17 @@ export class UserRegisterComponent implements OnInit {
    if(this.userGroup.invalid){
      return;
    }
-   //Servicio registrar
+   this.user = {
+     userName : this.control["userName"].value,
+     email : this.control["email"].value,
+     password : this.control["password"].value
+
+   }
+   this.authService.registerUser(this.user).subscribe(p => {
+     this.user = p;
+   })
  }
+
+
 
 }

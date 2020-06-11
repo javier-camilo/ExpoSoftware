@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
 
     this.loginGroup = this.formBuilder.group({
       userName: [this.loginRequest.userName, [Validators.required]],
-      user: [this.loginRequest.password, [Validators.required]],
+      password: [this.loginRequest.password, [Validators.required]],
       email: [this.loginRequest.email, [Validators.email]]
     })
 

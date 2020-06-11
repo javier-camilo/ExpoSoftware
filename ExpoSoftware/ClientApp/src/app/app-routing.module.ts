@@ -15,6 +15,8 @@ import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-con
 import {EstudianteConsultaComponent} from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import {EstudianteRegistroComponent} from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import {EstudianteEdicionComponent} from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
+import { UserLoginComponent } from './User/user-login/user-login.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
 
 const routes: Routes = [
 
@@ -76,7 +78,18 @@ const routes: Routes = [
       
       path:"estudianteEdicion",
       component: EstudianteEdicionComponent
+    },
+    {
+      
+      path:"login",
+      component: UserLoginComponent
+    },
+    {
+      
+      path:"userRegister",
+      component: UserRegisterComponent  
     }
+
     
 
     

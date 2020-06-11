@@ -32,7 +32,7 @@ namespace ExpoSoftware.Controllers
          //[User/Post]
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<ApplicationUserViewModel>> PostApplicationUser(ApplicationUserInputModel applicationUser)
+        public async Task<ActionResult<ApplicationUserViewModel>> PostApplicationUser([FromBody]ApplicationUserInputModel applicationUser)
         {
             var user = new ApplicationUser
             {
