@@ -19,10 +19,13 @@ export class ProyectoRegistroComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  treeFormgroup:FormGroup;
   busquedaDocente:string;
   estudiante:Estudiante;
   docente:Docente;
   asignaturas:Asignatura[];
+  busquedaEstudiante:string;
+
 
   constructor(private _formBuilder: FormBuilder, private docenteService:DocenteService,private dialog:MatDialog,
     private asignaturaSerice:AsignaturaService) {}
@@ -110,11 +113,11 @@ export class ProyectoRegistroComponent implements OnInit {
       this.secondFormGroup = this._formBuilder.group({
 
 
-        idEstudiante: [this.estudiante.identificacion, [Validators.required, Validators.maxLength(2)]],
-        nombreCompleto: [this.estudiante.nombre, Validators.required],
+        identificacion: [this.estudiante.identificacion, [Validators.required, Validators.maxLength(2)]],
+        nombre: [this.estudiante.nombre, Validators.required],
         correo: [this.estudiante.correo,Validators.required],
         celular: [this.estudiante.celular,Validators.required],
-        codigoAsignatura:[this.estudiante.asignatura,Validators.required],
+        asignatura:[this.estudiante.asignatura,Validators.required],
         semestre:[this.estudiante.semestre,Validators.required]
 
 
@@ -123,30 +126,37 @@ export class ProyectoRegistroComponent implements OnInit {
 
     }
 
+
     get control(){
       return this.firstFormGroup.controls;
     }
 
+
     onSubmit() {
-        if (this.firstFormGroup.invalid && this.docente==null) {
+        if (this.firstFormGroup.invalid) {
             return;
            }
         this.add();
      }
 
+
     add(){
 
-      this.docente=this.firstFormGroup.value;
-      this.docente.tipo="asesor";
-      this.docenteService.post(this.docente,"si").subscribe(result=>this.docente=result);
+        this.docente=this.firstFormGroup.value;
+        this.docente.tipo="asesor";
+        this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
+     
 
     }
+
 
     resultado(operacion:string, mensaje:string){
 
       this.dialog.open(CuadroDialogoComponent, {data: {name:operacion, descripcion: mensaje, EsMensaje: "true"}});
       
     }
+
+
 
 
 }

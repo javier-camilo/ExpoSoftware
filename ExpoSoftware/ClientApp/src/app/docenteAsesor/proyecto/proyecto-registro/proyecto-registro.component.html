@@ -14,14 +14,14 @@
         <mat-form-field>
 
           <mat-label>Identifiacion del docente</mat-label>
-          <input matInput formControlName="identificacion" [(ngModel)]="busquedaDocente">
+          <input matInput formControlName="identificacion" [(ngModel)]="busquedaDocente" required>
 
         </mat-form-field>
 
        
         <mat-form-field>
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="nombre completo" formControlName="nombre" required ng>
+          <input matInput  formControlName="nombre" required>
         </mat-form-field>
        
         
@@ -33,7 +33,7 @@
     
             <mat-form-field>
               <mat-label>especialidad</mat-label>
-              <input matInput placeholder="Especialidad" formControlName="descripcion" required ng>
+              <input matInput formControlName="descripcion" required>
             </mat-form-field>
 
             <mat-form-field>
@@ -55,7 +55,7 @@
 
         <button  (click)="buscarDocente()"  class="btn btn-light" style="margin-left: 30px;">consultar</button>
         
-        <button  (click)="onSubmit()"  class="btn btn-light" style="margin-left: 30px;">Registrar</button>
+        <button  (click)="add()"  class="btn btn-light" style="margin-left: 30px;">Registrar</button>
 
       </div>
 
@@ -75,14 +75,71 @@
 
     <form [formGroup]="secondFormGroup">
 
-      <ng-template matStepLabel>Datos del proyecto</ng-template>
+      <ng-template matStepLabel>Datos del Estudiante</ng-template>
 
 
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput  placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
+      <div class="row">
+
+        <div class="col-sm">
+          
+        <mat-form-field>
+
+          <mat-label>Identifiacion del Estudiante</mat-label>
+          <input matInput formControlName="identificacion" [(ngModel)]="busquedaEstudiante">
+
+        </mat-form-field>
+
+       
+        <mat-form-field>
+          <mat-label>Nombre completo</mat-label>
+          <input matInput formControlName="nombre" required>
+        </mat-form-field>
+        
+
+        
+        <mat-form-field>
+          <mat-label>correo</mat-label>
+          <input matInput formControlName="correo" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>celular</mat-label>
+          <input matInput formControlName="celular" required>
+        </mat-form-field>
+       
+        
+          <mat-form-field>
+            <mat-label>Asignaturas</mat-label>
+            <mat-select formControlName="asignatura">
+              <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura.codigoAsignatura" >
+                {{asignatura.nombreAsignatura}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label>Semestre</mat-label>
+            <input matInput formControlName="semestre" required>
+          </mat-form-field>
+
+
+
+        
+        </div>
+
+
+        <div class="col-sm" >
+
+
+    
+    
+
+        </div>
+
+
+      </div>
+
 
 
       <div>
@@ -94,6 +151,27 @@
     </form>
 
   </mat-step>
+
+
+
+  <mat-step>
+
+    <form>
+
+      <ng-template matStepLabel>Datos del Proyecto</ng-template>
+
+
+
+      <div>
+        <button mat-button matStepperPrevious>Regresar</button>
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
 
 
 
