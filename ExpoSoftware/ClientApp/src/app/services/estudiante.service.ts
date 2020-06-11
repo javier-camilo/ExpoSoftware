@@ -26,10 +26,20 @@ export class EstudianteService {
      }
 
 
-     post(estudiante: Estudiante): Observable<Estudiante> {
+     post(estudiante: Estudiante,mostrar?:string): Observable<Estudiante> {
       return this.http.post<Estudiante>(this.baseUrl + 'api/Estudiante', estudiante)
         .pipe(
-          tap(_ => this.handleErrorService.log('Guardado con exito')),
+          tap(_ => 
+            
+            {
+              if(mostrar!=null){
+
+                 this.handleErrorService.log('Guardado con exito')
+                 
+              }
+            }
+          
+          ),
           catchError(this.handleErrorService.handleError<Estudiante>('Registrar Docente', null))
         );
     }

@@ -13,44 +13,55 @@
           
         <mat-form-field>
 
-          <mat-label>Docente a buscar</mat-label>
+          <mat-label>Identifiacion del docente</mat-label>
           <input matInput formControlName="identificacion" [(ngModel)]="busquedaDocente">
 
         </mat-form-field>
 
-        {{docente.nombre}}
-
-        <button (click)="buscarDocente()">
-          consultar
-        </button>
+       
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="nombre completo" formControlName="nombre" required ng>
+        </mat-form-field>
+       
         
         </div>
 
 
         <div class="col-sm" >
 
-      
+    
             <mat-form-field>
-              <mat-label>Nombre</mat-label>
-              <input matInput placeholder="nombre completo" formControlName="nombre" required ng>
+              <mat-label>especialidad</mat-label>
+              <input matInput placeholder="Especialidad" formControlName="descripcion" required ng>
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Asignaturas</mat-label>
-              <input matInput placeholder="celular del estudiante" formControlName="asignaturas" required>
+              <mat-select formControlName="asignaturas">
+                <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura.codigoAsignatura" >
+                  {{asignatura.codigoAsignatura}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
-          
+    
 
         </div>
 
 
       </div>
 
+      <div style="margin-bottom: 50px; margin-top: 50px;">
+
+        <button  (click)="buscarDocente()"  class="btn btn-light" style="margin-left: 30px;">consultar</button>
+        
+        <button  (click)="onSubmit()"  class="btn btn-light" style="margin-left: 30px;">Registrar</button>
+
+      </div>
 
 
       <div style="margin-top: 10px;">
-        <button mat-button>registrar</button>
-        <button mat-button matStepperNext>Siguiente</button>
+        <button mat-button matStepperNext >Siguiente</button>
       </div>
 
     </form>

@@ -31,10 +31,22 @@ export class DocenteService {
     this.baseUrl = baseUrl;
   }
 
-  post(docente: Docente): Observable<Docente> {
+  post(docente: Docente,mostrar?:string): Observable<Docente> {
     return this.http.post<Docente>(this.baseUrl + 'api/Docente', docente)
       .pipe(
-        tap(_ => this.handleErrorService.log('Guardado con exito')),
+        tap(_ => 
+
+          {
+
+            if(mostrar!=null){
+              
+                this.handleErrorService.log('Guardado con exito')
+                
+            }
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Docente>('Registrar Docente', null))
       );
   }
