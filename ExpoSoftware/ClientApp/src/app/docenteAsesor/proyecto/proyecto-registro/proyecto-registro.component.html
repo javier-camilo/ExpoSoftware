@@ -40,7 +40,7 @@
               <mat-label>Asignaturas</mat-label>
               <mat-select formControlName="asignaturas">
                 <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura.codigoAsignatura" >
-                  {{asignatura.codigoAsignatura}}
+                  {{asignatura.nombreAsignatura}}
                 </mat-option>
               </mat-select>
             </mat-form-field>

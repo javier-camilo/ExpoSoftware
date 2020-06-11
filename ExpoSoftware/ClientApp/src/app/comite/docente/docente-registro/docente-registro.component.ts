@@ -116,7 +116,7 @@ add(resultado : string){
   this.docente = this.formGroup.value;
 
   if(resultado=="true"){
-    this.docenteService.post(this.docente).subscribe(p => {
+    this.docenteService.post(this.docente,"si").subscribe(p => {
       this.docente=p;
     });
   }

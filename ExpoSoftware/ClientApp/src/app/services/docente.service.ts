@@ -51,10 +51,21 @@ export class DocenteService {
       );
   }
 
-  get(): Observable<Docente[]> {
+  get(llamadado?:string): Observable<Docente[]> {
     return this.http.get<Docente[]>(this.baseUrl + 'api/Docente')
       .pipe(
-        tap(_ => this.handleErrorService.log('Datos del docente recibidos')),
+        tap(_ => 
+
+          {
+            
+            if(llamadado!=null){
+                  
+                  this.handleErrorService.log('Datos del docente recibidos')
+            }
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Docente[]>('Consulta Asignatura', null))
       );
   }
