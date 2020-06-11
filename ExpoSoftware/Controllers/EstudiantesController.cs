@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Datos;
 using Entity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpoSoftware.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EstudiantesController : ControllerBase
     {
         private readonly ExpoSoftwareContext _context;

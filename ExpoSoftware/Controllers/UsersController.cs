@@ -32,6 +32,7 @@ namespace ExpoSoftware.Controllers
          //[User/Post]
         [HttpPost]
         [AllowAnonymous]
+
         public async Task<ActionResult<ApplicationUserViewModel>> PostApplicationUser([FromBody]ApplicationUserInputModel applicationUser)
         {
             var user = new ApplicationUser
@@ -59,6 +60,7 @@ namespace ExpoSoftware.Controllers
 
         [HttpPost("[action]")]
         [AllowAnonymous]
+        
         public async Task<ActionResult<ApplicationUserViewModel>> Login([FromBody] LoginRequest login)
         {
             var user = await _userManager.FindByNameAsync(login.UserNameorEmail);
