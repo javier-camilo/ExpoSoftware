@@ -44,6 +44,7 @@ import {MatInputModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
+import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
 
 
 
@@ -71,6 +72,7 @@ import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
     ProyectoRegistroComponent,
     ProyectoConsultaComponent,
     FiltroEstudiantePipe,
+    ConsultaSolicitudesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -68,6 +68,16 @@ namespace ExpoSoftware.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetProyectosFiltros/{condicion}")] 
+        public IEnumerable<ProyectoViewModel> GetCondicion(string condicion)
+        {
+            var proyecto = _ProyectoService.consultarCondicion(condicion).Select(p => new ProyectoViewModel(p));
+            return proyecto;
+        }
+
+
+
         [HttpGet("{identificacion}")]
         public ActionResult<ProyectoViewModel> Get(string identificacion)
         {
