@@ -2,20 +2,19 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Logica
 {
     public class DocenteService
     {
-        private readonly ConnectionManager _conexion;
-        private readonly DocenteRepository  _repositorio;
+       
+        private readonly ExpoSoftwareContext _context;
 
-
-        public DocenteService(string connectionString)
+        public DocenteService(ExpoSoftwareContext context)
         {
-            _conexion = new ConnectionManager(connectionString);
-            _repositorio = new DocenteRepository(_conexion);
+            _context=context;
         }
 
 
@@ -44,9 +43,7 @@ namespace Logica
             try
             {
 
-                _conexion.Open();
-
-                var docenteBuscado = _repositorio.BuscarPorIdentificacion(docente.Identificacion);
+                var docenteBuscado = _context.Docentes.Find(docente.Identificacion);
 
                 if (docenteBuscado != null)
                 {
@@ -55,32 +52,31 @@ namespace Logica
 
                 }
 
-                _repositorio.Guardar(docente);
-
-                _conexion.Close();
+                
+                _context.Docentes.Add(docente);
+                _context.SaveChanges();
+                
                 return new GuardarDocenteResponse(docente);
             }
             catch (Exception e)
             {
                 return new GuardarDocenteResponse($"Error de la Aplicacion: {e.Message}");
             }
-            finally { _conexion.Close(); }
+
         }
 
         /**/
         public List<Docente> ConsultarTodos()
         {
-            _conexion.Open();
-            List<Docente> docentes = _repositorio.ConsultarTodos();
-            _conexion.Close();
+
+            List<Docente> docentes = _context.Docentes.ToList();
             return docentes;
         }
 
         public Docente BuscarIdentificacion(string identificacion)
         {
-            _conexion.Open();
-            Docente docente = _repositorio.BuscarPorIdentificacion(identificacion);
-            _conexion.Close();
+
+            Docente docente =  _context.Docentes.Find(identificacion);
             return docente;
         }
 
@@ -89,12 +85,12 @@ namespace Logica
         {
             try
             {
-                _conexion.Open();
-                var docente = _repositorio.BuscarPorIdentificacion(identificacion);
+
+                var docente = _context.Docentes.Find(identificacion);
                 if (docente != null)
                 {
-                    _repositorio.Eliminar(docente);
-                    _conexion.Close();
+                     _context.Docentes.Remove(docente);
+                    _context.SaveChanges();
                     return ($"El docente {docente.Nombre} se ha eliminado satisfactoriamente");
                 }
                 else
@@ -106,20 +102,34 @@ namespace Logica
             {
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
-
         }
 
         public string Modificar(Docente docenteNuevo)
         {
             try
             {
-                _conexion.Open();
-                var docenteViejo = _repositorio.BuscarPorIdentificacion(docenteNuevo.Identificacion);
+
+                var docenteViejo =  _context.Docentes.Find(docenteNuevo.Identificacion);
+
                 if (docenteViejo != null)
                 {
-                    _repositorio.Modificar(docenteNuevo);
-                    _conexion.Close();
+
+                    docenteViejo.Identificacion=docenteNuevo.Identificacion;
+                    
+                    docenteViejo.Nombre=docenteNuevo.Nombre;
+
+                    
+                    docenteViejo.Descripcion=docenteNuevo.Descripcion;
+
+                    
+                    docenteViejo.Tipo=docenteNuevo.Tipo;
+
+                    
+                    docenteViejo.Asignaturas=docenteNuevo.Asignaturas;
+
+                    _context.Docentes.Update(docenteViejo);
+                    _context.SaveChanges();
+
                     return ($"El registro {docenteNuevo.Identificacion} se ha modificado satisfactoriamente.");
                 }
                 else
@@ -132,7 +142,6 @@ namespace Logica
 
                 return $"Error de la Aplicación: {e.Message}";
             }
-            finally { _conexion.Close(); }
 
         }
 

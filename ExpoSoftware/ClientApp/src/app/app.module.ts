@@ -43,6 +43,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 
+import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
+
 
 
 @NgModule({
@@ -67,8 +69,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FiltroDocentePipe,
     FiltoAsignaturaAreaPipe,
     ProyectoRegistroComponent,
-    ProyectoConsultaComponent
-
+    ProyectoConsultaComponent,
+    FiltroEstudiantePipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
