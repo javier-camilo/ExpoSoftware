@@ -1,0 +1,161 @@
+<header>
+  
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun" >
+
+    <mat-toolbar color="primary" class="example-toolbar" >
+
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="example-app-name">Menu Expo-Sofware Admin</h1>
+        
+      <span class="example-spacer"></span>
+
+      <a class="navbar-brand" [routerLink]="['/']" style="opacity: 1; color: #ffffff;">
+
+        <img src="../../assets/upc-logo.jpg" width="30" height="30" style="border-radius:150px;" alt="">
+         Ing sistemas
+
+      </a>
+
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+            <mat-nav-list>
+
+           
+              <div class="accordion" id="accordionExample">
+
+
+                <mat-list-item style="margin-bottom: 20px; margin-top: 20px;">
+
+                  <img src="../../assets/866190.jpg"  width="50" height="50" style="border-radius:150px;" alt="Imagen de usuario"> 
+
+                  <div style="margin-left: 10px;">
+                        
+                      Javier camilo
+
+                  </div>
+
+                </mat-list-item>
+
+                <mat-list-item [routerLink]="['/']" >
+                  <mat-icon>home  </mat-icon>
+                    Home
+                </mat-list-item>
+
+
+                <mat-list-item data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <mat-icon>class </mat-icon> Area
+                </mat-list-item>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                        <div style="margin-left: 20px;">
+                  
+                         <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerArea"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                  </div>
+    
+                </div>
+
+
+
+                <mat-list-item data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                     <mat-icon>work  </mat-icon> Asignatura
+                </mat-list-item>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                    </div>
+        
+                </div>
+
+                    
+                      <mat-list-item data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        <mat-icon>layers  </mat-icon> Docente
+                  </mat-list-item>
+
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerDocente"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                    </div>
+        
+                  </div>
+
+
+                  <a mat-list-item routerLink="/proyectoConsulta"> <mat-icon>search </mat-icon> solicitudes de proyecto</a>
+
+
+
+                  <mat-list-item style="margin-top: 50px; font-size: 20px;">
+                    Docente Asesor
+                  </mat-list-item>
+
+
+              <mat-list-item data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <mat-icon>dns  </mat-icon>Proyecto
+              </mat-list-item>
+
+              <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                <div style="margin-left: 20px;">
+                  
+                  <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerProyecto"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                </div>
+    
+              </div>
+
+
+                  
+
+
+
+
+             
+
+              </div>
+              
+
+
+              
+            </mat-nav-list>
+
+
+          </mat-sidenav>
+      
+      
+
+            <mat-sidenav-content>
+                  <div class="container">  
+                    <div class="container" class="menu">
+                      <div style="margin-top: 40px;">
+                        <router-outlet></router-outlet>
+                      </div>
+                    </div>
+
+                  </div> 
+                  
+            </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+  </div>
+  
+  <div *ngIf="!shouldRun">Error al Iniciar
+
+  </div>
+  
+</header>
