@@ -39,8 +39,8 @@ export class DocenteService {
           {
 
             if(mostrar!=null){
-              
-                this.handleErrorService.log('Guardado con exito')
+
+                this.handleErrorService.log('Guardado con exito gg')
                 
 
             }
