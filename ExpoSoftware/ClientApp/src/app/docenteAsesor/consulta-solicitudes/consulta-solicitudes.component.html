@@ -1,0 +1,43 @@
+<blockquote class="blockquote " style="margin-bottom: 80px;">
+    
+    <p class="mb-0" class="display-3 colorLetras">Consulta Solicitudes de proyecto</p>
+        
+    <mat-divider></mat-divider>
+  
+</blockquote>
+
+
+<div class="table-responsive">
+
+
+    <table class="table table-light  table-hover" *ngIf="proyectos && proyectos.length">
+
+        <thead class="thead-dark">
+        <tr>
+
+            <th scope="col">#</th>
+            <th scope="col">Referencia del proyecto</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Resumen</th>
+            <th scope="col">Estado</th>
+
+        </tr>
+        </thead>
+
+
+        <tbody>
+
+        <tr *ngFor="let proyecto of proyectos  ; index as i ">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ proyecto.idProyecto }} </td>
+            <td>{{ proyecto.titulo}}</td>
+            <td>{{proyecto.resumen}}</td>
+            <td>{{proyecto.estado}}</td>
+        </tr>
+
+    </tbody>
+
+
+    </table>
+</div>
+
