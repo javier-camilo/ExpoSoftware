@@ -58,3 +58,11 @@ code {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.input-group{
+  text-align: center;
+  width: 700px;
+  margin-left: 14%;
+  margin-right: 14%;
+}

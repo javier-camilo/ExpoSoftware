@@ -31,18 +31,42 @@ export class DocenteService {
     this.baseUrl = baseUrl;
   }
 
-  post(docente: Docente): Observable<Docente> {
+  post(docente: Docente,mostrar?:string): Observable<Docente> {
     return this.http.post<Docente>(this.baseUrl + 'api/Docente', docente)
       .pipe(
-        tap(_ => this.handleErrorService.log('Guardado con exito')),
+        tap(_ => 
+
+          {
+
+            if(mostrar!=null){
+
+                this.handleErrorService.log('Guardado con exito gg')
+                
+
+            }
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Docente>('Registrar Docente', null))
       );
   }
 
-  get(): Observable<Docente[]> {
+  get(llamadado?:string): Observable<Docente[]> {
     return this.http.get<Docente[]>(this.baseUrl + 'api/Docente')
       .pipe(
-        tap(_ => this.handleErrorService.log('Datos del docente recibidos')),
+        tap(_ => 
+
+          {
+            
+            if(llamadado!=null){
+                  
+                  this.handleErrorService.log('Datos del docente recibidos')
+            }
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Docente[]>('Consulta Asignatura', null))
       );
   }

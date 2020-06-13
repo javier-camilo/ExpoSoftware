@@ -49,6 +49,8 @@ export class ProyectoService {
       );
   }
 
+ 
+
   getId(id: string): Observable<Proyecto> {
     const url = `${this.baseUrl + 'api/Proyecto'}/${id}`;
     return this.http.get<Proyecto>(url, httpOptions)
@@ -67,6 +69,10 @@ export class ProyectoService {
       );
   }
 
+
+  public funcionale(){
+    
+  }
 
 
 

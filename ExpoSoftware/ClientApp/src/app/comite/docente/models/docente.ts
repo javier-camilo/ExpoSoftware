@@ -1,4 +1,3 @@
-import { Asignatura } from "../../asignatura/models/asignatura";
 
 export class Docente {
     identificacion:string;

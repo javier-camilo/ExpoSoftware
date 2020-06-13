@@ -46,7 +46,9 @@ export class AsignaturaService {
             
               tap(_ => 
                 {
-                if(llamadOperacion==="asignatura")this.handleErrorService.log('Datos de la asignaturas recibido');
+                if(llamadOperacion==="asignatura"){
+                  this.handleErrorService.log('Datos de la asignaturas recibido');
+                }
                }
                 ),
               catchError(this.handleErrorService.handleError<Asignatura[]>('Consulta Asignatura', null))

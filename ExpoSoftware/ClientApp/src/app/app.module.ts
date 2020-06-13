@@ -42,6 +42,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
+import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
 
 
 
@@ -67,8 +70,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FiltroDocentePipe,
     FiltoAsignaturaAreaPipe,
     ProyectoRegistroComponent,
-    ProyectoConsultaComponent
-
+    ProyectoConsultaComponent,
+    FiltroEstudiantePipe,
+    ConsultaSolicitudesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -89,6 +93,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatInputModule,
     MatDividerModule,
     MatSlideToggleModule,
+    MatGridListModule,
     MatSelectModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

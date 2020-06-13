@@ -67,6 +67,24 @@ namespace Logica
             return proyectos;
         }
 
+        public List<Proyecto> consultarCondicion(string condicion){
+            
+            List<Proyecto> proyectos = _context.Proyectos.ToList();
+            
+            List<Proyecto> proyectosFiltrados = new List<Proyecto>();
+
+            foreach (var item in proyectos)
+            {
+                if(item.IdentificacionDocente==condicion){
+                    proyectosFiltrados.Add(item);
+                }
+                
+            }
+            
+            return proyectosFiltrados;
+
+        }
+
 
 
          public Proyecto BuscarxIdentificacion(string identificacion)
@@ -92,6 +110,9 @@ namespace Logica
                     proyectoViejo.CodigoAsignatura=proyecto.CodigoAsignatura;
                     proyectoViejo.IdentificacionDocente=proyecto.IdentificacionDocente;
                     proyectoViejo.IdentificacionEstudiante=proyecto.IdentificacionEstudiante;
+                    _context.Proyectos.Update(proyectoViejo);
+                    _context.SaveChanges();
+
                     return ($"El registro {proyectoViejo.Titulo} se ha modificado satisfactoriamente.");
                 }
                 else
