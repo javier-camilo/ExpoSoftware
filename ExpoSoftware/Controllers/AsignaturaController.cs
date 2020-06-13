@@ -7,13 +7,14 @@ using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
 using Microsoft.AspNetCore.Http;
 using Datos;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpoSoftware.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AsignaturaController : ControllerBase
     {
 

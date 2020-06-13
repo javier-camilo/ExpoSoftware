@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ExpoSoftware.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpoSoftware.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AreaController : ControllerBase
     {
 
@@ -28,6 +30,7 @@ namespace ExpoSoftware.Controllers
 
 
         [HttpPost]
+        
         public ActionResult<AreaViewModel> Post(AreaInputModel areaInputModel)
         {
             

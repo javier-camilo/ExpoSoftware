@@ -22,30 +22,20 @@ export class EstudianteService {
   constructor( private http: HttpClient,
     @Inject('BASE_URL') baseUrl: string,
     private handleErrorService: HandleHttpErrorService) {
-      this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl;
      }
 
 
-     post(estudiante: Estudiante,mostrar?:string): Observable<Estudiante> {
-      return this.http.post<Estudiante>(this.baseUrl + 'api/Estudiante', estudiante)
-        .pipe(
-          tap(_ => 
-            
-            {
-              if(mostrar!=null){
-
-                 this.handleErrorService.log('Guardado con exito')
-                 
-              }
-            }
-          
-          ),
-          catchError(this.handleErrorService.handleError<Estudiante>('Registrar Docente', null))
-        );
+    post(estudiante:Estudiante): Observable<Estudiante> {
+      return this.http.post<Estudiante>(this.baseUrl + 'api/Estudiantes', estudiante)
+          .pipe(
+            tap(_ => this.handleErrorService.log('Guardado con exito')),
+            catchError(this.handleErrorService.handleError<Estudiante>('Registrar estudiante', null))
+          );
     }
 
     get(operacion:string): Observable<Estudiante[]> {
-      return this.http.get<Estudiante[]>(this.baseUrl + 'api/Estudiante')
+      return this.http.get<Estudiante[]>(this.baseUrl + 'api/Estudiantes')
       .pipe(
         tap(_ => {
           if(operacion ==="estudianteComponent")
@@ -58,7 +48,7 @@ export class EstudianteService {
     }
 
     getId(id: string, operacionLlamado?:string): Observable<Estudiante> {
-      const url = `${this.baseUrl + 'api/Estudiante'}/${id}`;
+      const url = `${this.baseUrl + 'api/Estudiantes'}/${id}`;
       return this.http.get<Estudiante>(url, httpOptions)
       .pipe(
         tap(_ => {
@@ -74,7 +64,7 @@ export class EstudianteService {
 
 
     put(estudiante: Estudiante): Observable<any> {
-      const url = `${this.baseUrl}api/Estudiante/${estudiante.identificacion}`;
+      const url = `${this.baseUrl}api/Estudiante/${estudiante.idEstudiante}`;
       return this.http.put(url, estudiante,  {responseType: 'text'} )
       .pipe(
         tap(_=> this.handleErrorService.log(_)),
@@ -84,7 +74,7 @@ export class EstudianteService {
 
 
     delete(estudiante: Estudiante | string): Observable<string> {
-      const id = typeof estudiante === 'string' ? estudiante : estudiante.identificacion;
+      const id = typeof estudiante === 'string' ? estudiante : estudiante.idEstudiante;
       return this.http.delete(this.baseUrl + 'api/Estudiante'+ id, {responseType: 'text'} )
       .pipe(
         tap(_ => this.handleErrorService.log(_)),

@@ -25,8 +25,8 @@ namespace ExpoSoftware.Models
         [Required(ErrorMessage = "La asignatura es requerida")]
         public string Asignatura { get; set; }
 
-        [Required(ErrorMessage = "El semestre es requerido")]
-        public int Semestre { get; set; }
+        [Required(ErrorMessage = "El celular es requerido")]
+        public string Celular { get; set; }
 
     }
 
@@ -39,12 +39,11 @@ namespace ExpoSoftware.Models
 
         public EstudianteViewModel(Estudiante estudiante)
         {
-            Identificacion = estudiante.Identificacion;
-            Nombre = estudiante.Nombre;
+            Identificacion = estudiante.IdEstudiante;
+            Nombre = estudiante.NombreCompleto;
             Correo = estudiante.Correo;
-            celular=estudiante.celular;
-            Asignatura = estudiante.Asignatura;
-            Semestre = estudiante.Semestre;
+            Asignatura = estudiante.CodigoAsignatura;
+            Celular = estudiante.celular;
 
         }
 

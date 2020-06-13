@@ -45,6 +45,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
+import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { UserLoginComponent } from './User/user-login/user-login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -72,7 +76,11 @@ import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitud
     ProyectoRegistroComponent,
     ProyectoConsultaComponent,
     FiltroEstudiantePipe,
-    ConsultaSolicitudesComponent,
+    EstudianteEdicionComponent,
+    UserRegisterComponent,
+    UserLoginComponent,
+    ConsultaSolicitudesComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -104,7 +112,7 @@ import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitud
     BrowserAnimationsModule
   ],
   entryComponents:[CuadroDialogoComponent,ModalComponent],
-  providers: [AsignaturaService],
+  providers: [AsignaturaService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
