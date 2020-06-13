@@ -50,7 +50,7 @@ namespace ExpoSoftware.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEstudiante(string id, Estudiante estudiante)
         {
-            if (id != estudiante.IdEstudiante)
+            if (id != estudiante.Identificacion)
             {
                 return BadRequest();
             }
@@ -89,7 +89,7 @@ namespace ExpoSoftware.Controllers
             }
             catch (DbUpdateException)
             {
-                if (EstudianteExists(estudiante.IdEstudiante))
+                if (EstudianteExists(estudiante.Identificacion))
                 {
                     return Conflict();
                 }
@@ -99,7 +99,7 @@ namespace ExpoSoftware.Controllers
                 }
             }
 
-            return CreatedAtAction("GetEstudiante", new { id = estudiante.IdEstudiante }, estudiante);
+            return CreatedAtAction("GetEstudiante", new { id = estudiante.Identificacion }, estudiante);
         }
 
         // DELETE: api/Estudiantes/5
@@ -120,7 +120,7 @@ namespace ExpoSoftware.Controllers
 
         private bool EstudianteExists(string id)
         {
-            return _context.Estudiantes.Any(e => e.IdEstudiante == id);
+            return _context.Estudiantes.Any(e => e.Identificacion == id);
         }
     }
 }
