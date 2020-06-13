@@ -12,6 +12,7 @@ import { AreaConsultaComponent } from './comite/area/area-consulta/area-consulta
 import { AreaEdicionComponent } from './comite/area/area-edicion/area-edicion.component';
 import { ProyectoRegistroComponent } from './docenteAsesor/proyecto/proyecto-registro/proyecto-registro.component';
 import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-consulta/proyecto-consulta.component';
+import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
 
 
 const routes: Routes = [
@@ -58,8 +59,11 @@ const routes: Routes = [
       
       path:"proyectoConsulta",
       component: ProyectoConsultaComponent
+    },
+    {
+      path:"proyectoSolicitudes",
+      component: ConsultaSolicitudesComponent
     }
-    
 ];
   
 

@@ -70,8 +70,15 @@ export class ProyectoService {
   }
 
 
-  public funcionale(){
-    
+  public TraerProyectos(filtroString:string):Observable<Proyecto[]>{
+
+    return this.http.get<Proyecto[]>(this.baseUrl + 'api/Proyecto/GetProyectosFiltros/'+filtroString)
+    .pipe(
+      tap(_ => this.handleErrorService.log('Datos de las solicitudes recibidas')),
+      catchError(this.handleErrorService.handleError<Proyecto[]>('Consulta Proyecto', null))
+    );
+
+
   }
 
 

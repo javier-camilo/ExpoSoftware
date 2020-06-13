@@ -11,12 +11,11 @@ export class ConsultaSolicitudesComponent implements OnInit {
 
   docente:string;
   proyectos:Proyecto[];
+  FiltroDocente:string;
 
   constructor(private proyectoService:ProyectoService) { }
 
   ngOnInit(): void {
-
-    
 
   }
 

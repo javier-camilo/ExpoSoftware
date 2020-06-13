@@ -35,7 +35,8 @@
             <td>{{ proyecto.titulo}}</td>
             <td>{{proyecto.resumen}}</td>
             <td>{{proyecto.estado}}</td>
-            <td></td>
+            <td ngIf="proyecto.estado==='Aprobado'">ver</td>
+            <td ngIf="proyecto.estado==='Aprobado'">ver</td>
             
         </tr>
 

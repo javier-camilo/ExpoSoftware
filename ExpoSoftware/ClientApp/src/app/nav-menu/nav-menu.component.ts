@@ -27,7 +27,8 @@ export class NavMenuComponent {
   ]
 
   fillerProyecto=[
-    {name:"Registro Proyecto", route: "/proyectoRegistro", icon:"note_add"}
+    {name:"Registro Proyecto", route: "/proyectoRegistro", icon:"note_add"},
+    {name:"Consulta Solicitudes", route: "/proyectoSolicitudes", icon:"chrome_reader_mode"}
   ]
 
 
