@@ -20,6 +20,7 @@
             <th scope="col">Titulo</th>
             <th scope="col">Resumen</th>
             <th scope="col">Estado</th>
+            <th scope="col">Registrar Pendon</th>
 
         </tr>
         </thead>
@@ -29,7 +30,7 @@
 
         <tr *ngFor="let proyecto of proyectos  ; index as i ">
             <th scope="row">{{ i + 1 }}</th>
-            <td>{{ proyecto.idProyecto }} </td>
+            <td>{{proyecto.idProyecto }} </td>
             <td>{{ proyecto.titulo}}</td>
             <td>{{proyecto.resumen}}</td>
             <td>{{proyecto.estado}}</td>
