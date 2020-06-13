@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserRegisterComponent implements OnInit {
   user : User;
   userGroup : FormGroup;
-
+  readonly roles: string[] = ["Docente acesor", "Comite",  "Docente evaluador"]
 
   constructor(private authService : AuthService, private formBuilder : FormBuilder, private router : Router) { }
 
@@ -31,7 +31,8 @@ export class UserRegisterComponent implements OnInit {
    this.userGroup = this.formBuilder.group({
      userName: ["", [Validators.required]],
      email: ["", [Validators.required, Validators.email]],
-     password: ["", [Validators.required]]
+     password: ["", [Validators.required]],
+     rol : ["", [Validators.required]]
 
    });
 
@@ -48,7 +49,8 @@ export class UserRegisterComponent implements OnInit {
    this.user = {
      userName : this.control["userName"].value,
      email : this.control["email"].value,
-     password : this.control["password"].value
+     password : this.control["password"].value,
+     rol : this.control["rol"].value
 
    }
    this.authService.registerUser(this.user).subscribe(p => {

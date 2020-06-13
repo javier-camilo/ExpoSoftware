@@ -51,18 +51,18 @@ export class EstudianteRegistroComponent implements OnInit {
 
   private buildForm(){
 
-    this.estudiante.idEstudiante="";
-    this.estudiante.nombreCompleto="";
-    this.estudiante.codigoAsignatura="seleccionar";
+    this.estudiante.identificacion="";
+    this.estudiante.nombre="";
+    this.estudiante.asignatura="seleccionar";
     this.estudiante.correo="";
     this.estudiante.celular="";
  
 
 
     this.formGroup = this.formBuilder.group({
-      idEstudiante: [ this.estudiante.idEstudiante, [Validators.required, Validators.maxLength(10)] ],
-      nombreCompleto: [ this.estudiante.nombreCompleto, [Validators.required]],
-      codigoAsignatura: [this.estudiante.codigoAsignatura, this.ValidaAsignatura ],
+      identificacion: [ this.estudiante.identificacion, [Validators.required, Validators.maxLength(10)] ],
+      nombre: [ this.estudiante.nombre, [Validators.required]],
+      asignatura: [this.estudiante.asignatura, this.ValidaAsignatura ],
       correo: [this.estudiante.correo, [Validators.email, Validators.required] ],
       celular: [this.estudiante.celular, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]]
       

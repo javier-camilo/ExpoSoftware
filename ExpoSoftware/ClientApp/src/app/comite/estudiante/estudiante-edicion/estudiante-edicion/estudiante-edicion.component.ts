@@ -81,7 +81,7 @@ export class EstudianteEdicionComponent implements OnInit
   
   delete(confirmacion:string){
     
-    if(confirmacion=="true")this.estudianteService.delete(this.estudiante.idEstudiante).subscribe();
+    if(confirmacion=="true")this.estudianteService.delete(this.estudiante.identificacion).subscribe();
 
   }
 
@@ -90,10 +90,10 @@ export class EstudianteEdicionComponent implements OnInit
   inicializarError(){
 
     this.estudiante = new Estudiante();
-    this.estudiante.idEstudiante="...";
-    this.estudiante.codigoAsignatura="Seleccionar..."
+    this.estudiante.identificacion="...";
+    this.estudiante.asignatura="Seleccionar..."
     this.estudiante.correo="";
-    this.estudiante.nombreCompleto="";
+    this.estudiante.nombre="";
     this.estudiante.celular="";
 
     this.resultado("Error","Se produjo un error al consultar el estudiante a editar");

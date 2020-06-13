@@ -38,6 +38,29 @@
 
             <div class="input-group mb-3 input divflex " style="margin-left: 23%;">
                 <div>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Rol</span>
+                </div>  
+              
+                <select class="custom-select" id="rol" name="asignatura"  formControlName="rol" class="form-control" [ngClass]="{ 'is-invalid': control.rol.errors && control.rol.touched }">
+                    <option selected>seleccionar</option>
+  
+                    <option *ngFor="let item of roles"  value={{item}}>{{item}}</option>
+                  
+                  </select>
+              
+              
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-left: 21%;">
+                    
+                    <div *ngIf="control.rol.errors.required">Se necesita un rol</div>
+                    
+
+                </div>
+                
+
+            </div>
+
+            <div class="input-group mb-3 input divflex " style="margin-left: 23%;">
+                <div>
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                 </div>
                 <input type="text" placeholder="Email" style="margin-right: 45%;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="email" [ngClass]="{ 'is-invalid': control.email.errors && control.email.touched }"> 

@@ -16,51 +16,66 @@ import { UserLoginComponent } from './User/user-login/user-login.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
+import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
+import { ComiteGuard } from './guards/comite.guard';
+import { AsesorGuard } from './guards/asesor.guard';
+import { EvaluadorGuard } from './guards/evaluador.guard';
 
 const routes: Routes = [
 
     {
     path: 'asignaturaConsulta',
-    component:AsignaturaConsultaComponent
+    component:AsignaturaConsultaComponent,
+    canActivate: [ComiteGuard]
     },
     {
       path: 'asignaturaRegistro',
-      component: AsignaturaRegistroComponent
+      component: AsignaturaRegistroComponent,
+       canActivate: [ComiteGuard]
     },
     {
       path: 'asignaturaEdicion/:identificacion',
-      component: AsignaturaEdicionComponent
+      component: AsignaturaEdicionComponent,
+      canActivate: [ComiteGuard]
     },
    
     {
         path: 'docenteRegistro',
-        component: DocenteRegistroComponent
+        component: DocenteRegistroComponent,
+        canActivate: [ComiteGuard]
+
     },
     {
           path: 'docenteConsulta',
-          component: DocenteConsultaComponent
+          component: DocenteConsultaComponent,
+          canActivate: [ComiteGuard]
     },
     {
           path: 'areaRegistro',
-          component: AreaRegistroComponent
+          component: AreaRegistroComponent,
+          canActivate: [ComiteGuard]
     },
     {
           path: 'areaConsulta',
-          component: AreaConsultaComponent
+          component: AreaConsultaComponent,
+          canActivate: [ComiteGuard]
     },
     {
       path:"areaEdicion/:codigoArea",
-      component:AreaEdicionComponent
+      component:AreaEdicionComponent,
+      canActivate: [ComiteGuard]
     },
     {
       
       path:"proyectoRegistro",
-      component:ProyectoRegistroComponent
+      component:ProyectoRegistroComponent,
+      canActivate: [AsesorGuard]
     },
     {
       
       path:"proyectoConsulta",
       component: ProyectoConsultaComponent
+
     },
 
     {
@@ -71,12 +86,15 @@ const routes: Routes = [
     {
       
       path:"estudianteRegistro",
-      component: EstudianteRegistroComponent
+      component: EstudianteRegistroComponent,
+      canActivate : [AsesorGuard]
     },
     {
       
       path:"estudianteEdicion",
-      component: EstudianteConsultaComponent
+      component: EstudianteEdicionComponent,
+      canActivate : [AsesorGuard]
+
     },
     {
       
@@ -86,7 +104,8 @@ const routes: Routes = [
     {
       
       path:"userRegister",
-      component: UserRegisterComponent  
+      component: UserRegisterComponent,
+      canActivate : [ComiteGuard]
     }
 
     

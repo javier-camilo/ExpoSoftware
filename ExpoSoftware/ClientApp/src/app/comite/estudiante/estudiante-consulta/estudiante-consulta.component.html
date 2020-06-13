@@ -30,12 +30,12 @@
       <tbody>
         <tr *ngFor="let estudiante of estudiantes | filtroEstudiante:searchText ; index as i ">
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ estudiante.idEstudiante }} </td>
-          <td>{{ estudiante.nombreCompleto }}</td>
+          <td>{{ estudiante.identificacion }} </td>
+          <td>{{ estudiante.nombre }}</td>
           <td>{{ estudiante.correo  }}</td>
           
           <div *ngFor="let item of asignaturas">
-            <td *ngIf="item.codigoAsignatura===estudiante.codigoAsignatura">{{item.nombreAsignatura}}</td>
+            <td *ngIf="item.codigoAsignatura===estudiante.asignatura">{{item.nombreAsignatura}}</td>
           </div>
           <td>{{ estudiante.celular }}</td>
           <td>{{ estudiante.correo }}</td>

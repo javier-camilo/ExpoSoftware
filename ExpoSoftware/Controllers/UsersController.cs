@@ -38,7 +38,8 @@ namespace ExpoSoftware.Controllers
             var user = new ApplicationUser
             {
                 UserName = applicationUser.UserName,
-                Email = applicationUser.Email
+                Email = applicationUser.Email,
+                Rol = applicationUser.Rol
             };
 
             var result = await _userManager.CreateAsync(user, applicationUser.Password);
@@ -53,7 +54,8 @@ namespace ExpoSoftware.Controllers
             {
                 UserName = user.UserName,
                 Email = user.Email,
-                Token = _tokenGenerator.GenerateToken(user.UserName, "Admin")
+                Token = _tokenGenerator.GenerateToken(user.UserName, user.Rol),
+                Rol = user.Rol
             };
 
         }
@@ -85,7 +87,8 @@ namespace ExpoSoftware.Controllers
             {
                 UserName = user.UserName,
                 Email = user.Email,
-                Token = _tokenGenerator.GenerateToken(user.UserName, "Admin")
+                Token = _tokenGenerator.GenerateToken(user.UserName, user.Rol),
+                Rol = user.Rol
             };
         }
 

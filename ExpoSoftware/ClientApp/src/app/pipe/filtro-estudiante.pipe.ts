@@ -11,9 +11,9 @@ export class FiltroEstudiantePipe implements PipeTransform {
     if(searchText==null)return estudiantes;
 
     return estudiantes.filter(p => 
-      p.idEstudiante.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+      p.identificacion.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
       ||
-      p.nombreCompleto.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+      p.identificacion.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
       );
     
   }

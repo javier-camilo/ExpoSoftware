@@ -49,6 +49,8 @@ import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edici
 import { UserRegisterComponent } from './User/user-register/user-register.component';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
+import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 
 
 
@@ -79,7 +81,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     EstudianteEdicionComponent,
     UserRegisterComponent,
     UserLoginComponent,
-    ConsultaSolicitudesComponent
+    ConsultaSolicitudesComponent,
+    EstudianteConsultaComponent,
+    EstudianteRegistroComponent,
+   
+    
 
   ],
   imports: [
@@ -103,6 +109,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatSlideToggleModule,
     MatGridListModule,
     MatSelectModule,
+
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

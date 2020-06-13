@@ -15,7 +15,7 @@
           <div class="input-group mb-3 input divflex" style="margin-left: 40%;">
   
               <div class="text-center">
-                <span class="input-group-text" id="inputGroup-sizing-default">{{estudiante.idEstudiante}}</span>
+                <span class="input-group-text" id="inputGroup-sizing-default">{{estudiante.identificacion}}</span>
               </div>
   
               
@@ -31,7 +31,7 @@
             </div>
 
 
-            <input type="text" name="nombreAsignatura" [(ngModel)]="estudiante.nombreCompleto" class="form-control" />
+            <input type="text" name="nombreAsignatura" [(ngModel)]="estudiante.nombre" class="form-control" />
           
           </div>
 
@@ -43,7 +43,7 @@
                 <label class="input-group-text" for="asignaturas">Asignaturas</label>
               </div>
   
-              <select class="custom-select" id="areaA" name="asignatura" class="form-control" [(ngModel)]="estudiante.codigoAsignatura" >
+              <select class="custom-select" id="areaA" name="asignatura" class="form-control" [(ngModel)]="estudiante.asignatura" >
                 <option selected>Seleccionar</option>
                 <option *ngFor="let item of asignaturas"  value={{item.codigoAsignatura}}>{{item.nombreAsignatura}}</option>
               </select>

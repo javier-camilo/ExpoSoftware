@@ -64,7 +64,7 @@ export class EstudianteService {
 
 
     put(estudiante: Estudiante): Observable<any> {
-      const url = `${this.baseUrl}api/Estudiante/${estudiante.idEstudiante}`;
+      const url = `${this.baseUrl}api/Estudiante/${estudiante.identificacion}`;
       return this.http.put(url, estudiante,  {responseType: 'text'} )
       .pipe(
         tap(_=> this.handleErrorService.log(_)),
@@ -74,7 +74,7 @@ export class EstudianteService {
 
 
     delete(estudiante: Estudiante | string): Observable<string> {
-      const id = typeof estudiante === 'string' ? estudiante : estudiante.idEstudiante;
+      const id = typeof estudiante === 'string' ? estudiante : estudiante.identificacion;
       return this.http.delete(this.baseUrl + 'api/Estudiante'+ id, {responseType: 'text'} )
       .pipe(
         tap(_ => this.handleErrorService.log(_)),
