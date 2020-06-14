@@ -29,6 +29,35 @@ namespace ExpoSoftware.Controllers
             return await _context.AspectoEvaluars.ToListAsync();
         }
 
+        
+        [HttpGet]
+        [Route("getPreguntas/{condicion}")] 
+        public IEnumerable<AspectoEvaluar> GetAspectoEvaluars(string condicion)
+        {
+            List<AspectoEvaluar> listadoFiltrar = new List<AspectoEvaluar>();
+            listadoFiltrar=_context.AspectoEvaluars.ToList();
+            return obtenerFiltrado(listadoFiltrar,condicion);
+
+        }
+
+
+        private List<AspectoEvaluar> obtenerFiltrado(List<AspectoEvaluar> listadoFiltrar,string condicion){
+
+            List<AspectoEvaluar> listado=new List<AspectoEvaluar>();
+
+            foreach (var item in listadoFiltrar)
+            {
+                if(item.RefRubrica==condicion){
+                    listado.Add(item);
+                }
+                
+            }
+
+            return listado;
+
+        }
+
+
         // GET: api/AspectoEvaluar/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AspectoEvaluar>> GetAspectoEvaluar(int id)
