@@ -46,6 +46,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
 import {MatTableModule} from '@angular/material/table';
+import { RubricaRegistroComponent } from './comite/rubrica/rubrica-registro/rubrica-registro.component';
+import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubrica-consulta.component';
 
 
 @NgModule({
@@ -73,6 +75,8 @@ import {MatTableModule} from '@angular/material/table';
     ProyectoConsultaComponent,
     FiltroEstudiantePipe,
     ConsultaSolicitudesComponent,
+    RubricaRegistroComponent,
+    RubricaConsultaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

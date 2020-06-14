@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Datos;
 using Entity;
+using Logica;
+using ExpoSoftware.Models;
 
 namespace ExpoSoftware.Controllers
 {
@@ -15,31 +17,32 @@ namespace ExpoSoftware.Controllers
     public class RubricaController : ControllerBase
     {
         private readonly ExpoSoftwareContext _context;
+        private readonly RubricaService _RubricaService;
 
         public RubricaController(ExpoSoftwareContext context)
         {
             _context = context;
+            _RubricaService=new RubricaService(context);
         }
 
         // GET: api/Rubrica
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Rubrica>>> GetRubricas()
+        public IEnumerable<RubricaViewModel> GetRubricas()
         {
-            return await _context.Rubricas.ToListAsync();
+            
+            var rubricas = _RubricaService.ConsultarTodos().Select(p => new RubricaViewModel(p));
+            return rubricas;
         }
 
         // GET: api/Rubrica/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Rubrica>> GetRubrica(string id)
+        public ActionResult<RubricaViewModel> GetRubrica(string id)
         {
-            var rubrica = await _context.Rubricas.FindAsync(id);
-
-            if (rubrica == null)
-            {
-                return NotFound();
-            }
-
+            var rubricaBuscada = _RubricaService.BuscarIdentificacion(id);
+            if (rubricaBuscada == null) return NotFound();
+            var rubrica = new RubricaViewModel(rubricaBuscada);
             return rubrica;
+
         }
 
         // PUT: api/Rubrica/5
@@ -78,26 +81,34 @@ namespace ExpoSoftware.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Rubrica>> PostRubrica(Rubrica rubrica)
+        public ActionResult<Rubrica> PostRubrica(RubricaInputModel rubricaInput)
         {
-            _context.Rubricas.Add(rubrica);
-            try
+             Rubrica rubrica = Mapear(rubricaInput);
+            var response = _RubricaService.Guardar(rubrica);
+            if (response.Error)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (RubricaExists(rubrica.IdRubrica))
+                ModelState.AddModelError("Guardar Rubrica", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
                 {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
+            return Ok(response.Rubrica);
 
-            return CreatedAtAction("GetRubrica", new { id = rubrica.IdRubrica }, rubrica);
+        }
+
+        
+
+        private Rubrica Mapear(RubricaInputModel rubricaInput)
+        {
+            var rubrica = new Rubrica
+            {
+                IdRubrica=rubricaInput.IdRubrica,
+                Titulo=rubricaInput.Titulo,
+                CodigoArea=rubricaInput.CodigoArea
+            };
+            return rubrica;
         }
 
         // DELETE: api/Rubrica/5

@@ -4,8 +4,8 @@ namespace Entity
 {
     public class Rubrica
     {
-        [Key]
         
+        [Key]
         public string IdRubrica { get; set; }
 
         public string Titulo { get; set; }

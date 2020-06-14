@@ -203,7 +203,7 @@ export class ProyectoRegistroComponent implements OnInit {
         this.proyecto.identificacionDocente=this.docente.identificacion;
         this.proyecto.identificacionEstudiante=this.estudiante.identificacion;
         this.proyecto.estado="sin revisar";
-        this.proyecto.codigoAsignatura=this.estudiante.asignatura;
+        this.proyecto.codigoAsignatura=this.docente.asignaturas;
         this.proyectoService.post(this.proyecto).subscribe();
 
     }
