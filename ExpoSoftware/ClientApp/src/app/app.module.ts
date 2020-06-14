@@ -48,6 +48,7 @@ import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitud
 import {MatTableModule} from '@angular/material/table';
 import { RubricaRegistroComponent } from './comite/rubrica/rubrica-registro/rubrica-registro.component';
 import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubrica-consulta.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubr
     MatSlideToggleModule,
     MatGridListModule,
     MatSelectModule,
+    MatPaginatorModule,
     MatTableModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

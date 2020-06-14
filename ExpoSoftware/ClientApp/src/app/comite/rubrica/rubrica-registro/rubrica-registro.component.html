@@ -1,9 +1,15 @@
-        <blockquote class="blockquote text-center" style="margin-bottom: 50px;">
-          <p class="mb-0" class="display-3 colorLetras">Rubrica Registro</p>
-          <footer class="blockquote-footer">Registro de las rubricas para cada area</footer>
-        </blockquote>
+       
+<div *ngIf="areas">
 
-<div class="row justify-content-md-center" >
+    <blockquote class="blockquote text-center" style="margin-bottom: 50px;">
+      <p class="mb-0" class="display-3 colorLetras">Rubrica Registro</p>
+      <footer class="blockquote-footer">Registro de las rubricas para cada area</footer>
+    </blockquote>
+
+</div>
+
+
+<div class="row justify-content-md-center" *ngIf="areas">
 
      <div class="col-md-auto">
 
@@ -49,7 +55,7 @@
 
         <div class="text-center">
            
-          <button mat-stroked-button class="botton" type="submit" style="margin-right: 20px;">Registrar</button>
+          <button mat-stroked-button class="botton" type="submit" style="margin-right: 20px;" [disabled]="rubricaForm.invalid">Registrar</button>
           <button mat-stroked-button class="botton" type="reset">Limpiar</button>
 
         </div>

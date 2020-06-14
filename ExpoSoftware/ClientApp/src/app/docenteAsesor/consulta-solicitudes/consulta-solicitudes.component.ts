@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Proyecto } from '../proyecto/models/proyecto';
 import { ProyectoService } from 'src/app/services/proyecto.service';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-consulta-solicitudes',
@@ -10,7 +11,10 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 export class ConsultaSolicitudesComponent implements OnInit {
 
   proyectos:Proyecto[]=[];
+  dataSource:any;
   FiltroDocente:string;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private proyectoService:ProyectoService) { }
 
@@ -20,11 +24,17 @@ export class ConsultaSolicitudesComponent implements OnInit {
 
   getProyectos(){
 
-    this.proyectoService.TraerProyectos(this.FiltroDocente).subscribe(result=>this.proyectos=result);
+    this.proyectoService.TraerProyectos(this.FiltroDocente).subscribe(result=>{
+
+      this.proyectos=result;
+
+      this.dataSource = new MatTableDataSource<Proyecto>(this.proyectos);
+      this.dataSource.paginator = this.paginator;
+    
+    });
 
   }
 
-  dataSource = this.proyectos;
   displayedColumns: string[] = ['Referencia', 'Titulo', 'Resumen', 'Estado', 'Pendon'];
 
 

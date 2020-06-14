@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Rubrica } from '../models/rubrica';
+import { Area } from '../../area/model/area';
+import { RubricaService } from 'src/app/services/rubrica.service';
+import { AreaService } from 'src/app/services/area.service';
+import {MatTableDataSource } from '@angular/material';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-rubrica-consulta',
@@ -7,9 +13,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RubricaConsultaComponent implements OnInit {
 
-  constructor() { }
+  areas:Area[];
+  rubricas:Rubrica[]=[];
+  dataSource:any;
+  displayedColumns: string[] = ['Referencia', 'Titulo', 'IdArea','Area', 'Preguntas'];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  
+  
+  constructor(private areaService:AreaService,private rubricaService:RubricaService) { }
 
   ngOnInit(): void {
+
+    this.cargarAreas();
+    this.cargarRubrica();
+
+    
   }
+
+
+   cargarRubrica(){
+     this.rubricaService.get("").subscribe(result=>{this.rubricas=result;
+
+      this.dataSource = new MatTableDataSource<Rubrica>(this.rubricas);
+      this.dataSource.paginator = this.paginator;
+    
+    });
+  }
+
+
+   cargarAreas(){
+     this.areaService.get("").subscribe(result=>this.areas=result);
+  }
+
+
+  buscarArea(areaBuscada:string):string{
+
+    this.areas.forEach(element => {
+
+      if (element.codigoArea==areaBuscada) {
+
+        return element.nombreArea;
+
+      }
+
+    });
+
+    return " ";
+  }
+
+
 
 }

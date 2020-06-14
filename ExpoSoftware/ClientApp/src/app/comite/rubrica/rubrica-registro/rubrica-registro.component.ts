@@ -5,6 +5,7 @@ import { Area } from '../../area/model/area';
 import { AreaService } from 'src/app/services/area.service';
 import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.component';
 import { MatDialog } from '@angular/material';
+import { RubricaService } from 'src/app/services/rubrica.service';
 
 @Component({
   selector: 'app-rubrica-registro',
@@ -17,7 +18,9 @@ export class RubricaRegistroComponent implements OnInit {
   rubrica:Rubrica;
   areas:Area[];
 
-  constructor(private formBuilder: FormBuilder,private areaService:AreaService,private dialog:MatDialog) { }
+  constructor(private formBuilder: FormBuilder,private areaService:AreaService,private dialog:MatDialog,
+    private rubricaService:RubricaService
+    ) { }
 
   ngOnInit(): void {
 
@@ -44,6 +47,8 @@ export class RubricaRegistroComponent implements OnInit {
 
       if(this.areas==null){
 
+          this.resultado("Permiso denegado","No hay areas a las cuales asignarles rubrica");
+ 
       }
 
     });
@@ -65,18 +70,19 @@ export class RubricaRegistroComponent implements OnInit {
     if (!this.rubricaForm.valid) {
       return;
     }
-    console.log(this.rubricaForm.value);
+    this.rubrica=this.rubricaForm.value;
+    this.rubricaService.post(this.rubrica," ").subscribe(result=>this.rubrica=result);
   }
 
-  
-  confirmar(operacion:string){
+
+  confirmar(){
 
     let dialogo= this.dialog.open(CuadroDialogoComponent, {data:{name:"Advertencia", descripcion:"¿esta seguro de realizar esta accion?"} } );
 
     dialogo.afterClosed().subscribe(result => {
       
 
-        if (operacion=="true") {
+        if (result=="true") {
 
           this.submit();
 
@@ -86,6 +92,14 @@ export class RubricaRegistroComponent implements OnInit {
 
     );
 
+  }
+
+
+  
+  resultado(operacion:string, mensaje:string){
+
+    this.dialog.open(CuadroDialogoComponent, {data: {name:operacion, descripcion: mensaje, EsMensaje: "true"}});
+    
   }
 
 

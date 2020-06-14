@@ -19,7 +19,7 @@
 </div>
 
 
-<table mat-table [dataSource]="proyectos" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- Position Column -->
     <ng-container matColumnDef="Referencia">
@@ -60,5 +60,11 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
+
+  <div>
+    
+    <mat-paginator [pageSizeOptions]="[3, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  </div>
   
   
