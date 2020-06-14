@@ -45,7 +45,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
-
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -95,6 +95,7 @@ import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitud
     MatSlideToggleModule,
     MatGridListModule,
     MatSelectModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

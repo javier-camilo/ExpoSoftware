@@ -72,7 +72,8 @@ export class ProyectoService {
 
   public TraerProyectos(filtroString:string):Observable<Proyecto[]>{
 
-    return this.http.get<Proyecto[]>(this.baseUrl + 'api/Proyecto/GetProyectosFiltros/'+filtroString)
+    const url = `${this.baseUrl + 'api/Proyecto/GetProyectosFiltros'}/${filtroString}`;
+    return this.http.get<Proyecto[]>(url,httpOptions)
     .pipe(
       tap(_ => this.handleErrorService.log('Datos de las solicitudes recibidas')),
       catchError(this.handleErrorService.handleError<Proyecto[]>('Consulta Proyecto', null))

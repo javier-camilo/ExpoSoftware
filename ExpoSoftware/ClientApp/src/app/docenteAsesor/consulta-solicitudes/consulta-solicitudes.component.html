@@ -7,42 +7,58 @@
 </blockquote>
 
 
-<div class="table-responsive">
+<div class="text-center">
+    
+  <mat-form-field class="example-full-width" style="margin-right: 15px; margin-bottom: 20px;">
+    <mat-label>Identificacion Docente </mat-label>
+    <textarea matInput placeholder="Digite la indentificación" [(ngModel)]="FiltroDocente"></textarea>
+  </mat-form-field>
 
+  <button mat-raised-button (click)="getProyectos()">Buscar proyectos</button>
 
-    <table class="table table-light  table-hover" *ngIf="proyectos && proyectos.length">
-
-        <thead class="thead-dark">
-        <tr>
-
-            <th scope="col">#</th>
-            <th scope="col">Referencia del proyecto</th>
-            <th scope="col">Titulo</th>
-            <th scope="col">Resumen</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Registrar Pendon</th>
-            <th scope="col">Editar</th>
-
-        </tr>
-        </thead>
-
-
-        <tbody>
-
-        <tr *ngFor="let proyecto of proyectos  ; index as i ">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{proyecto.idProyecto }} </td>
-            <td>{{ proyecto.titulo}}</td>
-            <td>{{proyecto.resumen}}</td>
-            <td>{{proyecto.estado}}</td>
-            <td ngIf="proyecto.estado==='Aprobado'">ver</td>
-            <td ngIf="proyecto.estado==='Aprobado'">ver</td>
-            
-        </tr>
-
-    </tbody>
-
-
-    </table>
 </div>
 
+
+<table mat-table [dataSource]="proyectos" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Referencia">
+      <th mat-header-cell *matHeaderCellDef>Referencia DE proyecto</th>
+      <td mat-cell *matCellDef="let element"> {{element.idProyecto}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Titulo">
+      <th mat-header-cell *matHeaderCellDef>Titulo de proyecto</th>
+      <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Resumen">
+      <th mat-header-cell *matHeaderCellDef>Resumen</th>
+      <td mat-cell *matCellDef="let element"> {{element.resumen}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Estado">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let element">{{element.estado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Pendon">
+        
+        <th mat-header-cell *matHeaderCellDef>Pendon</th>
+        <td mat-cell *matCellDef="let element"  >
+            <div *ngIf="comprobar(element.estado)">
+                    ver
+            </div>
+        </td>
+
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  
+  

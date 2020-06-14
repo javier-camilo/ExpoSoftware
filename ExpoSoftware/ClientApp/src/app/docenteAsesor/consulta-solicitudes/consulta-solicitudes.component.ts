@@ -9,14 +9,33 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 })
 export class ConsultaSolicitudesComponent implements OnInit {
 
-  docente:string;
-  proyectos:Proyecto[];
+  proyectos:Proyecto[]=[];
   FiltroDocente:string;
 
   constructor(private proyectoService:ProyectoService) { }
 
   ngOnInit(): void {
+    this.FiltroDocente="";
+  }
+
+  getProyectos(){
+
+    this.proyectoService.TraerProyectos(this.FiltroDocente).subscribe(result=>this.proyectos=result);
 
   }
+
+  dataSource = this.proyectos;
+  displayedColumns: string[] = ['Referencia', 'Titulo', 'Resumen', 'Estado', 'Pendon'];
+
+
+  comprobar(comprobar:string):boolean{
+    if(comprobar==="Aprobado"){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
 
 }

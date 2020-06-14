@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Datos;
 using Entity;
+using ExpoSoftware.Models;
 
 namespace ExpoSoftware.Controllers
 {
@@ -85,6 +86,33 @@ namespace ExpoSoftware.Controllers
 
             return CreatedAtAction("GetAspectoEvaluar", new { id = aspectoEvaluar.Id }, aspectoEvaluar);
         }
+
+
+
+        [HttpPost]
+        [Route("PosPreguntas")] 
+
+        public async Task<ActionResult<string>> PostPregunta(AspectoEvaluarInputModel[] aspectoEvaluarInputModel)
+        {
+
+            Guardar(aspectoEvaluarInputModel);
+            await _context.SaveChangesAsync();
+
+            return Ok("registro realizado");
+        }
+
+        private void Guardar(AspectoEvaluarInputModel[] aspectoEvaluarInputModel){
+
+            foreach (var item in aspectoEvaluarInputModel)
+            {
+               var AspectoEvaluar = item.Crear();
+              _context.AspectoEvaluars.Add(AspectoEvaluar);  
+
+            }
+
+        }
+
+        
 
         // DELETE: api/AspectoEvaluar/5
         [HttpDelete("{id}")]
