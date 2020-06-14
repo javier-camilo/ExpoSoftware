@@ -31,6 +31,11 @@ export class NavMenuComponent {
     {name:"Consulta Solicitudes", route: "/proyectoSolicitudes", icon:"chrome_reader_mode"}
   ]
 
+  fillerRubrica=[
+    {name:"Registro Rubrica", route: "/rubricaRegistro", icon:"note_add"},
+    {name:"Consulta Rubrica", route: "/rubricaConsulta", icon:"chrome_reader_mode"}
+  ]
+
 
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

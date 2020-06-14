@@ -93,6 +93,20 @@
         
                   </div>
 
+                  <mat-list-item data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <mat-icon>layers  </mat-icon> Rubrica
+                  </mat-list-item>
+
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          
+                    <div style="margin-left: 20px;">
+                      
+                      <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerRubrica"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                    </div>
+        
+                  </div>
+
 
                   <a mat-list-item routerLink="/proyectoConsulta"> <mat-icon>search </mat-icon> solicitudes de proyecto</a>
 
@@ -103,11 +117,11 @@
                   </mat-list-item>
 
 
-              <mat-list-item data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+              <mat-list-item data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                     <mat-icon>dns  </mat-icon>Proyecto
               </mat-list-item>
 
-              <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                       
                 <div style="margin-left: 20px;">
                   
