@@ -149,7 +149,7 @@ export class ProyectoRegistroComponent implements OnInit {
       this.secondFormGroup = this._formBuilder.group({
 
 
-        identificacion: [this.estudiante.identificacion, [Validators.required, Validators.maxLength(2)]],
+        identificacion: [this.estudiante.identificacion, [Validators.required, Validators.maxLength(10)]],
         nombre: [this.estudiante.nombre, Validators.required],
         correo: [this.estudiante.correo,Validators.required],
         celular: [this.estudiante.celular,Validators.required],
