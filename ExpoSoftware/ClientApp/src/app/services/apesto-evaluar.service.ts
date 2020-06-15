@@ -59,6 +59,16 @@ export class ApestoEvaluarService {
     }
 
 
+    delete(aspectoEvaluar: AspectoEvaluar| number): Observable<string> {
+      const id = aspectoEvaluar;
+      return this.http.delete(this.baseUrl + 'api/AspectoEvaluar/'+ id, {responseType: 'text'} )
+      .pipe(
+        tap(_ => this.handleErrorService.log("se elimino de manera correcta la pregunta")),
+        catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
+      );
+    }
+
+
   
 
 

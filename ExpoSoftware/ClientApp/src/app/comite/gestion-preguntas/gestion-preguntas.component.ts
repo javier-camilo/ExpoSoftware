@@ -10,7 +10,9 @@ import { ApestoEvaluarService } from 'src/app/services/apesto-evaluar.service';
 })
 export class GestionPreguntasComponent implements OnInit {
 
-  preguntas:AspectoEvaluar[]=[];
+  preguntas:AspectoEvaluar[];
+
+  id:any;
   
   constructor(private rutaActiva: ActivatedRoute,private aspectoEvaluarService:ApestoEvaluarService) { }
 
@@ -23,8 +25,13 @@ export class GestionPreguntasComponent implements OnInit {
 
   inicar(filtroPreguntas:string){
 
-    this.aspectoEvaluarService.TraerPreguntas(filtroPreguntas).subscribe(result=>this.preguntas=result);
+    this.aspectoEvaluarService.TraerPreguntas(filtroPreguntas).subscribe(result=>{this.preguntas=result; console.log(this.preguntas)});
 
+  }
+
+  eliminar(ref:number){
+
+    this.aspectoEvaluarService.delete(ref).subscribe();
   }
 
 
