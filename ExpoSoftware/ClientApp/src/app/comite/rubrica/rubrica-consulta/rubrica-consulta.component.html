@@ -6,6 +6,17 @@
   
 </blockquote>
 
+
+<div class="text-center">
+    
+  <mat-form-field class="example-full-width" style="margin-right: 15px; margin-bottom: 20px;">
+    <mat-label>Filtro </mat-label>
+    <textarea matInput placeholder="Filtrar por area o titulo" (keyup)="applyFilter($event.target.value)" ></textarea>
+  </mat-form-field>
+
+
+</div>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -44,7 +55,7 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="Preguntas">
       <th mat-header-cell *matHeaderCellDef> Preguntas </th>
-      <td mat-cell *matCellDef="let element"><div>Ver</div></td>
+      <td mat-cell *matCellDef="let element"><a routerLink="/preguntasGestion/{{element.idRubrica}}" >ver</a></td>
     </ng-container>
   
  

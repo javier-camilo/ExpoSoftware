@@ -1,0 +1,54 @@
+<div class="row">
+
+
+    <div class="col-sm-4">
+
+        
+        
+        .col-sm-4
+    
+    </div>
+
+
+
+    <div class="col-sm-8">
+
+        <blockquote class="blockquote " style="margin-bottom: 80px;">
+
+            <p class="mb-0" class="display-3 colorLetras">Gestion de Preguntas</p>
+                
+        </blockquote>
+
+            <div class="table-responsive">
+
+
+                <table class="table table-light  table-hover" *ngIf="preguntas && preguntas.length">
+
+                    <thead class="thead-light">
+                    <tr>
+
+                        <th scope="col">#</th>
+                        <th scope="col">Pregunta</th>
+                        <th scope="col">Valor</th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+            
+                    <tr *ngFor="let pregunta of preguntas  ; index as i ">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ pregunta.pregunta }} </td>
+                        <td>{{ pregunta.valor}}</td>
+                        <th> </th>
+                    </tr>
+
+                    </tbody>
+            
+                </table>
+            </div>
+    </div>
+
+    
+  </div>

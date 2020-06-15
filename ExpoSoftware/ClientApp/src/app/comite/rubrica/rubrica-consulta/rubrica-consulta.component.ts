@@ -13,6 +13,7 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class RubricaConsultaComponent implements OnInit {
 
+  FiltroRubrica:string;
   areas:Area[];
   rubricas:Rubrica[]=[];
   dataSource:any;
@@ -36,6 +37,23 @@ export class RubricaConsultaComponent implements OnInit {
 
       this.dataSource = new MatTableDataSource<Rubrica>(this.rubricas);
       this.dataSource.paginator = this.paginator;
+
+
+      this.dataSource.filterPredicate = (data: Rubrica, filter: string) => {
+
+    
+        return data.codigoArea.toLowerCase()
+        .indexOf(filter.toLowerCase()) !== -1  ||
+
+        data.titulo.toLowerCase()
+        .indexOf(filter.toLowerCase()) !== -1 ||
+
+        data.idRubrica.toLowerCase()
+        .indexOf(filter.toLowerCase()) !== -1;
+
+
+       };
+
     
     });
   }
@@ -61,6 +79,10 @@ export class RubricaConsultaComponent implements OnInit {
     return " ";
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); 
+    this.dataSource.filter = filterValue;
+  }
 
 
 }

@@ -15,6 +15,7 @@ import { ProyectoConsultaComponent } from './docenteAsesor/proyecto/proyecto-con
 import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
 import { RubricaRegistroComponent } from './comite/rubrica/rubrica-registro/rubrica-registro.component';
 import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubrica-consulta.component';
+import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-preguntas.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,10 @@ const routes: Routes = [
     {
       path:"rubricaConsulta",
       component: RubricaConsultaComponent
+    },
+    {
+      path:"preguntasGestion/:codigoRubrica",
+      component: GestionPreguntasComponent
     }
 
 ];

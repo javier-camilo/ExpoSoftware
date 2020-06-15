@@ -49,6 +49,8 @@ import {MatTableModule} from '@angular/material/table';
 import { RubricaRegistroComponent } from './comite/rubrica/rubrica-registro/rubrica-registro.component';
 import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubrica-consulta.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FiltroRubricaPipe } from './pipe/filtro-rubrica.pipe';
+import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-preguntas.component';
 
 
 @NgModule({
@@ -78,6 +80,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ConsultaSolicitudesComponent,
     RubricaRegistroComponent,
     RubricaConsultaComponent,
+    FiltroRubricaPipe,
+    GestionPreguntasComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
