@@ -108,6 +108,10 @@ export class ProyectoRegistroComponent implements OnInit {
   
   }
 
+  consultarV(){
+    this.docenteService.getId(this.busquedaDocente).subscribe(result=>this.docente=result);
+  }
+
   buscarEstudiante(){
 
     this.estudianteService.getId(this.busquedaEstudiante).subscribe(result  => { this.estudiante=result; 

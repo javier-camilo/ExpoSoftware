@@ -48,7 +48,7 @@ namespace Logica
                 if (estudianteBuscado != null)
                 {
 
-                    return new GuardarEstudianteResponse("Error el docente ya se encuentra guardado");
+                    return new GuardarEstudianteResponse("Error el estudiante ya se encuentra guardado");
 
                 }
 
