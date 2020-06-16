@@ -97,6 +97,22 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProyectosEvaluados",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Pregunta = table.Column<string>(nullable: true),
+                    Valor = table.Column<double>(nullable: false),
+                    RefRubrica = table.Column<string>(nullable: true),
+                    IdProyecto = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProyectosEvaluados", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rubricas",
                 columns: table => new
                 {
@@ -129,6 +145,9 @@ namespace Datos.Migrations
 
             migrationBuilder.DropTable(
                 name: "Proyectos");
+
+            migrationBuilder.DropTable(
+                name: "ProyectosEvaluados");
 
             migrationBuilder.DropTable(
                 name: "Rubricas");

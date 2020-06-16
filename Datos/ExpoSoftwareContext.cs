@@ -18,6 +18,7 @@ namespace Datos
         public DbSet<Estudiante> Estudiantes {get; set; }
         public DbSet<AspectoEvaluar> AspectoEvaluars {get; set; }
         public DbSet<Rubrica> Rubricas {get; set; }
+        public DbSet<ProyectoEvaluado> ProyectosEvaluados {get;set;}
         
     }
 }

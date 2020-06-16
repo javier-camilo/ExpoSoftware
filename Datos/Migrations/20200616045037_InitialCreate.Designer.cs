@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ExpoSoftwareContext))]
-    [Migration("20200613065610_InitialCreate")]
+    [Migration("20200616045037_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,6 +149,30 @@ namespace Datos.Migrations
                     b.HasKey("IdProyecto");
 
                     b.ToTable("Proyectos");
+                });
+
+            modelBuilder.Entity("Entity.ProyectoEvaluado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IdProyecto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pregunta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefRubrica")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProyectosEvaluados");
                 });
 
             modelBuilder.Entity("Entity.Rubrica", b =>

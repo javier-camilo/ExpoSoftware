@@ -6,7 +6,7 @@ namespace ExpoSoftware.Models
     public class EstudianteInputModel
     {
         [Required(ErrorMessage = "La identificacion es requerida")]
-        [StringLength(2, ErrorMessage = "maximo de 10")]
+        [StringLength(10, ErrorMessage = "maximo de 10")]
         public string Identificacion { get; set; }
 
 

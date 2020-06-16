@@ -192,9 +192,14 @@ export class ProyectoRegistroComponent implements OnInit {
     add(){
 
 
-        this.docente=this.firstFormGroup.value;
-        this.docente.tipo="asesor";
-        this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
+        if(this.docente==null){
+            
+            this.docente=this.firstFormGroup.value;
+            this.docente.tipo="asesor";
+            this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
+
+        }
+
 
         this.estudiante=this.secondFormGroup.value;
         this.estudianteService.post(this.estudiante).subscribe(result=>this.estudiante=result);
