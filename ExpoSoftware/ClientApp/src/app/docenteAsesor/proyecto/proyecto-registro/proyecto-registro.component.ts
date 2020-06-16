@@ -108,9 +108,7 @@ export class ProyectoRegistroComponent implements OnInit {
   
   }
 
-  consultarV(){
-    this.docenteService.getId(this.busquedaDocente).subscribe(result=>this.docente=result);
-  }
+
 
   buscarEstudiante(){
 
@@ -196,13 +194,9 @@ export class ProyectoRegistroComponent implements OnInit {
     add(){
 
 
-        if(this.docente==null){
-            
-            this.docente=this.firstFormGroup.value;
-            this.docente.tipo="asesor";
-            this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
-
-        }
+        this.docente=this.firstFormGroup.value;
+        this.docente.tipo="asesor";
+        this.docenteService.post(this.docente).subscribe(result=>this.docente=result);
 
 
         this.estudiante=this.secondFormGroup.value;
@@ -212,7 +206,7 @@ export class ProyectoRegistroComponent implements OnInit {
         this.proyecto.identificacionDocente=this.docente.identificacion;
         this.proyecto.identificacionEstudiante=this.estudiante.identificacion;
         this.proyecto.estado="sin revisar";
-        this.proyecto.codigoAsignatura=this.docente.asignaturas;
+        this.proyecto.codigoAsignatura=this.estudiante.asignatura;
         this.proyectoService.post(this.proyecto).subscribe();
 
     }
