@@ -58,6 +58,11 @@
       <td mat-cell *matCellDef="let element"><a routerLink="/preguntasGestion/{{element.idRubrica}}" >ver</a></td>
     </ng-container>
   
+    <ng-container matColumnDef="Eliminar">
+      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let element"><a routerLink="/rubricaConsulta" (click)="borrar(element.idRubrica)" ><mat-icon>delete</mat-icon></a></td>
+    </ng-container>
+  
  
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

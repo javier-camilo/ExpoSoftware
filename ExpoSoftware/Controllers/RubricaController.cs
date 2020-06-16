@@ -121,10 +121,22 @@ namespace ExpoSoftware.Controllers
                 return NotFound();
             }
 
+
+            var rubricaRef=rubrica.IdRubrica;
             _context.Rubricas.Remove(rubrica);
+
+
+            foreach (var item in _context.AspectoEvaluars.ToList())
+            {
+                if(item.RefRubrica==rubricaRef){
+                    _context.AspectoEvaluars.Remove(item);
+                }
+            }
+
             await _context.SaveChangesAsync();
 
             return rubrica;
+            
         }
 
         private bool RubricaExists(string id)

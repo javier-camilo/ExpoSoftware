@@ -3,8 +3,9 @@ import { Rubrica } from '../models/rubrica';
 import { Area } from '../../area/model/area';
 import { RubricaService } from 'src/app/services/rubrica.service';
 import { AreaService } from 'src/app/services/area.service';
-import {MatTableDataSource } from '@angular/material';
+import {MatTableDataSource, MatDialog } from '@angular/material';
 import {MatPaginator} from '@angular/material/paginator';
+import { CuadroDialogoComponent } from 'src/app/cuadro-dialogo/cuadro-dialogo.component';
 
 @Component({
   selector: 'app-rubrica-consulta',
@@ -17,11 +18,11 @@ export class RubricaConsultaComponent implements OnInit {
   areas:Area[];
   rubricas:Rubrica[]=[];
   dataSource:any;
-  displayedColumns: string[] = ['Referencia', 'Titulo', 'IdArea','Area', 'Preguntas'];
+  displayedColumns: string[] = ['Referencia', 'Titulo', 'IdArea','Area', 'Preguntas','Eliminar'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
   
-  constructor(private areaService:AreaService,private rubricaService:RubricaService) { }
+  constructor(private areaService:AreaService,private rubricaService:RubricaService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
 
@@ -82,6 +83,27 @@ export class RubricaConsultaComponent implements OnInit {
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); 
     this.dataSource.filter = filterValue;
+  }
+
+  borrar(ref:string){
+       
+  let dialogo= this.dialog.open(CuadroDialogoComponent, {data:{name:"Advertencia", descripcion:"<div><center>¿ esta seguro de realizar esta accion?</center></div> <br> se borrara permanentemente la rubrica y sus preguntas asociadas"} } );
+
+  dialogo.afterClosed().subscribe(result => {
+    
+
+      if (result=="true") {
+
+        this.rubricaService.delete(ref).subscribe();
+        this.rubricaService.get().subscribe(result=>this.rubricas=result);
+
+      } 
+
+
+    }
+
+  );
+
   }
 
 

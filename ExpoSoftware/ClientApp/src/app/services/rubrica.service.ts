@@ -70,4 +70,14 @@ export class RubricaService {
   }
 
 
+  delete(rubrica:string): Observable<string> {
+    const id = rubrica;
+    return this.http.delete(this.baseUrl + 'api/Rubrica/'+ id, {responseType: 'text'} )
+    .pipe(
+      tap(_ => this.handleErrorService.log("se borro satisfactoriamente")),
+      catchError(this.handleErrorService.handleError<string>('Elimiar estudiante', null))
+    );
+  }
+
+
 }
