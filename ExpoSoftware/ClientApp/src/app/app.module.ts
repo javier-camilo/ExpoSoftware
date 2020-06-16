@@ -52,6 +52,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import { RegistroPendonComponent } from './comite/pendon/registro-pendon/registro-pendon.component';
+import { FileSaverModule } from 'ngx-filesaver';
+
 
 
 
@@ -103,6 +105,7 @@ import { RegistroPendonComponent } from './comite/pendon/registro-pendon/registr
     MatSidenavModule,
     MatListModule,
     MatStepperModule,
+    FileSaverModule,
     MatCheckboxModule,
     MatFormFieldModule,
     ReactiveFormsModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadDownloadService } from 'src/app/services/upload-download.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
+import { FileSaverService } from 'ngx-filesaver';
 
 @Component({
   selector: 'app-registro-pendon',
@@ -13,7 +14,7 @@ export class RegistroPendonComponent implements OnInit {
   progress: number = 0;
   file : File;
 
-  constructor(private uploadServide :UploadDownloadService, private formBuilder : FormBuilder) { }
+  constructor(private uploadServide :UploadDownloadService, private formBuilder : FormBuilder,private fileService : FileSaverService) { }
 
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class RegistroPendonComponent implements OnInit {
       } else if (result.type == HttpEventType.Response) {
         const fileNames = result.body;
         
-        console.log(fileNames);
+        console.log(fileNames[0].fileName);
       }
     });
   }
@@ -56,15 +57,17 @@ export class RegistroPendonComponent implements OnInit {
 
     this.uploadServide.downloadFile(fileName, 'Pendon.pptx').subscribe(event =>{
       console.log(event);
-      let url = URL.createObjectURL(event);
+      this.fileService.save(event, 'Nombrequetuquieras.pptx')
+    });
+  }
+
+
+}
+
+/* let url = URL.createObjectURL(event);
       console.log(url);
       let link = document.createElement('a');
       link.href = url;
       
       link.target = "blank";
-      link.click();
-    })
-  }
-
-
-}
+      link.click(); */
