@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Datos;
 using Entity;
 using ExpoSoftware.Models;
+using ExpoSoftware.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ExpoSoftware.Controllers
 {
@@ -16,10 +18,12 @@ namespace ExpoSoftware.Controllers
     public class AspectoEvaluarController : ControllerBase
     {
         private readonly ExpoSoftwareContext _context;
+        private readonly IHubContext<SignalHub> _hubContext;
 
-        public AspectoEvaluarController(ExpoSoftwareContext context)
+        public AspectoEvaluarController(ExpoSoftwareContext context,IHubContext<SignalHub> hubContext)
         {
             _context = context;
+            _hubContext=hubContext;
         }
 
         // GET: api/AspectoEvaluar
@@ -110,9 +114,10 @@ namespace ExpoSoftware.Controllers
         [HttpPost]
         public async Task<ActionResult<AspectoEvaluar>> PostAspectoEvaluar(AspectoEvaluar aspectoEvaluar)
         {
+            
             _context.AspectoEvaluars.Add(aspectoEvaluar);
             await _context.SaveChangesAsync();
-
+            await _hubContext.Clients.All.SendAsync("PreguntaRegistrado", aspectoEvaluar);
             return CreatedAtAction("GetAspectoEvaluar", new { id = aspectoEvaluar.Id }, aspectoEvaluar);
         }
 
@@ -153,8 +158,12 @@ namespace ExpoSoftware.Controllers
                 return NotFound();
             }
 
+            var borrar=aspectoEvaluar;
             _context.AspectoEvaluars.Remove(aspectoEvaluar);
             await _context.SaveChangesAsync();
+
+
+            await _hubContext.Clients.All.SendAsync("BorrarRegistro", borrar);
 
             return aspectoEvaluar;
         }

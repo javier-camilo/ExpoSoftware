@@ -9,10 +9,28 @@
 
     <div class="col-sm-4">
 
-        
-        
-        .col-sm-4
-    
+        <form [formGroup]="preguntaForm" (submit)="add()" class="text-center">
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+
+            <mat-label>
+              Pregunta
+            </mat-label>
+            <input matInput formControlName="pregunta" required>
+            <mat-error *ngIf="preguntaForm.controls.pregunta.touched && preguntaForm.controls.pregunta.invalid">
+              <span *ngIf="preguntaForm.controls.pregunta.errors.required">Deber digitar una pregunta </span>
+            </mat-error>
+          </mat-form-field>
+
+          <div class="text-center">
+           
+            <button mat-stroked-button class="botton" type="submit" style="margin-right: 20px;" [disabled]="preguntaForm.invalid">Agregar</button>
+            <button mat-stroked-button class="botton" type="reset">Limpiar</button>
+  
+          </div>
+
+        </form>
+
     </div>
 
 

@@ -47,12 +47,21 @@ export class ApestoEvaluarService {
     }
 
 
-    public TraerPreguntas(filtroString:string):Observable<AspectoEvaluar[]>{
+    public TraerPreguntas(filtroString:string,mostrar?:string):Observable<AspectoEvaluar[]>{
 
       const url = `${this.baseUrl + 'api/AspectoEvaluar/getPreguntas'}/${filtroString}`;
       return this.http.get<AspectoEvaluar[]>(url,httpOptions)
       .pipe(
-        tap(_ => this.handleErrorService.log('Datos de las Preguntas recibidas')),
+        tap(_ =>  
+          {
+              if (mostrar!=null) {
+                
+                this.handleErrorService.log('Datos de las Preguntas recibidas');
+              } 
+
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<AspectoEvaluar[]>('Consulta Preguntas', null))
       );
   
@@ -67,6 +76,26 @@ export class ApestoEvaluarService {
         catchError(this.handleErrorService.handleError<string>('Elimiar Asignatura', null))
       );
     }
+
+    
+    post(pregunta:AspectoEvaluar,mostrar?:string): Observable<AspectoEvaluar> {
+      return this.http.post<AspectoEvaluar>(this.baseUrl + 'api/AspectoEvaluar', pregunta)
+          .pipe(
+              tap(_ => 
+
+                {
+                  if(mostrar!=null){
+                    this.handleErrorService.log("se agrego la pregunta")
+                  }
+                  
+                }
+                
+                ),
+              catchError(this.handleErrorService.handleError<AspectoEvaluar>('Registrar area', null))
+          );
+        
+    }
+
 
 
   

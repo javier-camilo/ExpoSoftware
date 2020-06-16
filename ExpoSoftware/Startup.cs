@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Datos;
 using Microsoft.EntityFrameworkCore;
-
+using ExpoSoftware.Hubs;
 
 namespace ExpoSoftware
 {
@@ -58,6 +58,8 @@ namespace ExpoSoftware
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,6 +90,7 @@ namespace ExpoSoftware
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                    endpoints.MapHub<SignalHub>("/signalHub");
             });
 
             app.UseSwagger();
