@@ -67,5 +67,9 @@
     <ProjectReference Include="..\Logica\Logica.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 
 </Project>

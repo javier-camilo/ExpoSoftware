@@ -51,6 +51,7 @@ import { UserLoginComponent } from './User/user-login/user-login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
+import { RegistroPendonComponent } from './comite/pendon/registro-pendon/registro-pendon.component';
 
 
 
@@ -84,6 +85,7 @@ import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-regi
     ConsultaSolicitudesComponent,
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
+    RegistroPendonComponent,
    
     
 

@@ -4,8 +4,7 @@ namespace Entity
 {
     public class Proyecto
     {
-        [Key]
-        public string IdProyecto { get; set; }
+        [Key]        public string IdProyecto { get; set; }
 
         public string Titulo { get; set; }
 

@@ -187,6 +187,22 @@ namespace Datos.Migrations
                     b.ToTable("Estudiantes");
                 });
 
+            modelBuilder.Entity("Entity.Pendon", b =>
+                {
+                    b.Property<string>("IdPendon")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PendonPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdPendon");
+
+                    b.ToTable("Pendons");
+                });
+
             modelBuilder.Entity("Entity.Proyecto", b =>
                 {
                     b.Property<string>("IdProyecto")

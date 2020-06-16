@@ -1,0 +1,11 @@
+<div class="container">
+  <form [formGroup]="pendonForm">
+    <div><input type="file" formControlName="file" #file (change)="setFile(file.files)"/></div>
+    <div><button (click)="onSubmit()">Guardar</button></div>
+    <div>
+      <span>{{ progress }}</span>
+    </div>
+    <div><input type="text" formControlName="fileName"/></div>
+    <div><button (click)="download()">Descargar</button></div>
+  </form>
+</div>

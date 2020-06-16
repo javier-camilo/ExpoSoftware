@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AsignaturaRegistroComponent } from './comite/asignatura/asignatura-registro/asignatura-registro.component';
 import { AsignaturaConsultaComponent } from './comite/asignatura/asignatura-consulta/asignatura-consulta.component';
-
 import { Routes, RouterModule } from '@angular/router';
 import { DocenteRegistroComponent } from './comite/docente/docente-registro/docente-registro.component';
 import { DocenteConsultaComponent } from './comite/docente/docente-consulta/docente-consulta.component';
@@ -20,6 +19,8 @@ import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edici
 import { ComiteGuard } from './guards/comite.guard';
 import { AsesorGuard } from './guards/asesor.guard';
 import { EvaluadorGuard } from './guards/evaluador.guard';
+import { RegistroPendonComponent } from './comite/pendon/registro-pendon/registro-pendon.component';
+
 
 const routes: Routes = [
 
@@ -106,7 +107,12 @@ const routes: Routes = [
       path:"userRegister",
       component: UserRegisterComponent,
       canActivate : [ComiteGuard]
+    },
+    {
+      path:"pendon",
+      component: RegistroPendonComponent
     }
+  
 
     
 
