@@ -17,11 +17,11 @@
       </a>
 
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
+        Login
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <a [routerLink]="['/login']">Login</a>
+        <button mat-menu-item  [routerLink]="['/login']">
+          <a>Inicar</a>
         </button>
       </mat-menu>
 
@@ -118,7 +118,8 @@
 
 
                   <a mat-list-item routerLink="/proyectoConsulta"> <mat-icon>search </mat-icon> solicitudes de proyecto</a>
-
+                  
+                  <a mat-list-item routerLink="/userRegister"> <mat-icon>search </mat-icon>registrar Usuario</a>
 
 
                   <mat-list-item style="margin-top: 50px; font-size: 20px;">
