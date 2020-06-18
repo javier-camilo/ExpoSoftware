@@ -1,12 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-using System;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Entity
 {
-
     public class Estudiante
     {
-        
         [Key]
         public string Identificacion { get; set; }
 
@@ -19,6 +16,5 @@ namespace Entity
         public string Asignatura { get; set; }
 
         public int Semestre { get; set; }
-
     }
 }

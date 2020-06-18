@@ -45,12 +45,21 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FiltroEstudiantePipe } from './pipe/filtro-estudiante.pipe';
 import { ConsultaSolicitudesComponent } from './docenteAsesor/consulta-solicitudes/consulta-solicitudes.component';
+
 import {MatTableModule} from '@angular/material/table';
 import { RubricaRegistroComponent } from './comite/rubrica/rubrica-registro/rubrica-registro.component';
 import { RubricaConsultaComponent } from './comite/rubrica/rubrica-consulta/rubrica-consulta.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FiltroRubricaPipe } from './pipe/filtro-rubrica.pipe';
 import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-preguntas.component';
+
+import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edicion/estudiante-edicion/estudiante-edicion.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { UserLoginComponent } from './User/user-login/user-login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
+import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -77,11 +86,19 @@ import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-pr
     ProyectoRegistroComponent,
     ProyectoConsultaComponent,
     FiltroEstudiantePipe,
+    EstudianteEdicionComponent,
+    UserRegisterComponent,
+    UserLoginComponent,
     ConsultaSolicitudesComponent,
     RubricaRegistroComponent,
     RubricaConsultaComponent,
     FiltroRubricaPipe,
     GestionPreguntasComponent,
+    EstudianteConsultaComponent,
+    EstudianteRegistroComponent,
+   
+    
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -104,6 +121,7 @@ import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-pr
     MatSlideToggleModule,
     MatGridListModule,
     MatSelectModule,
+    MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
     RouterModule.forRoot([
@@ -115,7 +133,7 @@ import { GestionPreguntasComponent } from './comite/gestion-preguntas/gestion-pr
     BrowserAnimationsModule
   ],
   entryComponents:[CuadroDialogoComponent,ModalComponent],
-  providers: [AsignaturaService],
+  providers: [AsignaturaService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
