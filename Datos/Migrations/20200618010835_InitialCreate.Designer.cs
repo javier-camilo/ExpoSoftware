@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ExpoSoftwareContext))]
-    [Migration("20200610205848_Users")]
-    partial class Users
+    [Migration("20200618010835_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,9 @@ namespace Datos.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Rol")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -118,6 +121,27 @@ namespace Datos.Migrations
                     b.ToTable("Asignaturas");
                 });
 
+            modelBuilder.Entity("Entity.AspectoEvaluar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Pregunta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefRubrica")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AspectoEvaluars");
+                });
+
             modelBuilder.Entity("Entity.Docente", b =>
                 {
                     b.Property<string>("Identificacion")
@@ -142,22 +166,25 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entity.Estudiante", b =>
                 {
-                    b.Property<string>("IdEstudiante")
+                    b.Property<string>("Identificacion")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CodigoAsignatura")
+                    b.Property<string>("Asignatura")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NombreCompleto")
+                    b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Semestre")
+                        .HasColumnType("int");
 
                     b.Property<string>("celular")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdEstudiante");
+                    b.HasKey("Identificacion");
 
                     b.ToTable("Estudiantes");
                 });
@@ -191,6 +218,22 @@ namespace Datos.Migrations
                     b.HasKey("IdProyecto");
 
                     b.ToTable("Proyectos");
+                });
+
+            modelBuilder.Entity("Entity.Rubrica", b =>
+                {
+                    b.Property<string>("IdRubrica")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CodigoArea")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdRubrica");
+
+                    b.ToTable("Rubricas");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

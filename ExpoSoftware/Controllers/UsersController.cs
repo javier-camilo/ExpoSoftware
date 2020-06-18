@@ -31,7 +31,6 @@ namespace ExpoSoftware.Controllers
         }
          //[User/Post]
         [HttpPost]
-        [AllowAnonymous]
 
         public async Task<ActionResult<ApplicationUserViewModel>> PostApplicationUser([FromBody]ApplicationUserInputModel applicationUser)
         {
