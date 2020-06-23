@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class EvaluadorGuard implements CanActivate {
+export class EvaluadorGuard implements CanActivate {z
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -14,7 +14,7 @@ export class EvaluadorGuard implements CanActivate {
       if (user.rol == 'Docente evaluador') {
         return true;
       }
-      else{
+      else if(user==null){
         this.router.navigateByUrl('/login')
       }
     return true;
