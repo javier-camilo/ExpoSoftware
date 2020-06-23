@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavMenuComponent {
 
-  usuario:any;
+  usuario:string;
   mobileQuery: MediaQueryList;
 
   fillerNav=[
@@ -57,7 +57,10 @@ export class NavMenuComponent {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
-    this.usuario="Usuario no logueado";
+  }
+
+  ngOnInit(): void {
+    this.Usuario();
   }
 
   shouldRun = true;
@@ -75,10 +78,11 @@ export class NavMenuComponent {
 
       const user = this.authService.getCurrentUser();
       this.usuario=user.userName;
+      
 
     } catch (error) {
 
-      this.usuario="Usuario no logueado";
+      this.usuario="no user";
       
     }
   }
