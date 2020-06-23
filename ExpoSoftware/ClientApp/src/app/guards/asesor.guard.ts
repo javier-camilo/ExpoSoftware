@@ -13,11 +13,17 @@ export class AsesorGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const user = this.authService.getCurrentUser();
 
-      if (user.rol == 'Docente acesor') {
-        return true;
-      }
-      else{
-        this.router.navigateByUrl('/login')
+      try {
+        
+          if (user.rol == 'Docente acesor') {
+            return true;
+          }
+          else{
+            this.router.navigateByUrl('/login');
+          }
+        
+      } catch (error) {
+        this.router.navigateByUrl('/login');
       }
 
     return true;

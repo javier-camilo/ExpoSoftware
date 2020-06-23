@@ -5,19 +5,20 @@
     </blockquote>
 
     <form [formGroup]="userGroup">
-        <div class="nput-group input-group-sm mb-3" >
+
+        <div class="nput-group input-group-sm mb-3" style="margin-left: 15%; margin-top: 50px;">
+
             <div class="input-group mb-3 input divflex " style="margin-left: 23%;">
                 <div>
                     <span class="input-group-text" id="inputGroup-sizing-default">Usuario</span>
                 </div>
                 <input type="text" placeholder="Usuario" style="margin-right: 45%;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="userName" [ngClass]="{ 'is-invalid': control.userName.errors && control.userName.touched }"> 
-                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-left: 21%;">
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-right: 60%;">
                     
                     <div *ngIf="control.userName.errors.required">Ingrese un usuario</div>
                     
 
                 </div>
-
 
             </div>
 
@@ -26,7 +27,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">Contraseña</span>
                 </div>  
                 <input type="text" placeholder="Contraseña" style="margin-right: 45%;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="password" [ngClass]="{ 'is-invalid': control.password.errors && control.password.touched }"> 
-                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-left: 21%;">
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-right: 54%;">
                     
                     <div *ngIf="control.password.errors.required">Ingrese una contraseña</div>
                     
@@ -41,7 +42,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">Rol</span>
                 </div>  
               
-                <select class="custom-select" id="rol" name="asignatura"  formControlName="rol" class="form-control" [ngClass]="{ 'is-invalid': control.rol.errors && control.rol.touched }">
+                <select class="custom-select" id="rol" name="asignatura"  formControlName="rol" class="form-control" style=" margin-right: 45%;" [ngClass]="{ 'is-invalid': control.rol.errors && control.rol.touched }">
                     <option selected>seleccionar</option>
   
                     <option *ngFor="let item of roles"  value={{item}}>{{item}}</option>
@@ -49,7 +50,7 @@
                   </select>
               
               
-                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-left: 21%;">
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-right: 60%;">
                     
                     <div *ngIf="control.rol.errors.required">Se necesita un rol</div>
                     
@@ -64,10 +65,9 @@
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                 </div>
                 <input type="text" placeholder="Email" style="margin-right: 45%;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="email" [ngClass]="{ 'is-invalid': control.email.errors && control.email.touched }"> 
-                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-left: 21%;">
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-right: 60%;" >
                     
                     <div *ngIf="control.email.errors.required">Ingrese un correo</div>
-                    
 
                 </div>
                 
@@ -79,9 +79,7 @@
                 <button mat-stroked-button style="border-color: #339240; margin-right: 25px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="userGroup.invalid" >Registrar</button>
      
                 <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
-     
           </div>
-
 
         </div>
     </form>

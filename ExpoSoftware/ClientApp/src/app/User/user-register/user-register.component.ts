@@ -17,7 +17,7 @@ export class UserRegisterComponent implements OnInit {
   userGroup : FormGroup;
   readonly roles: string[] = ["Docente acesor", "Comite",  "Docente evaluador"]
 
-  constructor(private authService : AuthService, private formBuilder : FormBuilder, private router : Router) { }
+  constructor(private authService : AuthService, private formBuilder : FormBuilder, private router : Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     
@@ -46,6 +46,7 @@ export class UserRegisterComponent implements OnInit {
    if(this.userGroup.invalid){
      return;
    }
+
    this.user = {
      userName : this.control["userName"].value,
      email : this.control["email"].value,
@@ -53,9 +54,16 @@ export class UserRegisterComponent implements OnInit {
      rol : this.control["rol"].value
 
    }
+
    this.authService.registerUser(this.user).subscribe(p => {
      this.user = p;
+
+     if(p!=null){
+      this.dialog.open(CuadroDialogoComponent, {data: {name:"Señor Usuario", descripcion: "Se registro correctamente el usuario: " + this.user.userName, EsMensaje: "true"}});
+     }
+
    })
+
  }
 
 

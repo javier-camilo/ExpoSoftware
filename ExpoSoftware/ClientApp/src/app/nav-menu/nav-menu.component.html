@@ -16,14 +16,9 @@
 
       </a>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        Login
+      <button mat-icon-button aria-label="Example icon-button with a menu" (click)="logout()">
+        cerrar
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item  [routerLink]="['/login']">
-          <a>Inicar</a>
-        </button>
-      </mat-menu>
 
     </mat-toolbar>
 

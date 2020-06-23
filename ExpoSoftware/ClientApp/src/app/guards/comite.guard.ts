@@ -11,13 +11,22 @@ export class ComiteGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const user = this.authService.getCurrentUser();
-      if (user.rol == 'Comite') {
-        return true;
-      }
-      else{
-        this.router.navigateByUrl('/login')
-      }
+     
+     try {
+       
+        if (user.rol == 'Comite') {
+          return true;
+        }
+        else{
+          this.router.navigateByUrl('/login')
+        }
 
+       
+     } catch (error) {
+
+         this.router.navigateByUrl('/login')
+       
+     }
     return true;
   }
   

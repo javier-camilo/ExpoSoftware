@@ -11,18 +11,26 @@ export class EvaluadorGuard implements CanActivate {z
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const user = this.authService.getCurrentUser();
-      if (user.rol == 'Docente evaluador') {
-        return true;
-      }
-      else if(user==null){
-        this.router.navigateByUrl('/login')
+      
+      try {
+            
+          if (user.rol == 'Docente evaluador') {
+            return true;
+          }
+          else if(user==null){
+            this.router.navigateByUrl('/login');
+          }
+
+        
+      } catch (error) {
+        this.router.navigateByUrl('/login');
       }
     return true;
   }
   
   constructor(private authService : AuthService, private router: Router) {
-    
-    
   }
+
+  
 
 }

@@ -1,5 +1,5 @@
        
-<div *ngIf="areas">
+<div *ngIf="areas && areas.length">
 
     <blockquote class="blockquote text-center" style="margin-bottom: 50px;">
       <p class="mb-0" class="display-3 colorLetras">Rubrica Registro</p>
@@ -9,7 +9,7 @@
 </div>
 
 
-<div class="row justify-content-md-center" *ngIf="areas">
+<div class="row justify-content-md-center" *ngIf="areas && areas.length">
 
      <div class="col-md-auto">
 

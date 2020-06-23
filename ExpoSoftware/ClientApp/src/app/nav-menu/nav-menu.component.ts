@@ -1,5 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,7 +9,8 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  
+
+ 
   mobileQuery: MediaQueryList;
 
   fillerNav=[
@@ -46,7 +49,7 @@ export class NavMenuComponent {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private authService : AuthService, private router: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -57,4 +60,15 @@ export class NavMenuComponent {
   }
 
   shouldRun = true;
+
+  
+  logout(){
+
+    this.authService.logoutUser();
+    this.router.navigateByUrl('/');
+
+  }
+
+  
+
 }

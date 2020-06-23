@@ -52,16 +52,11 @@ export class UserLoginComponent implements OnInit {
     this.authService.loginUser(this.loginRequest).subscribe(p => {
       if(p){
         this.authService.setUser(p);
-        window.location.reload();
+        this.router.navigateByUrl('/');
       }
     })
 
   }
 
-  logout(){
-
-    this.authService.logoutUser();
-
-  }
 
 }
