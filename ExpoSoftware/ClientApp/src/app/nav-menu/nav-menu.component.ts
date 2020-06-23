@@ -70,6 +70,7 @@ export class NavMenuComponent {
 
     this.authService.logoutUser();
     this.router.navigateByUrl('/');
+    location.reload();
 
   }
 
