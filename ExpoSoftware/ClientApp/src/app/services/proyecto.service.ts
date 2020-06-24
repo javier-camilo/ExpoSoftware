@@ -49,6 +49,8 @@ export class ProyectoService {
       );
   }
 
+
+
  
 
   getId(id: string): Observable<Proyecto> {
@@ -80,6 +82,22 @@ export class ProyectoService {
     );
 
 
+  }
+
+  public ProyectosPorArea(filtroString:string, mostrar?:string):Observable<Proyecto[]>{
+
+    const url = `${this.baseUrl + 'api/Proyecto/GetProyectosArea'}/${filtroString}`;
+    return this.http.get<Proyecto[]>(url,httpOptions)
+    .pipe(
+      tap(_ =>
+          {
+            if (mostrar!=null) {
+              this.handleErrorService.log('Proyecto a evaluar recibidos')
+            }
+          }
+        ),
+      catchError(this.handleErrorService.handleError<Proyecto[]>('Consulta Proyecto', null))
+    );
   }
 
 

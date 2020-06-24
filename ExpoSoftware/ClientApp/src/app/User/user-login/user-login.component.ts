@@ -53,7 +53,7 @@ export class UserLoginComponent implements OnInit {
 
       if(p){
         this.authService.setUser(p);
-        location.reload();
+        this.router.navigateByUrl('/');
       }
 
     })

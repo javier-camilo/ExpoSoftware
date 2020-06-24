@@ -60,6 +60,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-consulta/estudiante-consulta.component';
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { ProyectosBusquedaComponent } from './docenteEvaluador/proyectos-busqueda/proyectos-busqueda.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import {MatMenuModule} from '@angular/material/menu';
     GestionPreguntasComponent,
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
+    ProyectosBusquedaComponent,
    
     
 

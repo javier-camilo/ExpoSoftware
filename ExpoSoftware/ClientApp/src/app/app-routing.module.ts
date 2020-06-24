@@ -26,6 +26,7 @@ import { EstudianteEdicionComponent } from './comite/estudiante/estudiante-edici
 import { ComiteGuard } from './guards/comite.guard';
 import { AsesorGuard } from './guards/asesor.guard';
 import { EvaluadorGuard } from './guards/evaluador.guard';
+import { ProyectosBusquedaComponent } from './docenteEvaluador/proyectos-busqueda/proyectos-busqueda.component';
 
 const routes: Routes = [
 
@@ -140,9 +141,12 @@ const routes: Routes = [
       path:"userRegister",
       component: UserRegisterComponent,
       canActivate : [ComiteGuard]
+    },
+    {
+      path:"proyectosBusqueda",
+      component: ProyectosBusquedaComponent
     }
-
-    
+ 
 
 ];
   

@@ -25,7 +25,7 @@
 
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      <mat-sidenav style="width: 250px;"  #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 
             <mat-nav-list>
@@ -117,7 +117,9 @@
                   <a mat-list-item routerLink="/userRegister"> <mat-icon>search </mat-icon>registrar Usuario</a>
 
 
-                  <mat-list-item style="margin-top: 50px; font-size: 20px;">
+                  <mat-divider style="margin-top: 10px;"></mat-divider>
+
+                  <mat-list-item style="font-size: 20px;">
                     Docente Asesor
                   </mat-list-item>
 
@@ -136,9 +138,31 @@
     
               </div>
 
+              
+
+              <mat-divider style="margin-top: 10px"></mat-divider>
+              <mat-list-item style="font-size: 20px;">
+                Docente evaluador
+              </mat-list-item>
 
 
-             
+              <mat-list-item data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    <mat-icon>dns  </mat-icon>Proyectos evaluar
+              </mat-list-item>
+
+              <div id="collapseSix" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      
+                <div style="margin-left: 10px;">
+                  
+                  <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerEvaluador"><mat-icon>{{nav.icon}}</mat-icon> {{nav.name}} </a>
+
+                </div>
+
+              </div>
+
+
+
+
 
               </div>
               
