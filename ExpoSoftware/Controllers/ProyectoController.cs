@@ -14,14 +14,16 @@ namespace ExpoSoftware.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProyectoController : ControllerBase
     {
 
         private readonly ProyectoService _ProyectoService;
+        private readonly ExpoSoftwareContext _context;
+
         public ProyectoController(ExpoSoftwareContext context)
         {
             _ProyectoService = new ProyectoService(context);
+            _context=context;
         }
 
 
@@ -76,6 +78,34 @@ namespace ExpoSoftware.Controllers
         {
             var proyecto = _ProyectoService.consultarCondicion(condicion).Select(p => new ProyectoViewModel(p));
             return proyecto;
+        }
+
+        [HttpGet]
+        [Route("GetProyectosArea/{condicion}")] 
+        public IEnumerable<ProyectoViewModel> GetPorArea(string condicion)
+        {
+            var proyecto = consultarPorArea(condicion).Select(p => new ProyectoViewModel(p));
+            return proyecto;
+        }
+
+        private List<Proyecto> consultarPorArea(string condicion){
+
+
+            List<Proyecto> listadoProyectos=new List<Proyecto>();
+
+            foreach (var item in _context.Proyectos.ToList() )
+            {
+                var asignatura = _context.Asignaturas.Find(item.CodigoAsignatura);
+                
+                if(asignatura.AreaAsignatura==condicion){
+
+                    listadoProyectos.Add(item);
+                }
+                
+            }
+
+            return listadoProyectos;
+
         }
 
 
