@@ -34,6 +34,7 @@ export class RubricaConsultaComponent implements OnInit {
 
 
    cargarRubrica(){
+     
      this.rubricaService.get("").subscribe(result=>{this.rubricas=result;
 
       this.dataSource = new MatTableDataSource<Rubrica>(this.rubricas);

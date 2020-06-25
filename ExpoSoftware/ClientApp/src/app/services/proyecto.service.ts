@@ -41,10 +41,18 @@ export class ProyectoService {
       );
   }
 
-  get(): Observable<Proyecto[]> {
+  get(mostrar?:string): Observable<Proyecto[]> {
     return this.http.get<Proyecto[]>(this.baseUrl + 'api/Proyecto')
       .pipe(
-        tap(_ => this.handleErrorService.log('Datos de las solicitudes recibidas')),
+        tap(_ => 
+
+          {
+              if(mostrar!=null){
+                this.handleErrorService.log('Datos de las solicitudes recibidas')
+              }
+          }
+          
+          ),
         catchError(this.handleErrorService.handleError<Proyecto[]>('Consulta Proyecto', null))
       );
   }

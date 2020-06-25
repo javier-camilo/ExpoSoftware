@@ -97,7 +97,7 @@ namespace ExpoSoftware.Controllers
             {
                 var asignatura = _context.Asignaturas.Find(item.CodigoAsignatura);
                 
-                if(asignatura.AreaAsignatura==condicion){
+                if(asignatura.AreaAsignatura==condicion && item.Estado=="Aprobado"){
 
                     listadoProyectos.Add(item);
                 }

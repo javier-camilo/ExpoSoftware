@@ -61,6 +61,7 @@ import { EstudianteConsultaComponent } from './comite/estudiante/estudiante-cons
 import { EstudianteRegistroComponent } from './comite/estudiante/estudiante-registro/estudiante-registro.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ProyectosBusquedaComponent } from './docenteEvaluador/proyectos-busqueda/proyectos-busqueda.component';
+import { RegistrarEvaluacionComponent } from './docenteEvaluador/registrar-evaluacion/registrar-evaluacion.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { ProyectosBusquedaComponent } from './docenteEvaluador/proyectos-busqued
     EstudianteConsultaComponent,
     EstudianteRegistroComponent,
     ProyectosBusquedaComponent,
+    RegistrarEvaluacionComponent,
    
     
 

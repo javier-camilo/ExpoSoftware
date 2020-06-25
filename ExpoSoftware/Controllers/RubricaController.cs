@@ -34,6 +34,32 @@ namespace ExpoSoftware.Controllers
             return rubricas;
         }
 
+        [HttpGet]
+        [Route("GetRubricaArea/{condicion}")] 
+        public ActionResult<RubricaViewModel> GetPorArea(string condicion)
+        {
+            var proyecto = consultarPorArea(condicion);
+            return proyecto;
+        }
+
+        private RubricaViewModel consultarPorArea(string condicion){
+
+            RubricaViewModel rubrica=new RubricaViewModel();
+
+            foreach (var item in _context.Rubricas.ToList())
+            {
+                if(item.CodigoArea==condicion){
+                    var rubricaMap = new RubricaViewModel(item);
+                    rubrica=rubricaMap;
+                }
+                
+            }
+
+            return rubrica;
+
+
+        }
+
         // GET: api/Rubrica/5
         [HttpGet("{id}")]
         public ActionResult<RubricaViewModel> GetRubrica(string id)

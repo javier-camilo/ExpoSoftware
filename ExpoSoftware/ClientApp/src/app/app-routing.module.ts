@@ -27,6 +27,7 @@ import { ComiteGuard } from './guards/comite.guard';
 import { AsesorGuard } from './guards/asesor.guard';
 import { EvaluadorGuard } from './guards/evaluador.guard';
 import { ProyectosBusquedaComponent } from './docenteEvaluador/proyectos-busqueda/proyectos-busqueda.component';
+import { RegistrarEvaluacionComponent } from './docenteEvaluador/registrar-evaluacion/registrar-evaluacion.component';
 
 const routes: Routes = [
 
@@ -145,6 +146,10 @@ const routes: Routes = [
     {
       path:"proyectosBusqueda",
       component: ProyectosBusquedaComponent
+    },
+    {
+      path:"registrarEvaluacion/:refProyecto/:codigoArea",
+      component: RegistrarEvaluacionComponent
     }
  
 
